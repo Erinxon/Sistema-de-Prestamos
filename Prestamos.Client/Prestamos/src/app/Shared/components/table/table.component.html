@@ -1,0 +1,11 @@
+<table class="table table-striped dataTable no-footer" id="table-1" role="grid" aria-describedby="table-1_info">
+    <thead>
+        <tr role="row">
+            <th *ngFor="let columna of columnas">{{columna}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-content select="[noHayRegistros]"></ng-content>
+        <ng-content select="[data]"></ng-content>
+    </tbody>
+</table>

@@ -1,0 +1,20 @@
+<div *ngIf=" toast$ | async" class="iziToast-wrapper iziToast-wrapper-topRight" style="margin-top: 4.5em;">
+    <div class="iziToast-capsule" style="height: auto;">
+        <div data-izitoast-ref="1640016983831"
+            class="iziToast fadeInUp iziToast-theme-light iziToast-animateInside iziToast-opened"
+            [ngClass]="getClassColor(toastService.getCuerpo().tipo)"
+            id="SGVsbG8lMkMlMjB3b3JsZCFUaGlzJTIwYXdlc29tZSUyMHBsdWdpbiUyMGlzJTIwbWFkZSUyMGJ5JTIwaXppVG9hc3RncmVlbg">
+            <div class="iziToast-body" style="padding-left: 33px;">
+                <i class="iziToast-icon revealIn"
+                [ngClass]="getIcon(toastService.getCuerpo().tipo)"></i> 
+                <div class="iziToast-texts"><strong class="iziToast-title slideIn" style="margin-right: 10px;">
+                        {{toastService.getCuerpo().title}}</strong>
+                    <p class="iziToast-message slideIn">
+                        {{toastService.getCuerpo().body}}
+                    </p>
+                </div>
+                <div></div>
+            </div><button (click)="hide()" type="button" class="iziToast-close"></button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "5223b1c2-9a10-4898-bbd6-8323a7177296": {
+      "ProjectGuid": "5223b1c2-9a10-4898-bbd6-8323a7177296",
+      "DisplayName": "Prestamos.Infrastructure",
+      "ColorIndex": 0
+    },
+    "8181a8a5-8855-40e9-be08-7007c5f0f7eb": {
+      "ProjectGuid": "8181a8a5-8855-40e9-be08-7007c5f0f7eb",
+      "DisplayName": "Prestamos.Api",
+      "ColorIndex": 1
+    },
+    "4daaaa5a-ac73-4de8-af97-dddac8c8f501": {
+      "ProjectGuid": "4daaaa5a-ac73-4de8-af97-dddac8c8f501",
+      "DisplayName": "Prestamos.Core",
+      "ColorIndex": 2
+    },
+    "64aec50a-9d54-4c66-9c87-4963a7e6d036": {
+      "ProjectGuid": "64aec50a-9d54-4c66-9c87-4963a7e6d036",
+      "DisplayName": "Prestamos.Test",
+      "ColorIndex": 3
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 4
+}

@@ -1,0 +1,15 @@
+<div class="dataTables_paginate paging_simple_numbers" id="table-1_paginate">
+    <ul class="pagination mb-0">
+      <li class="page-item"
+      [ngClass]="{'disabled': paginacion.pageNumber === 1 || paginacion.totalRegistros === 0}"
+      >
+        <button (click)="anterior()" class="page-link" tabindex="-1"><i class="fas fa-chevron-left">
+            Anterior</i></button>
+      </li>
+      <li class="page-item"
+      [ngClass]="{'disabled': totalPaginas === 1 || paginacion.pageNumber === totalPaginas || paginacion.totalRegistros === 0}"
+      >
+        <button (click)="siguiente()" class="page-link">Siguiente <i class="fas fa-chevron-right"></i></button>
+      </li>
+    </ul>
+</div>

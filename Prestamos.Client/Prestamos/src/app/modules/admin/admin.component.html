@@ -1,0 +1,78 @@
+<div id="app">
+  <div class="main-wrapper main-wrapper-1">
+    <div class="navbar-bg"></div>
+    <nav class="navbar navbar-expand-lg main-navbar sticky">
+      <div class="form-inline mr-auto">
+        <ul class="navbar-nav mr-3">
+          <li><button class="nav-link nav-link-lg fullscreen-btn buton">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-maximize">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
+                </path>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+      <ul class="navbar-nav navbar-right">
+        <li class="dropdown"><a href="#" data-toggle="dropdown"
+            class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="assets/img/user.png"
+              class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
+          <div class="dropdown-menu dropdown-menu-right pullDown">
+            <div class="dropdown-title">  
+              <ng-container *ngIf="user">
+                {{ user.nombres }} {{ user.nombres }}
+              </ng-container>
+            </div>
+            <a href="profile.html" class="dropdown-item has-icon"> <i class="far
+										fa-user">
+                  </i> 
+                  Profile               
+            </a> 
+             <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
+              Settings
+            </a>
+            <div class="dropdown-divider"></div>
+            <a (click)="Logout()" class="dropdown-item has-icon text-danger Logout"> <i class="fas fa-sign-out-alt"></i>
+              Logout
+            </a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="main-sidebar sidebar-style-2" tabindex="1" style="overflow: hidden; outline: none;">
+      <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+          <a href="index.html"> <img alt="image" src="assets/img/logo.png" class="header-logo"> <span
+              class="logo-name"> Prestamos</span>
+          </a>
+        </div>
+        <ul class="sidebar-menu">
+          <li class="menu-header">Main</li>
+          <ng-container *ngFor="let pagina of paginas; index as id">
+            <li class="dropdown item-menu">
+              <a (click)="changeToggle(id)" class="menu-toggle nav-link has-dropdown"
+              [ngClass]="{'toggled': pagina.toggled}">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg><span>{{pagina.titulo}}</span></a>
+              <ul class="dropdown-menu" [ngStyle]="{'display': pagina.toggled ? 'block' : ''}">
+                <li><a class="nav-link" [routerLink]="[pagina.url]" >{{pagina.titulo}}</a></li>
+              </ul>
+            </li>
+          </ng-container>
+        </ul>
+      </aside>
+    </div>
+    <div class="main-content" style="min-height: 540px;">
+      <section class="section">
+        <router-outlet></router-outlet>
+      </section>
+    </div>
+    <app-footer [goToUrl]="'/'" [title]="'Prestamos'"></app-footer>
+  </div>
+</div>

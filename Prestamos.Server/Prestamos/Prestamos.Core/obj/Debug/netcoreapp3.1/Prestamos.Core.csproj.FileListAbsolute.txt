@@ -1,0 +1,10 @@
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\bin\Debug\netcoreapp3.1\Prestamos.Core.deps.json
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\bin\Debug\netcoreapp3.1\Prestamos.Core.dll
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\bin\Debug\netcoreapp3.1\Prestamos.Core.pdb
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\obj\Debug\netcoreapp3.1\Prestamos.Core.AssemblyInfoInputs.cache
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\obj\Debug\netcoreapp3.1\Prestamos.Core.AssemblyInfo.cs
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\obj\Debug\netcoreapp3.1\Prestamos.Core.csproj.CoreCompileInputs.cache
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\obj\Debug\netcoreapp3.1\Prestamos.Core.dll
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\obj\Debug\netcoreapp3.1\Prestamos.Core.pdb
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\obj\Debug\netcoreapp3.1\Prestamos.Core.csproj.AssemblyReference.cache
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\obj\Debug\netcoreapp3.1\Prestamos.Core.GeneratedMSBuildEditorConfig.editorconfig

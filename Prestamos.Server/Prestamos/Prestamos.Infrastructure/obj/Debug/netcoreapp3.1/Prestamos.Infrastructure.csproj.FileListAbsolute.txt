@@ -1,0 +1,16 @@
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Infrastructure\bin\Debug\netcoreapp3.1\Prestamos.Infrastructure.deps.json
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Infrastructure\bin\Debug\netcoreapp3.1\Prestamos.Infrastructure.runtimeconfig.json
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Infrastructure\bin\Debug\netcoreapp3.1\Prestamos.Infrastructure.runtimeconfig.dev.json
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Infrastructure\bin\Debug\netcoreapp3.1\Prestamos.Infrastructure.dll
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Infrastructure\bin\Debug\netcoreapp3.1\Prestamos.Infrastructure.pdb
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Infrastructure\obj\Debug\netcoreapp3.1\Prestamos.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Infrastructure\obj\Debug\netcoreapp3.1\Prestamos.Infrastructure.AssemblyInfo.cs
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Infrastructure\obj\Debug\netcoreapp3.1\Prestamos.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Infrastructure\obj\Debug\netcoreapp3.1\Prestamos.Infrastructure.dll
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Infrastructure\obj\Debug\netcoreapp3.1\Prestamos.Infrastructure.pdb
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Infrastructure\obj\Debug\netcoreapp3.1\Prestamos.Infrastructure.genruntimeconfig.cache
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Infrastructure\bin\Debug\netcoreapp3.1\Prestamos.Core.dll
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Infrastructure\bin\Debug\netcoreapp3.1\Prestamos.Core.pdb
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Infrastructure\obj\Debug\netcoreapp3.1\Prestamos.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Infrastructure\obj\Debug\netcoreapp3.1\Prestamos.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Infrastructure\obj\Debug\netcoreapp3.1\Prestamos.Infrastructure.csproj.CopyComplete
