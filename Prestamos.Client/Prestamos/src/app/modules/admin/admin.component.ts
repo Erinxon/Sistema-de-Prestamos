@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserAuth } from 'src/app/Core/models/userAuth.model';
 import { AuthService } from 'src/app/Shared/services/auth.service';
 
@@ -25,14 +26,13 @@ export class AdminComponent implements OnInit {
     { titulo: 'Usuarios', url: 'usuarios',  icono: 'dashboard', toggled: false },
   ];
   user!: UserAuth;
-  constructor(private auth: AuthService) { 
+  constructor(private auth: AuthService,
+    private router: Router) { 
   
   }
 
   ngOnInit(): void {
-    this.auth.getUserAuth().subscribe(res => {
-      this.user = res;
-    })
+    
   }
 
   changeToggle(i: number){

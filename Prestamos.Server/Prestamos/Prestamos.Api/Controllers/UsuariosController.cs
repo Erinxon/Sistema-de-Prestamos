@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Prestamos.Core.Entities;
+using Prestamos.Core.Entities.Enums;
 using Prestamos.Infrastructure.ApiResponse;
 using Prestamos.Infrastructure.Dtos.UsuariosDtos;
 using Prestamos.Infrastructure.Implementations;
@@ -26,13 +27,14 @@ namespace Prestamos.Api.Controllers
 
         // GET: api/Usuarios
         [HttpGet]
-        public async Task<ActionResult<ApiResponse<IEnumerable<UsuarioDto>>>> GetAll()
+        public async Task<ActionResult<PagedResponse<IEnumerable<UsuarioDto>>>> GetAll([FromQuery] Pagination pagination)
         {
-            var response = new ApiResponse<IEnumerable<UsuarioDto>>();
+            var response = new PagedResponse<IEnumerable<UsuarioDto>>(pagination);
             try
             {
-                var clientes = await this._unitOfWork.Usuarios.GetAll();
+                var clientes = await this._unitOfWork.Usuarios.GetAll(pagination);
                 response.Data = _mapper.Map<IEnumerable<UsuarioDto>>(clientes);
+                response.pagination.TotalRegistros = await this._unitOfWork.Usuarios.GetCount();
                 response.StatusCode = StatusCodes.Status200OK;
             }
             catch (Exception ex)
@@ -73,6 +75,29 @@ namespace Prestamos.Api.Controllers
             return Ok(response);
         }
 
+        [HttpGet("search/{text}")]
+        [Authorize]
+        public async Task<ActionResult<PagedResponse<IEnumerable<UsuarioDto>>>> Search(string text, [FromQuery] Pagination pagination)
+        {
+
+            var response = new PagedResponse<IEnumerable<UsuarioDto>>(pagination);
+            try
+            {
+                var cliente = await this._unitOfWork.Usuarios.Filter(text, pagination);
+                response.Data = _mapper.Map<IEnumerable<UsuarioDto>>(cliente);
+                response.pagination.TotalRegistros = await this._unitOfWork.Usuarios.GetCount();
+                response.StatusCode = StatusCodes.Status200OK;
+            }
+            catch (Exception ex)
+            {
+                response.Message = "Ocurio un error al obtener los datos!";
+                response.Succeeded = false;
+                response.StatusCode = StatusCodes.Status400BadRequest;
+                return BadRequest(response);
+            }
+            return Ok(response);
+        }
+
         // PUT: api/Usuarios/5
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] UpdateUsuarioDto usuarioDto)
@@ -92,8 +117,8 @@ namespace Prestamos.Api.Controllers
                 usuario.Apellidos = usuarioDto.Apellidos;
                 usuario.Cedula = usuarioDto.Cedula;
                 usuario.Email = usuarioDto.Email;
-                usuario.IdEstatus = usuarioDto.Id;
-                usuario.IdRol = usuarioDto.Id;
+                usuario.IdRol = usuarioDto.IdRol;
+                usuario.Rol = null;
                 await this._unitOfWork.Direcciones.Update(usuario.Direccion);
                 await this._unitOfWork.SavechangesAsync();
                 await this._unitOfWork.Usuarios.Update(usuario);
@@ -119,6 +144,7 @@ namespace Prestamos.Api.Controllers
             try
             {
                 var usuario = _mapper.Map<Usuario>(usuarioDto);
+                usuario.IdEstatus = (int) EstatusClientes.Activo;
                 await this._unitOfWork.Direcciones.Add(usuario.Direccion);
                 await this._unitOfWork.SavechangesAsync();
                 usuario.IdDireccion = usuario.Direccion.Id;

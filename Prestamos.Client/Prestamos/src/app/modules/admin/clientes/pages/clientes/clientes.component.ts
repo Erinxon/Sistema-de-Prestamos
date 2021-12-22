@@ -19,8 +19,6 @@ export class ClientesComponent implements OnInit {
   showDialogo: boolean = false;
   idClenteAEliminar!: number;
 
-  searchText: string = '';
-
   pagination: Pagination;
 
   listaPageSizes: number[] = [5, 10, 15, 20];
@@ -52,9 +50,9 @@ export class ClientesComponent implements OnInit {
     return EstatuCrediticioCliente[estatus].split(/(?=[A-Z])/).join(' ');
   }
 
-  searchCliente(){
-    if(this.searchText.length > 0){
-      this.clienteService.search(this.searchText.trim(), this.pagination).subscribe((res) => {
+  searchCliente(text: string){
+    if(text.length > 0){
+      this.clienteService.search(text.trim(), this.pagination).subscribe((res) => {
         this.totalPaginas = Math.ceil(res.data.length! / this.pagination.pageSize);
         this.clientes = res.data;
         this.pagination = res.pagination;
@@ -67,14 +65,12 @@ export class ClientesComponent implements OnInit {
   onConfirmacion(event: boolean){
     if(event && this.idClenteAEliminar){
       this.clienteService.deleteCliente(this.idClenteAEliminar).subscribe(res => {
-        if(res.succeeded){
-          this.showToast({
-            title: 'Cliente Eliminado',
-            body: 'El cliente se ha eliminado correctamente',
-            tipo: 'success'
-          })
-          this.getClientes();
-        }      
+        this.showToast({
+          title: 'Cliente Eliminado',
+          body: 'El cliente se ha eliminado correctamente',
+          tipo: 'success'
+        })
+        this.getClientes();    
       }, error => {
         this.showToast({
           title: 'Error',

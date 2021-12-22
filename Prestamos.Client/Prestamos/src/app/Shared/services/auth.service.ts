@@ -22,6 +22,13 @@ export class AuthService {
         return this.http.post<ApiResponse<UserAuth>>('/auth', loginModel);
     }
 
+    isAutehticated(): Observable<boolean> {
+        return this.userAuth.asObservable()
+        .pipe(
+            map(user => user != null)
+        );
+    }
+
     setUserAuth(user: UserAuth): void {
         this.LocalStorageSve.setItem('user', user);
         this.userAuth.next(user);

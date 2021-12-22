@@ -10,6 +10,8 @@ import { PaginacionComponent } from './components/paginacion/paginacion.componen
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { ToastrComponent } from './components/toastr/toastr.component';
 import { Error403Component } from './components/errors/error403/error403.component';
+import { BuscadorComponent } from './components/buscador/buscador.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,10 +25,12 @@ import { Error403Component } from './components/errors/error403/error403.compone
     SpinnerComponent,
     ToastrComponent,
     Error403Component,
+    BuscadorComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [
     TableComponent,
@@ -37,7 +41,8 @@ import { Error403Component } from './components/errors/error403/error403.compone
     PaginacionComponent,
     SpinnerComponent,
     ToastrComponent,
-    Error403Component
+    Error403Component,
+    BuscadorComponent
   ]
 })
 export class SharedModule { }

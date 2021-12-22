@@ -15,17 +15,7 @@
                       Agregar</i></button>
                 </div>
                 <div class="col-sm-12 col-md-6 col-md-6">
-                  <div id="table-1_filter" class="dataTables_filter">
-                    <label>Buscar:<input 
-                      [(ngModel)]="searchText"  
-                      [ngModelOptions]="{standalone: true}" 
-                      type="search" 
-                      class="form-control form-control-sm" 
-                      placeholder=""
-                      (keyup.enter)="searchCliente()"
-                        aria-controls="table-1">
-                    </label>
-                  </div>
+                  <app-buscador (search)="searchCliente($event)"></app-buscador>
                 </div>
               </div>
               <div class="row">
@@ -37,26 +27,29 @@
                         <td colspan="10" class="text-center">No hay registros</td>
                       </tr>
                     </ng-container>
-                   <ng-container data *ngIf="clientes">
-                    <tr *ngFor="let cliente of clientes" >
-                      <td>{{cliente.nombres}}</td>
-                      <td>{{cliente.apellidos}}</td>
-                      <td>{{cliente.cedula|mask: '000-0000000-0'}}</td>
-                      <td>{{cliente.telefono |mask: '(000)-000-0000'}}</td>
-                      <td>{{getEstatusString(cliente.estatusCrediticio.estatusCrediticios)}}</td>
-                      <td>{{cliente.fechaCreado}}</td>
-                      <td>
-                        <button class="btn btn-success mr-1">Detalle</button>                
-                      </td>
-                      <td>             
-                        <button [routerLink]="['editar', cliente.id]" class="btn btn-primary mr-1"><i class="far fa-edit"></i></button>
-                      </td>
-                      <td>
-                        <app-ventana-confirmacion *ngIf="showDialogo" (confirmar)="onConfirmacion($event)" [titulo]="'Estas seguro que quieres eliminar este cliente?'"></app-ventana-confirmacion>
-                        <button (click)="eliminarCliente(cliente.id)" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                      </td>
-                    </tr>
-                   </ng-container>
+                    <ng-container data *ngIf="clientes">
+                      <tr *ngFor="let cliente of clientes">
+                        <td>{{cliente.nombres}}</td>
+                        <td>{{cliente.apellidos}}</td>
+                        <td>{{cliente.cedula|mask: '000-0000000-0'}}</td>
+                        <td>{{cliente.telefono |mask: '(000)-000-0000'}}</td>
+                        <td>{{getEstatusString(cliente.estatusCrediticio.estatusCrediticios)}}</td>
+                        <td>{{cliente.fechaCreado|date: 'dd/MM/yyyy'}}</td>
+                        <td>
+                          <button class="btn btn-success mr-1">Detalle</button>
+                        </td>
+                        <td>
+                          <button [routerLink]="['editar', cliente.id]" class="btn btn-primary mr-1"><i
+                              class="far fa-edit"></i></button>
+                        </td>
+                        <td>
+                          <app-ventana-confirmacion *ngIf="showDialogo" (confirmar)="onConfirmacion($event)"
+                            [titulo]="'Estas seguro que quieres eliminar este cliente?'"></app-ventana-confirmacion>
+                          <button (click)="eliminarCliente(cliente.id)" class="btn btn-danger"><i
+                              class="far fa-trash-alt"></i></button>
+                        </td>
+                      </tr>
+                    </ng-container>
                   </app-table>
 
                 </div>
@@ -65,23 +58,17 @@
                 <div class="col-sm-12 col-md-5">
                   <div class="dataTables_length" id="table-1_length">
                     <label>Mostrar
-                      <select 
-                      [(ngModel)]="pagination.pageSize" 
-                      (ngModelChange)="getClientes()"
-                      name="table-1_length" 
-                      aria-controls="table-1" 
-                      class="form-control form-control-sm">
+                      <select [(ngModel)]="pagination.pageSize" (ngModelChange)="getClientes()" name="table-1_length"
+                        aria-controls="table-1" class="form-control form-control-sm">
                         <option [ngValue]="item" *ngFor="let item of listaPageSizes">{{item}}</option>
                       </select>registros
                     </label>
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-7">
-                  <app-paginacion 
-                  [totalPaginas]="totalPaginas" 
-                  [paginacion]="pagination"
-                  (pageChange)="pageChange($event)">
-                  ></app-paginacion>
+                  <app-paginacion [totalPaginas]="totalPaginas" [paginacion]="pagination"
+                    (pageChange)="pageChange($event)">
+                    ></app-paginacion>
                 </div>
               </div>
             </div>

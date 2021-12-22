@@ -2,13 +2,33 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UsuariosRoutingModule } from './usuarios-routing.module';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/Shared/shared.module';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { EditarUsuarioComponent } from './pages/editar-usuario/editar-usuario.component';
+import { AgregarUsuarioComponent } from './pages/agregar-usuario/agregar-usuario.component';
 
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    UsuariosComponent,
+    EditarUsuarioComponent,
+    AgregarUsuarioComponent
+  ],
   imports: [
     CommonModule,
-    UsuariosRoutingModule
+    UsuariosRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
+    NgxMaskModule.forRoot(maskConfig),
   ]
 })
 export class UsuariosModule { }

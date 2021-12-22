@@ -9,7 +9,6 @@ import { AuthService } from './Shared/services/auth.service';
 })
 export class AppComponent {
   constructor() { 
-    const xd = '23232323sdsd';
-    //const result = xd.replaceAll('2','');
+
   }
 }

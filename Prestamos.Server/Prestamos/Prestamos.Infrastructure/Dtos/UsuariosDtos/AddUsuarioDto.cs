@@ -18,7 +18,6 @@ namespace Prestamos.Infrastructure.Dtos.UsuariosDtos
         public string Telefono { get; set; }
         public string Password { get; set; }
         public AddDireccionDto Direccion { get; set; }
-        public EstatusDto Estatus { get; set; }
-        public RolDto Rol { get; set; }
+        public int IdRol { get; set; }
     }
 }

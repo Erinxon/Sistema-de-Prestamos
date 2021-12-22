@@ -1,0 +1,83 @@
+<app-toastr></app-toastr>
+<div class="section-body">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4>Usuarios</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <div id="table-1_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+              <div class="row">
+                <div class="col-sm-12 col-md-6">
+                  <button [routerLink]="['agregar']" class="btn btn-primary"><i class="fa fa-plus mr-1" aria-hidden="true">
+                      Agregar</i></button>
+                </div>
+                <div class="col-sm-12 col-md-6 col-md-6">
+                  <app-buscador (search)="searchUsuario($event)"></app-buscador>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <app-spinner></app-spinner>
+                  <app-table [columnas]="columnas">
+                    <ng-container noHayRegistros *ngIf="usuarios">
+                      <tr *ngIf="usuarios.length === 0">
+                        <td colspan="10" class="text-center">No hay registros</td>
+                      </tr>
+                    </ng-container>
+                   <ng-container data *ngIf="usuarios">
+                    <tr *ngFor="let usuario of usuarios">
+                     <td>{{usuario.nombres}}</td>
+                     <td>{{usuario.apellidos}}</td>
+                     <td>{{usuario.cedula|mask: '000-0000000-0'}}</td>
+                      <td>{{usuario.telefono |mask: '(000)-000-0000'}}</td>
+                    <td>{{getRolString(usuario.rol.roles)}}</td>
+                    <td>{{usuario.fechaCreado |date:'dd/MM/yyyy'}}
+                    </td>
+                      <td>
+                        <button class="btn btn-success mr-1">Detalle</button>                
+                      </td>
+                      <td>             
+                        <button [routerLink]="['editar', usuario.id]" class="btn btn-primary mr-1"><i class="far fa-edit"></i></button>
+                      </td>
+                      <td *ngIf="usuario.rol.roles !== rolUsuarioNoEliminar">
+                        <app-ventana-confirmacion  *ngIf="showDialogo" (confirmar)="onConfirmacion($event)"  [titulo]="'Estas seguro que quieres eliminar este usuario?'"></app-ventana-confirmacion>
+                        <button (click)="eliminarUsuario(usuario.id)" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                      </td>
+                    </tr>
+                   </ng-container>
+                  </app-table>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12 col-md-5">
+                    <div class="dataTables_length" id="table-1_length">
+                      <label>Mostrar
+                        <select 
+                        [(ngModel)]="pagination.pageSize" 
+                        (ngModelChange)="getUsuarios()"
+                        name="table-1_length" 
+                        aria-controls="table-1" 
+                        class="form-control form-control-sm">
+                          <option [ngValue]="item" *ngFor="let item of listaPageSizes">{{item}}</option>
+                        </select>registros
+                      </label>
+                    </div>
+                  </div>
+                <div class="col-sm-12 col-md-7">
+                    <app-paginacion 
+                    [totalPaginas]="totalPaginas" 
+                    [paginacion]="pagination"
+                    (pageChange)="pageChange($event)">
+                    </app-paginacion>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

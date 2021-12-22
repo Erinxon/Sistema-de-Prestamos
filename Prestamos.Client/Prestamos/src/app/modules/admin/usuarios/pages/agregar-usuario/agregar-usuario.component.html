@@ -1,0 +1,248 @@
+<app-spinner></app-spinner>
+<app-toastr></app-toastr>
+<div class="section-body">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="card-header">
+                        <h4>Agregar Usuario</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Nombres</label>
+                                    <input 
+                                    type="text" 
+                                    formControlName="nombres" 
+                                    placeholder="Nombres" 
+                                    class="form-control" 
+                                    [ngClass]="{'is-invalid': isInvalid('nombres')}"
+                                    >
+                                    <ng-container
+                                    *ngIf="isInvalid('nombres')">
+                                        <div *ngIf="composForm.nombres.errors?.['required']" class="invalid-feedback">
+                                            El nombre es requerido
+                                        </div>
+                                        <div *ngIf="composForm.nombres.errors?.['minlength']" class="invalid-feedback">
+                                            El nombre debe tener al menos 3 caracteres.
+                                        </div>
+                                        <div *ngIf="composForm.nombres.errors?.['maxlength']" class="invalid-feedback">
+                                            El nombre debe tener como máximo 100 caracteres.
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Apellidos</label>
+                                    <input 
+                                    type="text" 
+                                    formControlName="apellidos" 
+                                    placeholder="Apellidos" 
+                                    class="form-control" 
+                                    [ngClass]="{'is-invalid': isInvalid('apellidos')}"
+                                    >
+                                    <ng-container
+                                    *ngIf="isInvalid('apellidos')">
+                                        <div *ngIf="composForm.apellidos.errors?.['required']" class="invalid-feedback">
+                                            El apellido es requerido
+                                        </div>
+                                        <div *ngIf="composForm.apellidos.errors?.['minlength']" class="invalid-feedback">
+                                            El apellido debe tener al menos 3 caracteres.
+                                        </div>
+                                        <div *ngIf="composForm.apellidos.errors?.['maxlength']" class="invalid-feedback">
+                                            El apellido debe tener como máximo 100 caracteres.
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Cedula</label>
+                                    <input 
+                                    type="text" 
+                                    formControlName="cedula" 
+                                    mask="000-0000000-0" 
+                                    placeholder="Cedula" 
+                                    class="form-control" 
+                                    [ngClass]="{'is-invalid': isInvalid('cedula')}"
+                                    >
+                                    <ng-container
+                                    *ngIf="isInvalid('cedula')">
+                                        <div *ngIf="composForm.cedula.errors?.['required']" class="invalid-feedback">
+                                            La cedula es requerida
+                                        </div>
+                                        <div *ngIf="composForm.cedula.errors?.['minlength']" class="invalid-feedback">
+                                            La cedula debe tener al menos 11 caracteres.
+                                        </div>
+                                        <div *ngIf="composForm.cedula.errors?.['maxlength']" class="invalid-feedback">
+                                            La cedula debe tener como máximo 11 caracteres.
+                                        </div>
+                                        <div *ngIf="!composForm.cedula.errors?.['required'] && !composForm.cedula.errors?.['minlength'] && 
+                                        !composForm.cedula.errors?.['maxlength'] && composForm.cedula.errors?.['isCedulaInvalid']" class="invalid-feedback">
+                                            La cedula {{composForm.cedula.errors?.['actualCedula'] |mask: '000-0000000-0'}} no es valida
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input 
+                                    type="text" 
+                                    formControlName="email" 
+                                    placeholder="Email" 
+                                    class="form-control" 
+                                    [ngClass]="{'is-invalid': isInvalid('email')}"
+                                    >
+                                    <ng-container
+                                    *ngIf="isInvalid('email')">
+                                        <div *ngIf="composForm.email.errors?.['required']" class="invalid-feedback">
+                                            El email es requerido
+                                        </div>
+                                        <div *ngIf="composForm.email.errors?.['maxlength']" class="invalid-feedback">
+                                            El email debe tener como máximo 100 caracteres.
+                                        </div>
+                                        <div *ngIf="composForm.email.errors?.['email']" class="invalid-feedback">
+                                            El email debe tener un formato valido.
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input 
+                                    type="text" 
+                                    formControlName="password" 
+                                    placeholder="Password" 
+                                    class="form-control" 
+                                    [ngClass]="{'is-invalid': isInvalid('password')}"
+                                    >
+                                    <ng-container
+                                    *ngIf="isInvalid('password')">
+                                        <div *ngIf="composForm.password.errors?.['required']" class="invalid-feedback">
+                                            El password es requerido
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Telefono</label>
+                                    <input 
+                                    type="text" 
+                                    formControlName="telefono" 
+                                    mask="(000)-000-0000" 
+                                    placeholder="Telefono" 
+                                    class="form-control" 
+                                    [ngClass]="{'is-invalid': isInvalid('telefono')}"
+                                    >
+                                    <ng-container
+                                    *ngIf="isInvalid('telefono')">
+                                        <div *ngIf="composForm.telefono.errors?.['required']" class="invalid-feedback">
+                                            El telefono es requerido
+                                        </div>
+                                        <div *ngIf="composForm.telefono.errors?.['minlength']" class="invalid-feedback">
+                                            El telefono debe tener al menos 10 caracteres.
+                                        </div>
+                                        <div *ngIf="composForm.telefono.errors?.['maxlength']" class="invalid-feedback">
+                                            El telefono debe tener como máximo 10 caracteres.
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label>Rol</label>
+                                    <select 
+                                        formControlName="idRol" 
+                                        class="form-control"
+                                        [ngClass]="{'is-invalid': isInvalid('idRol')}"
+                                        >
+                                        <option [ngValue]="null" disabled>Por favor seleccione una opción</option>
+                                        <option *ngFor="let rol of roles | async;" [ngValue]="rol.id">
+                                            {{getRolString(rol.roles)}}
+                                        </option>
+                                    </select>
+                                    <ng-container
+                                        *ngIf="isInvalid('idRol')">
+                                        <div *ngIf="composForm.idRol.errors?.['required']" class="invalid-feedback">
+                                            El rol es requerido
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <div class="col-lg-12" formGroupName="direccion">
+                                <h5>Dirección</h5>
+                                <div class="form-row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>Provincia</label>
+                                            <input 
+                                            type="text" 
+                                            formControlName="provincia" 
+                                            placeholder="Provincia" 
+                                            class="form-control" 
+                                            [ngClass]="{'is-invalid': isInvalid('direccion.provincia')}"
+                                            >  
+                                            <ng-container
+                                            *ngIf="isInvalid('direccion.provincia')">
+                                                <div *ngIf="composForm.provincia.errors?.['required']" class="invalid-feedback">
+                                                    La provincia es requerida
+                                                </div>
+                                            </ng-container>                
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Calle</label>
+                                            <input 
+                                            type="text" 
+                                            formControlName="calle" 
+                                            placeholder="Calle" 
+                                            class="form-control" 
+                                            [ngClass]="{'is-invalid': isInvalid('direccion.calle')}"
+                                            >
+                                            <ng-container
+                                            *ngIf="isInvalid('direccion.calle')">
+                                                <div *ngIf="composForm.provincia.errors?.['required']" class="invalid-feedback">
+                                                    La calle es requerida
+                                                </div>
+                                            </ng-container>   
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Numero</label>
+                                            <input 
+                                            type="text" 
+                                            formControlName="numero" 
+                                            placeholder="Numero" 
+                                            class="form-control" 
+                                            [ngClass]="{'is-invalid': isInvalid('direccion.numero')}"
+                                            >
+                                            <ng-container
+                                            *ngIf="isInvalid('direccion.numero')">
+                                                <div *ngIf="composForm.provincia.errors?.['required']" class="invalid-feedback">
+                                                    El numero es requerido
+                                                </div>
+                                            </ng-container>   
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <button (click)="reset()" type="button" class="btn btn-danger mr-2">Cancelar</button>
+                            <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Agregar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
