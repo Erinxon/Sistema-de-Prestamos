@@ -14,7 +14,7 @@ import { ClienteService } from '../../services/cliente.service';
 })
 export class ClientesComponent implements OnInit {
   clientes!: Cliente[];
-  columnas: string[] = ['Nombres', 'Apellidos', 'Cedula', 'Telefono', 'Estatus Crediticio', 'Fecha Creado', 'Detalle', 'Editat', 'Eliminar'];
+  columnas: string[] = ['Nombres', 'Apellidos', 'Cedula', 'Telefono', 'Estatus Crediticio', 'Fecha Creado', 'Detalle', 'Editar', 'Eliminar'];
 
   showDialogo: boolean = false;
   idClenteAEliminar!: number;

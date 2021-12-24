@@ -28,6 +28,10 @@ export class ClienteService {
     return this.http.get<ApiResponse<Cliente>>(`/Clientes/${id}`);
   }
 
+  getClienteByCedula(cedula: string): Observable<ApiResponse<Cliente>>{
+    return this.http.get<ApiResponse<Cliente>>(`/Clientes/cedula/${cedula}`);
+  }
+
   getEstatus(): Observable<ApiResponse<Estatus[]>>{
     return this.http.get<ApiResponse<Estatus[]>>('/Estatus');
   }

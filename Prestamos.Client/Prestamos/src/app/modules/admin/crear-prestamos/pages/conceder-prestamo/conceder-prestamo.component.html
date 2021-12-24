@@ -1,0 +1,144 @@
+<app-toastr></app-toastr>
+<div class="section-body">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Buscar cliente</h4>
+                </div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input type="text" [(ngModel)]="cedula" mask="000-0000000-0" class="form-control"
+                            placeholder="Buscar cliente" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button (click)="buscarCliente()" class="btn btn-primary" type="button"
+                                id="button-addon2">Buscar</button>
+                        </div>
+                    </div>
+                    <ng-container *ngIf="resultadoBusqueda && !resultadoBusqueda.succeeded">
+                        <div class="alert alert-danger mt-3" role="alert">
+                            <strong>{{resultadoBusqueda.message}}</strong>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="cliente">
+                        <div class="table-responsive">
+                            <div id="table-1_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                                <app-table [columnas]="columnas">
+                                    <ng-container data>
+                                        <tr>
+                                            <td>{{cliente.nombres}}</td>
+                                            <td>{{cliente.apellidos}}</td>
+                                            <td>{{cliente.cedula| mask: '000-0000000-0'}}</td>
+                                            <td>{{cliente.telefono |mask: '(000)-000-0000'}}</td>
+                                            <td>{{getEstatusString(cliente.estatusCrediticio.estatusCrediticios)}}</td>
+                                        </tr>
+                                    </ng-container>
+                                </app-table>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                    <form [formGroup]="form">
+                        <div class="card-header">
+                            <h4>Datos prestamo</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label>Periodos de pagos</label>
+                                        <select 
+                                        formControlName="periodoPago" 
+                                        class="form-control"
+                                        [ngClass]="{'is-invalid': isInvalid('periodoPago')}"
+                                        >
+                                        <option [ngValue]="null" disabled>Por favor seleccione una opción</option>
+                                        <option *ngFor="let periodo of periodoPagos" [ngValue]="periodo.periodoDePagos">
+                                            {{getPeriodoDePagoString(periodo.periodoDePagos)}}
+                                        </option>
+                                    </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Interes</label>
+                                        <input 
+                                        type="number" 
+                                        formControlName="interes" 
+                                        placeholder="Interes" 
+                                        class="form-control" 
+                                        [ngClass]="{'is-invalid': isInvalid('interes')}"
+                                        >
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Cuotas</label>
+                                        <input 
+                                        type="number" 
+                                        formControlName="cuotas" 
+                                        placeholder="Cuotas" 
+                                        class="form-control" 
+                                        [ngClass]="{'is-invalid': isInvalid('cuotas')}"
+                                        >
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label>Capital</label>
+                                        <input 
+                                        type="number" 
+                                        formControlName="capital" 
+                                        placeholder="Capital" 
+                                        class="form-control" 
+                                        [ngClass]="{'is-invalid': isInvalid('capital')}"
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                    
+                        </div>
+                        <div class="card-footer text-right">
+                            <button type="button" (click)="limpiarTabla()" class="btn btn-danger mr-2">Limpiar</button>
+                            <button type="button" (click)="calcularTabla()" [disabled]="form.invalid || !cliente" class="btn btn-primary">Calcular</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+        <div class="col-md-12 mt-3" *ngIf="tablaAmortizacion">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Tabla de amortización</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <div id="table-1_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                                <ng-container >
+                                    <app-table [columnas]="columnasTablaAmortizacion">
+                                        <ng-container data>
+                                            <tr *ngFor="let item of tablaAmortizacion">
+                                                <td>{{item.numeroCuota}}</td>
+                                                <td>{{item.pago}}</td>
+                                                <td>{{item.interes}}</td>
+                                                <td>{{item.amortizacion}}</td>
+                                                <td>{{item.saldo}}</td>
+                                                <td>{{item.fecha | date:'dd/MM/yyyy'}}</td>
+                                            </tr>
+                                    </ng-container>
+                                 </app-table>
+                            </ng-container>
+                            </div>
+                            <div class="card-footer text-right">
+                                <button type="button" (click)="limpiarTabla()" class="btn btn-danger mr-2">Limpiar</button>
+                                <button type="button" (click)="confirmarPrestamo()" [disabled]="form.invalid" class="btn btn-primary">Confirmar prestamo</button>
+                            </div>
+                        </div>                      
+                    </div>
+                </div>       
+        </div>
+    </div>
+</div>

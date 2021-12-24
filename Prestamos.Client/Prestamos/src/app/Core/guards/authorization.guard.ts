@@ -23,20 +23,12 @@ export class AuthorizationGuard implements CanActivate, OnDestroy {
         this.router.navigate(['/auth/login']);
         return false;
       }else{
-        let isPermission = false;      
-        route.data['roles'].forEach((element: any) => {
-          if(element !== user.rol.roles){
-            this.router.navigate(['/403']);
-            isPermission = false;
-          }else{
-            isPermission = true;
-          }
-        });
-        console.log(isPermission);
+        let isPermission = route.data['roles'].indexOf(user.rol.roles) > -1;      
+        if(!isPermission) this.router.navigate(['/403']);
         return isPermission;
       }
     })
-    return false;
+    return true;
   }
 
   ngOnDestroy(): void {

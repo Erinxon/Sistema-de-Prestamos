@@ -18,42 +18,42 @@ const routes: Routes = [
         path: 'home',
         loadChildren: () =>
           import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
-          //canActivate: [AuthorizationGuard],
-          data: { roles: [RolesUsuario.Prestador,RolesUsuario.Cobrador] }
+          canActivate: [AuthorizationGuard],
+          data: { roles: [RolesUsuario.Cobrador,RolesUsuario.Prestador] }
       },
       {
         path: 'pagar-prestamos',
         loadChildren: () =>
           import('./pagar-prestamos/pagar-prestamos.module').then((m) => m.PagarPrestamosModule),
-          //canActivate: [AuthorizationGuard],
-          data: { roles: [RolesUsuario.Prestador,RolesUsuario.Cobrador] }
+          canActivate: [AuthorizationGuard],
+          data: { roles: [RolesUsuario.Cobrador,RolesUsuario.Prestador] }
       },
       {
         path: 'clientes',
         loadChildren: () =>
           import('./clientes/clientes.module').then((m) => m.ClientesModule),
-         // canActivate: [AuthorizationGuard],
+          canActivate: [AuthorizationGuard],
           data: { roles: [RolesUsuario.Prestador] }
       },
       {
         path: 'crear-prestamos',
         loadChildren: () =>
           import('./crear-prestamos/crear-prestamos.module').then((m) => m.CrearPrestamosModule),
-          //canActivate: [AuthorizationGuard],
+          canActivate: [AuthorizationGuard],
           data: { roles: [RolesUsuario.Prestador] }
       },
       {
         path: 'prestamos',
         loadChildren: () =>
           import('./prestamos/prestamos.module').then((m) => m.PrestamosModule),
-          //canActivate: [AuthorizationGuard],
+          canActivate: [AuthorizationGuard],
           data: { roles: [RolesUsuario.Prestador] }
       },
       {
         path: 'usuarios',
         loadChildren: () =>
           import('./usuarios/usuarios.module').then((m) => m.UsuariosModule),
-          //canActivate: [AuthGuard,AuthorizationGuard],
+          canActivate: [AuthGuard,AuthorizationGuard],
           data: { roles: [RolesUsuario.Prestador] }
       },
     ],

@@ -13,7 +13,7 @@ import { UsuarioService } from '../../services/usuario.service';
 })
 export class UsuariosComponent implements OnInit {
   usuarios!: Usuario[];
-  columnas: string[] = ['Nombres', 'Apellidos', 'Cedula', 'Telefono', 'Rol', 'Fecha Creado', 'Detalle', 'Editat', 'Eliminar'];
+  columnas: string[] = ['Nombres', 'Apellidos', 'Cedula', 'Telefono', 'Rol', 'Fecha Creado', 'Detalle', 'Editar', 'Eliminar'];
 
   showDialogo: boolean = false;
   idUsuarioAEliminar!: number;

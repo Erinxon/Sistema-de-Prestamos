@@ -19,8 +19,8 @@ export interface Paginas{
 export class AdminComponent implements OnInit {
   paginas: Paginas[] = [
     { titulo: 'Dashboard', url: 'dashboard', icono: 'dashboard', toggled: false },
-    { titulo: 'Pagar Prestamos', url: 'pagar-prestamos',  icono: 'dashboard', toggled: false },
-    { titulo: 'Dar prestamos', url: 'crear-prestamos',  icono: 'dashboard', toggled: false},
+    { titulo: 'Cobrar', url: 'pagar-prestamos',  icono: 'dashboard', toggled: false },
+    { titulo: 'Prestar', url: 'crear-prestamos',  icono: 'dashboard', toggled: false},
     { titulo: 'Prestamos', url: 'prestamos',  icono: 'dashboard', toggled: false },
     { titulo: 'Clientes', url: 'clientes',  icono: 'dashboard', toggled: false },
     { titulo: 'Usuarios', url: 'usuarios',  icono: 'dashboard', toggled: false },
