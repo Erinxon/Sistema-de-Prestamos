@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Prestamos.Infrastructure.Interfaces;
+using Prestamos.Api.Attributes;
 
 namespace Prestamos.Api.Controllers
 {
+    [ApiKey]
     public class PrestamoControllerBase : ControllerBase
     {
         protected readonly IUnitOfWork _unitOfWork;

@@ -98,7 +98,7 @@ namespace Prestamos.Infrastructure.Migrations
                     b.Property<DateTime>("FechaPago")
                         .HasColumnType("datetime");
 
-                    b.Property<int>("IdEstadusPrestamo")
+                    b.Property<int>("IdEstatusPrestamo")
                         .HasColumnType("int");
 
                     b.Property<int>("IdPrestamo")
@@ -115,7 +115,7 @@ namespace Prestamos.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdEstadusPrestamo");
+                    b.HasIndex("IdEstatusPrestamo");
 
                     b.HasIndex("IdPrestamo");
 
@@ -230,8 +230,8 @@ namespace Prestamos.Infrastructure.Migrations
                         {
                             Id = 1,
                             Email = "prueba@gmail.com",
-                            FechaActualizado = new DateTime(2021, 12, 20, 21, 3, 50, 615, DateTimeKind.Utc).AddTicks(138),
-                            FechaCreado = new DateTime(2021, 12, 20, 21, 3, 50, 614, DateTimeKind.Utc).AddTicks(9626),
+                            FechaActualizado = new DateTime(2021, 12, 23, 20, 14, 56, 73, DateTimeKind.Utc).AddTicks(2836),
+                            FechaCreado = new DateTime(2021, 12, 23, 20, 14, 56, 73, DateTimeKind.Utc).AddTicks(2516),
                             IdAdministrador = 1,
                             IdDireccion = 3,
                             Nombre = "Prueba",
@@ -415,21 +415,26 @@ namespace Prestamos.Infrastructure.Migrations
                     b.Property<DateTime>("FechaCulminacion")
                         .HasColumnType("datetime");
 
-                    b.Property<int?>("IdEstadusPrestamo")
+                    b.Property<int>("IdCliente")
                         .HasColumnType("int");
 
-                    b.Property<int?>("IdPeriodoPago")
+                    b.Property<int>("IdEstatusPrestamo")
                         .HasColumnType("int");
 
-                    b.Property<int?>("IdUsuarioUtorizador")
+                    b.Property<int>("IdPeriodoPago")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdUsuarioUtorizador")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Interes")
-                        .HasColumnType("decimal(3,2)");
+                        .HasColumnType("decimal(5,3)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdEstadusPrestamo");
+                    b.HasIndex("IdCliente");
+
+                    b.HasIndex("IdEstatusPrestamo");
 
                     b.HasIndex("IdPeriodoPago");
 
@@ -524,12 +529,6 @@ namespace Prestamos.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Cedula")
-                        .IsUnique();
-
-                    b.HasIndex("Email")
-                        .IsUnique();
-
                     b.HasIndex("IdDireccion");
 
                     b.HasIndex("IdEstatus");
@@ -544,9 +543,9 @@ namespace Prestamos.Infrastructure.Migrations
                             Id = 1,
                             Apellidos = "Prueba prueba",
                             Cedula = "17895222545",
-                            Email = "prueba1@gamil.com",
-                            FechaActualizado = new DateTime(2021, 12, 20, 21, 3, 50, 614, DateTimeKind.Utc).AddTicks(1786),
-                            FechaCreado = new DateTime(2021, 12, 20, 21, 3, 50, 614, DateTimeKind.Utc).AddTicks(572),
+                            Email = "prueba1@gmail.com",
+                            FechaActualizado = new DateTime(2021, 12, 23, 20, 14, 56, 72, DateTimeKind.Utc).AddTicks(7977),
+                            FechaCreado = new DateTime(2021, 12, 23, 20, 14, 56, 72, DateTimeKind.Utc).AddTicks(7202),
                             IdDireccion = 1,
                             IdEstatus = 1,
                             IdRol = 1,
@@ -559,9 +558,9 @@ namespace Prestamos.Infrastructure.Migrations
                             Id = 2,
                             Apellidos = "Prueba prueba2",
                             Cedula = "17495221545",
-                            Email = "prueba2@gamil.com",
-                            FechaActualizado = new DateTime(2021, 12, 20, 21, 3, 50, 614, DateTimeKind.Utc).AddTicks(3086),
-                            FechaCreado = new DateTime(2021, 12, 20, 21, 3, 50, 614, DateTimeKind.Utc).AddTicks(3079),
+                            Email = "prueba2@gmail.com",
+                            FechaActualizado = new DateTime(2021, 12, 23, 20, 14, 56, 72, DateTimeKind.Utc).AddTicks(8678),
+                            FechaCreado = new DateTime(2021, 12, 23, 20, 14, 56, 72, DateTimeKind.Utc).AddTicks(8674),
                             IdDireccion = 2,
                             IdEstatus = 1,
                             IdRol = 2,
@@ -603,9 +602,9 @@ namespace Prestamos.Infrastructure.Migrations
 
             modelBuilder.Entity("Prestamos.Core.Entities.DetallePrestamo", b =>
                 {
-                    b.HasOne("Prestamos.Core.Entities.EstatusPrestamo", "EstadusPrestamo")
+                    b.HasOne("Prestamos.Core.Entities.EstatusPrestamo", "EstatusPrestamo")
                         .WithMany("DetallePrestamos")
-                        .HasForeignKey("IdEstadusPrestamo")
+                        .HasForeignKey("IdEstatusPrestamo")
                         .HasConstraintName("FK__DetallePr__IdEst__48CFD27E")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -617,7 +616,7 @@ namespace Prestamos.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("EstadusPrestamo");
+                    b.Navigation("EstatusPrestamo");
 
                     b.Navigation("Prestamo");
                 });
@@ -641,22 +640,33 @@ namespace Prestamos.Infrastructure.Migrations
 
             modelBuilder.Entity("Prestamos.Core.Entities.Prestamo", b =>
                 {
-                    b.HasOne("Prestamos.Core.Entities.EstatusPrestamo", "EstadusPrestamo")
+                    b.HasOne("Prestamos.Core.Entities.Cliente", "Cliente")
                         .WithMany("Prestamos")
-                        .HasForeignKey("IdEstadusPrestamo")
-                        .HasConstraintName("FK__Prestamos__IdEst__4222D4EF");
+                        .HasForeignKey("IdCliente")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Prestamos.Core.Entities.EstatusPrestamo", "EstatusPrestamo")
+                        .WithMany("Prestamos")
+                        .HasForeignKey("IdEstatusPrestamo")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("Prestamos.Core.Entities.PeriodoPago", "PeriodoPago")
                         .WithMany("Prestamos")
                         .HasForeignKey("IdPeriodoPago")
-                        .HasConstraintName("FK__Prestamos__IdPer__412EB0B6");
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("Prestamos.Core.Entities.Usuario", "UsuarioUtorizador")
                         .WithMany("Prestamos")
                         .HasForeignKey("IdUsuarioUtorizador")
-                        .HasConstraintName("FK__Prestamos__IdUsu__4316F928");
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
-                    b.Navigation("EstadusPrestamo");
+                    b.Navigation("Cliente");
+
+                    b.Navigation("EstatusPrestamo");
 
                     b.Navigation("PeriodoPago");
 
@@ -691,6 +701,11 @@ namespace Prestamos.Infrastructure.Migrations
                     b.Navigation("Estatus");
 
                     b.Navigation("Rol");
+                });
+
+            modelBuilder.Entity("Prestamos.Core.Entities.Cliente", b =>
+                {
+                    b.Navigation("Prestamos");
                 });
 
             modelBuilder.Entity("Prestamos.Core.Entities.Direccion", b =>

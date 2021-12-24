@@ -16,8 +16,6 @@ namespace Prestamos.Core.Entities
 
         public int Id { get; set; }
         public EstatuCrediticioCliente EstatusCrediticios { get; set; }
-
-        [JsonIgnore]
         public ICollection<Cliente> Clientes { get; set; }
     }
 }

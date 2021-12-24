@@ -74,6 +74,35 @@ namespace Prestamos.Api.Controllers
             return Ok(response);
         }
 
+        [HttpGet("cedula/{cedula}")]
+        [Authorize]
+        public async Task<ActionResult<ApiResponse<Cliente>>> GetByCedula(string cedula)
+        {
+
+            var response = new ApiResponse<ClienteDto>();
+            try
+            {
+                var cliente = await this._unitOfWork.Clientes.GetByCedula(cedula);
+                if (cliente is null)
+                {
+                    response.Succeeded = false;
+                    response.Message = "No se encontro el cliente!";
+                    response.StatusCode = StatusCodes.Status404NotFound;
+                    return NotFound(response);
+                }
+                response.Data = _mapper.Map<ClienteDto>(cliente);
+                response.StatusCode = StatusCodes.Status200OK;
+            }
+            catch (Exception ex)
+            {
+                response.Message = "Ocurio un error al obtener los datos!";
+                response.Succeeded = false;
+                response.StatusCode = StatusCodes.Status400BadRequest;
+                return BadRequest(response);
+            }
+            return Ok(response);
+        }
+
         [HttpGet("search/{text}")]
         [Authorize]
         public async Task<ActionResult<PagedResponse<IEnumerable<ClienteDto>>>> Search(string text, [FromQuery] Pagination pagination)

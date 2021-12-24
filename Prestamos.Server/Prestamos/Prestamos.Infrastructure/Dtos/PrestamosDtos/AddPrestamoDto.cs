@@ -12,11 +12,11 @@ namespace Prestamos.Infrastructure.Dtos.PrestamosDtos
         public decimal Interes { get; set; }
         public int Cuotas { get; set; }
         public decimal Capital { get; set; }
-        public int? IdPeriodoPago { get; set; }
+        public int IdPeriodoPago { get; set; }
         public DateTime FechaCreado { get; set; }
         public DateTime FechaCulminacion { get; set; }
-        public int? IdEstadusPrestamo { get; set; }
-        public int? IdUsuarioUtorizador { get; set; }
-        public AddDetallePrestamoDto DetallePrestamo { get; set; }
+        public int IdUsuarioUtorizador { get; set; }
+        public int IdCliente { get; set; }
+        public List<AddDetallePrestamoDto> DetallePrestamo { get; set; }
     }
 }

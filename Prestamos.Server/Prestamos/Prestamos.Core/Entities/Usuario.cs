@@ -30,9 +30,7 @@ namespace Prestamos.Core.Entities
         public Direccion Direccion { get; set; }
         public Estatus Estatus { get; set; }
         public Role Rol { get; set; }
-        [JsonIgnore]
         public ICollection<Empresa> Empresas { get; set; }
-        [JsonIgnore]
         public ICollection<Prestamo> Prestamos { get; set; }
     }
 }

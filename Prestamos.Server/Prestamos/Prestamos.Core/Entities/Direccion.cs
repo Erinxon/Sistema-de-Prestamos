@@ -19,12 +19,8 @@ namespace Prestamos.Core.Entities
         public string Provincia { get; set; }
         public string Calle { get; set; }
         public string Numero { get; set; }
-
-        [JsonIgnore]
-        public virtual ICollection<Cliente> Clientes { get; set; }
-        [JsonIgnore]
-        public virtual ICollection<Empresa> Empresas { get; set; }
-        [JsonIgnore]
-        public virtual ICollection<Usuario> Usuarios { get; set; }
+        public ICollection<Cliente> Clientes { get; set; }
+        public ICollection<Empresa> Empresas { get; set; }
+        public ICollection<Usuario> Usuarios { get; set; }
     }
 }

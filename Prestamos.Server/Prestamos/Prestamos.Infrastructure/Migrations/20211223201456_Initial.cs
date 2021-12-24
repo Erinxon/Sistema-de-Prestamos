@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Prestamos.Infrastructure.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -205,32 +205,39 @@ namespace Prestamos.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Interes = table.Column<decimal>(type: "decimal(3,2)", nullable: false),
+                    Interes = table.Column<decimal>(type: "decimal(5,3)", nullable: false),
                     Cuotas = table.Column<int>(type: "int", nullable: false),
                     Capital = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    IdPeriodoPago = table.Column<int>(type: "int", nullable: true),
+                    IdPeriodoPago = table.Column<int>(type: "int", nullable: false),
                     FechaCreado = table.Column<DateTime>(type: "datetime", nullable: false),
                     FechaCulminacion = table.Column<DateTime>(type: "datetime", nullable: false),
-                    IdEstadusPrestamo = table.Column<int>(type: "int", nullable: true),
-                    IdUsuarioUtorizador = table.Column<int>(type: "int", nullable: true)
+                    IdEstatusPrestamo = table.Column<int>(type: "int", nullable: false),
+                    IdUsuarioUtorizador = table.Column<int>(type: "int", nullable: false),
+                    IdCliente = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Prestamos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK__Prestamos__IdEst__4222D4EF",
-                        column: x => x.IdEstadusPrestamo,
+                        name: "FK_Prestamos_Clientes_IdCliente",
+                        column: x => x.IdCliente,
+                        principalTable: "Clientes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Prestamos_EstatusPrestamos_IdEstatusPrestamo",
+                        column: x => x.IdEstatusPrestamo,
                         principalTable: "EstatusPrestamos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK__Prestamos__IdPer__412EB0B6",
+                        name: "FK_Prestamos_PeriodoPago_IdPeriodoPago",
                         column: x => x.IdPeriodoPago,
                         principalTable: "PeriodoPago",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK__Prestamos__IdUsu__4316F928",
+                        name: "FK_Prestamos_Usuarios_IdUsuarioUtorizador",
                         column: x => x.IdUsuarioUtorizador,
                         principalTable: "Usuarios",
                         principalColumn: "Id",
@@ -250,7 +257,7 @@ namespace Prestamos.Infrastructure.Migrations
                     Pagado = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     CapitalPendiente = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     FechaPago = table.Column<DateTime>(type: "datetime", nullable: false),
-                    IdEstadusPrestamo = table.Column<int>(type: "int", nullable: false),
+                    IdEstatusPrestamo = table.Column<int>(type: "int", nullable: false),
                     IdPrestamo = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -258,7 +265,7 @@ namespace Prestamos.Infrastructure.Migrations
                     table.PrimaryKey("PK_DetallePrestamos", x => x.Id);
                     table.ForeignKey(
                         name: "FK__DetallePr__IdEst__48CFD27E",
-                        column: x => x.IdEstadusPrestamo,
+                        column: x => x.IdEstatusPrestamo,
                         principalTable: "EstatusPrestamos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -336,17 +343,23 @@ namespace Prestamos.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "Id", "Apellidos", "Cedula", "Email", "FechaActualizado", "FechaCreado", "IdDireccion", "IdEstatus", "IdRol", "Nombres", "Password", "Telefono" },
-                values: new object[] { 1, "Prueba prueba", "17895222545", "prueba1@gamil.com", new DateTime(2021, 12, 17, 21, 48, 57, 346, DateTimeKind.Utc).AddTicks(5545), new DateTime(2021, 12, 17, 21, 48, 57, 346, DateTimeKind.Utc).AddTicks(4378), 1, 1, 1, "Prueba prueba", "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225", "8294155565" });
+                values: new object[] { 1, "Prueba prueba", "17895222545", "prueba1@gmail.com", new DateTime(2021, 12, 23, 20, 14, 56, 72, DateTimeKind.Utc).AddTicks(7977), new DateTime(2021, 12, 23, 20, 14, 56, 72, DateTimeKind.Utc).AddTicks(7202), 1, 1, 1, "Prueba prueba", "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225", "8294155565" });
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "Id", "Apellidos", "Cedula", "Email", "FechaActualizado", "FechaCreado", "IdDireccion", "IdEstatus", "IdRol", "Nombres", "Password", "Telefono" },
-                values: new object[] { 2, "Prueba prueba2", "17495221545", "prueba2@gamil.com", new DateTime(2021, 12, 17, 21, 48, 57, 346, DateTimeKind.Utc).AddTicks(7034), new DateTime(2021, 12, 17, 21, 48, 57, 346, DateTimeKind.Utc).AddTicks(7023), 2, 1, 2, "Prueba prueba2", "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225", "8294555565" });
+                values: new object[] { 2, "Prueba prueba2", "17495221545", "prueba2@gmail.com", new DateTime(2021, 12, 23, 20, 14, 56, 72, DateTimeKind.Utc).AddTicks(8678), new DateTime(2021, 12, 23, 20, 14, 56, 72, DateTimeKind.Utc).AddTicks(8674), 2, 1, 2, "Prueba prueba2", "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225", "8294555565" });
 
             migrationBuilder.InsertData(
                 table: "Empresa",
                 columns: new[] { "Id", "Email", "FechaActualizado", "FechaCreado", "IdAdministrador", "IdDireccion", "Nombre", "RNC", "Telefono" },
-                values: new object[] { 1, "prueba@gmail.com", new DateTime(2021, 12, 17, 21, 48, 57, 347, DateTimeKind.Utc).AddTicks(5399), new DateTime(2021, 12, 17, 21, 48, 57, 347, DateTimeKind.Utc).AddTicks(4724), 1, 3, "Prueba", "875223236", "5556232365" });
+                values: new object[] { 1, "prueba@gmail.com", new DateTime(2021, 12, 23, 20, 14, 56, 73, DateTimeKind.Utc).AddTicks(2836), new DateTime(2021, 12, 23, 20, 14, 56, 73, DateTimeKind.Utc).AddTicks(2516), 1, 3, "Prueba", "875223236", "5556232365" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Clientes_Cedula",
+                table: "Clientes",
+                column: "Cedula",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Clientes_IdDireccion",
@@ -364,9 +377,9 @@ namespace Prestamos.Infrastructure.Migrations
                 column: "IdEstatusCrediticio");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DetallePrestamos_IdEstadusPrestamo",
+                name: "IX_DetallePrestamos_IdEstatusPrestamo",
                 table: "DetallePrestamos",
-                column: "IdEstadusPrestamo");
+                column: "IdEstatusPrestamo");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DetallePrestamos_IdPrestamo",
@@ -384,9 +397,14 @@ namespace Prestamos.Infrastructure.Migrations
                 column: "IdDireccion");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Prestamos_IdEstadusPrestamo",
+                name: "IX_Prestamos_IdCliente",
                 table: "Prestamos",
-                column: "IdEstadusPrestamo");
+                column: "IdCliente");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Prestamos_IdEstatusPrestamo",
+                table: "Prestamos",
+                column: "IdEstatusPrestamo");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Prestamos_IdPeriodoPago",
@@ -417,19 +435,16 @@ namespace Prestamos.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Clientes");
-
-            migrationBuilder.DropTable(
                 name: "DetallePrestamos");
 
             migrationBuilder.DropTable(
                 name: "Empresa");
 
             migrationBuilder.DropTable(
-                name: "EstatusCrediticio");
+                name: "Prestamos");
 
             migrationBuilder.DropTable(
-                name: "Prestamos");
+                name: "Clientes");
 
             migrationBuilder.DropTable(
                 name: "EstatusPrestamos");
@@ -439,6 +454,9 @@ namespace Prestamos.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Usuarios");
+
+            migrationBuilder.DropTable(
+                name: "EstatusCrediticio");
 
             migrationBuilder.DropTable(
                 name: "Direccion");

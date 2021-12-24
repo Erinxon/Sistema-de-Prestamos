@@ -15,10 +15,9 @@ namespace Prestamos.Core.Entities
         public decimal? Pagado { get; set; }
         public decimal CapitalPendiente { get; set; }
         public DateTime FechaPago { get; set; }
-        public int IdEstadusPrestamo { get; set; }
+        public int IdEstatusPrestamo { get; set; }
         public int IdPrestamo { get; set; }
-
-        public EstatusPrestamo EstadusPrestamo { get; set; }
+        public EstatusPrestamo EstatusPrestamo { get; set; }
         public Prestamo Prestamo { get; set; }
     }
 }

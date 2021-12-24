@@ -12,6 +12,7 @@ namespace Prestamos.Infrastructure.Interfaces
         Task<IEnumerable<Cliente>> GetAll(Pagination pagination);
         Task<IEnumerable<Cliente>> Filter(string filter, Pagination pagination);
         Task<Cliente> GetById(int id);
+        Task<Cliente> GetByCedula(string cedula);
         Task Add(Cliente cliente);
         Task Update(Cliente cliente);
         Task Delete(Cliente cliente);

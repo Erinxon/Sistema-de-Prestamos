@@ -17,16 +17,16 @@ namespace Prestamos.Core.Entities
         public decimal Interes { get; set; }
         public int Cuotas { get; set; }
         public decimal Capital { get; set; }
-        public int? IdPeriodoPago { get; set; }
+        public int IdPeriodoPago { get; set; }
         public DateTime FechaCreado { get; set; }
         public DateTime FechaCulminacion { get; set; }
-        public int? IdEstadusPrestamo { get; set; }
-        public int? IdUsuarioUtorizador { get; set; }
-
-        public EstatusPrestamo EstadusPrestamo { get; set; }
+        public int IdEstatusPrestamo { get; set; }
+        public int IdUsuarioUtorizador { get; set; }
+        public int IdCliente { get; set; }
+        public EstatusPrestamo EstatusPrestamo { get; set; }
         public PeriodoPago PeriodoPago { get; set; }
         public Usuario UsuarioUtorizador { get; set; }
-        [JsonIgnore]
-        public virtual ICollection<DetallePrestamo> DetallePrestamos { get; set; }
+        public Cliente Cliente { get; set; }
+        public ICollection<DetallePrestamo> DetallePrestamos { get; set; }
     }
 }

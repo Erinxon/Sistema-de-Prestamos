@@ -16,7 +16,6 @@ namespace Prestamos.Core.Entities
 
         public int Id { get; set; }
         public PeriodoDePagos PeriodoDePagos { get; set; }
-        [JsonIgnore]
-        public virtual ICollection<Prestamo> Prestamos { get; set; }
+        public ICollection<Prestamo> Prestamos { get; set; }
     }
 }

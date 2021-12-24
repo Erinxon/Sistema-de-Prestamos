@@ -17,10 +17,7 @@ namespace Prestamos.Core.Entities
 
         public int Id { get; set; }
         public EstatusPrestamosClientes EstatusPrestamos { get; set; }
-
-        [JsonIgnore]
         public ICollection<DetallePrestamo> DetallePrestamos { get; set; }
-        [JsonIgnore]
         public ICollection<Prestamo> Prestamos { get; set; }
     }
 }

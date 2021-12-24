@@ -86,26 +86,42 @@ namespace Prestamos.Api.Controllers
 
         // POST: api/Prestamos
         [HttpPost]
-        public async Task<ActionResult<PrestamoDto>> Post([FromBody] AddPrestamoDto prestamoDto)
+        public async Task<ActionResult<ApiResponse<PrestamoDto>>> Post([FromBody] AddPrestamoDto prestamoDto)
         {
             var response = new ApiResponse<PrestamoDto>();
             try
             {
                 var prestamo = _mapper.Map<Prestamo>(prestamoDto);
+                prestamo.IdEstatusPrestamo = (int)EstatusPrestamosClientes.Pendiente;
                 await this._unitOfWork.Prestamos.Add(prestamo);
+                await this._unitOfWork.SavechangesAsync();
+
+                var detalle = _mapper.Map<List<DetallePrestamo>>(prestamoDto.DetallePrestamo);
+                var detallePrestamo = detalle.Select(d => new DetallePrestamo
+                {
+                   NumeroCuota = d.NumeroCuota,
+                   CuotaPagar = d.CuotaPagar,
+                   InteresPagar = d.InteresPagar,
+                   CapitalAmortizado = d.CapitalAmortizado,
+                   Pagado = 0,
+                   CapitalPendiente = d.CapitalPendiente,
+                   FechaPago = d.FechaPago,
+                   IdEstatusPrestamo = (int) EstatusPrestamosClientes.Pendiente,
+                   IdPrestamo = prestamo.Id
+                }).ToList();
+                await this._unitOfWork.DetallesPrestamos.Add(detallePrestamo);
                 await this._unitOfWork.SavechangesAsync();
                 response.Data = _mapper.Map<PrestamoDto>(prestamo);
                 response.StatusCode = StatusCodes.Status201Created;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                response.Message = "Ocurio un error al obtener los datos!";
+                response.Message = ex.InnerException.Message;
                 response.Succeeded = false;
                 response.StatusCode = StatusCodes.Status400BadRequest;
                 return BadRequest(response);
             }
-
-            return Created("api/Prestamos/", response);
+            return Created("api/Prestamos", response);
         }
     }
 }

@@ -7,6 +7,10 @@ namespace Prestamos.Core.Entities
 {
     public partial class Cliente
     {
+        public Cliente()
+        {
+            Prestamos = new HashSet<Prestamo>();
+        }
         public int Id { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
@@ -20,5 +24,6 @@ namespace Prestamos.Core.Entities
         public Direccion Direccion { get; set; }
         public Estatus Estatus { get; set; }
         public EstatusCrediticio EstatusCrediticio { get; set; }
+        public ICollection<Prestamo> Prestamos { get; set; }
     }
 }

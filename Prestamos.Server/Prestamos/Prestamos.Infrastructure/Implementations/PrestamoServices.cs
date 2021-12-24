@@ -24,15 +24,17 @@ namespace Prestamos.Infrastructure.Implementations
         {
             RolesUsuario.Prestador => await this._context.Prestamos
                                             .AsNoTracking()
-                                            .Include(p => p.EstadusPrestamo)
+                                            .Include(p => p.EstatusPrestamo)
                                             .Include(p => p.PeriodoPago)
                                             .Include(p => p.UsuarioUtorizador)
+                                            .Include(p => p.DetallePrestamos)
                                             .ToListAsync(),
             RolesUsuario.Cobrador => await this._context.Prestamos
                                            .AsNoTracking()
-                                           .Include(p => p.EstadusPrestamo)
+                                           .Include(p => p.EstatusPrestamo)
                                            .Include(p => p.PeriodoPago)
                                            .Include(p => p.UsuarioUtorizador)
+                                           .Include(p => p.DetallePrestamos)
                                            .Where(p => p.IdUsuarioUtorizador == idUsuario)
                                            .ToListAsync(),
             _ => throw new ArgumentOutOfRangeException(nameof(rol), $"Not expected direction value: {rol}")
@@ -43,7 +45,7 @@ namespace Prestamos.Infrastructure.Implementations
         {
             return await this._context.Prestamos
                                              .AsNoTracking()
-                                             .Include(p => p.EstadusPrestamo)
+                                             .Include(p => p.EstatusPrestamo)
                                              .Include(p => p.PeriodoPago)
                                              .Include(p => p.UsuarioUtorizador)
                                              .FirstOrDefaultAsync(p => p.Id == id);

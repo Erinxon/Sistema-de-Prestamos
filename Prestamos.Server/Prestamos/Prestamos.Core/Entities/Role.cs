@@ -16,7 +16,6 @@ namespace Prestamos.Core.Entities
 
         public int Id { get; set; }
         public RolesUsuario Roles { get; set; }
-        [JsonIgnore]
-        public virtual ICollection<Usuario> Usuarios { get; set; }
+        public ICollection<Usuario> Usuarios { get; set; }
     }
 }

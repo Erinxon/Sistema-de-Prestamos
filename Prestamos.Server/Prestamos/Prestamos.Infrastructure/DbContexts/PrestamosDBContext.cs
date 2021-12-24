@@ -94,9 +94,9 @@ namespace Prestamos.Infrastructure.DbContexts
 
                 entity.Property(e => e.Pagado).HasColumnType("decimal(18, 2)");
 
-                entity.HasOne(d => d.EstadusPrestamo)
+                entity.HasOne(d => d.EstatusPrestamo)
                     .WithMany(p => p.DetallePrestamos)
-                    .HasForeignKey(d => d.IdEstadusPrestamo)
+                    .HasForeignKey(d => d.IdEstatusPrestamo)
                     .HasConstraintName("FK__DetallePr__IdEst__48CFD27E");
 
                 entity.HasOne(d => d.Prestamo)
@@ -211,22 +211,27 @@ namespace Prestamos.Infrastructure.DbContexts
 
                 entity.Property(e => e.FechaCulminacion).HasColumnType("datetime");
 
-                entity.Property(e => e.Interes).HasColumnType("decimal(3, 2)");
+                entity.Property(e => e.Interes).HasColumnType("decimal(5, 3)");
 
-                entity.HasOne(d => d.EstadusPrestamo)
+                entity.HasOne(d => d.EstatusPrestamo)
                     .WithMany(p => p.Prestamos)
-                    .HasForeignKey(d => d.IdEstadusPrestamo)
-                    .HasConstraintName("FK__Prestamos__IdEst__4222D4EF");
+                    .HasForeignKey(d => d.IdEstatusPrestamo)
+                    .OnDelete(DeleteBehavior.Restrict); ;
 
                 entity.HasOne(d => d.PeriodoPago)
                     .WithMany(p => p.Prestamos)
                     .HasForeignKey(d => d.IdPeriodoPago)
-                    .HasConstraintName("FK__Prestamos__IdPer__412EB0B6");
+                    .OnDelete(DeleteBehavior.Restrict); ;
 
                 entity.HasOne(d => d.UsuarioUtorizador)
                     .WithMany(p => p.Prestamos)
                     .HasForeignKey(d => d.IdUsuarioUtorizador)
-                    .HasConstraintName("FK__Prestamos__IdUsu__4316F928");
+                    .OnDelete(DeleteBehavior.Restrict); ;
+
+                entity.HasOne(d => d.Cliente)
+                   .WithMany(p => p.Prestamos)
+                   .HasForeignKey(d => d.IdCliente)
+                   .OnDelete(DeleteBehavior.Restrict); ;
             });
 
 

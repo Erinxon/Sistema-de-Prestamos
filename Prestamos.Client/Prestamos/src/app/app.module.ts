@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ApiKeyInterceptor } from './Core/interceptors/api-key.interceptor';
 import { ApiPrefixInterceptor } from './Core/interceptors/api-prefix.interceptor';
 import { JwtInterceptor } from './Core/interceptors/jwt.interceptor';
 import { LoandingInterceptor } from './Core/interceptors/loanding.interceptor';
@@ -13,6 +14,11 @@ import { TableComponent } from './Shared/components/table/table.component';
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiKeyInterceptor,
+      multi: true
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiPrefixInterceptor,

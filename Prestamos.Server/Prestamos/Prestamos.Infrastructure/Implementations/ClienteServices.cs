@@ -83,5 +83,16 @@ namespace Prestamos.Infrastructure.Implementations
         {
             return await this._context.Clientes.CountAsync();
         }
+
+        public async Task<Cliente> GetByCedula(string cedula)
+        {
+            var cliente = await this._context.Clientes
+               .AsNoTracking()
+               .Include(c => c.Direccion)
+               .Include(c => c.Estatus)
+               .Include(c => c.EstatusCrediticio)
+               .FirstOrDefaultAsync(c => c.Cedula == cedula);
+            return cliente;
+        }
     }
 }
