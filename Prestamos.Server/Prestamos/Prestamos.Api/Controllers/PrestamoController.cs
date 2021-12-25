@@ -56,8 +56,8 @@ namespace Prestamos.Api.Controllers
             return Ok(response);
         }
 
-        // GET: api/Prestamos/1
-        [HttpGet("{id}")]
+        // GET: api/Prestamos/GetByid/1
+        [HttpGet("GetByid/{id}")]
         public async Task<ActionResult<ApiResponse<PrestamoDto>>> Get(int id)
         {
             var response = new ApiResponse<PrestamoDto>();
@@ -95,33 +95,24 @@ namespace Prestamos.Api.Controllers
                 prestamo.IdEstatusPrestamo = (int)EstatusPrestamosClientes.Pendiente;
                 await this._unitOfWork.Prestamos.Add(prestamo);
                 await this._unitOfWork.SavechangesAsync();
-
-                var detalle = _mapper.Map<List<DetallePrestamo>>(prestamoDto.DetallePrestamo);
-                var detallePrestamo = detalle.Select(d => new DetallePrestamo
-                {
-                   NumeroCuota = d.NumeroCuota,
-                   CuotaPagar = d.CuotaPagar,
-                   InteresPagar = d.InteresPagar,
-                   CapitalAmortizado = d.CapitalAmortizado,
-                   Pagado = 0,
-                   CapitalPendiente = d.CapitalPendiente,
-                   FechaPago = d.FechaPago,
-                   IdEstatusPrestamo = (int) EstatusPrestamosClientes.Pendiente,
-                   IdPrestamo = prestamo.Id
-                }).ToList();
-                await this._unitOfWork.DetallesPrestamos.Add(detallePrestamo);
+  
+                //Actualizar es el estatus crediticio del cliente
+                await this._unitOfWork.Clientes.
+                    CambiarEstatusCrediticio(prestamo.IdCliente, (int) EstatuCrediticioCliente.CreditosOcupados);
                 await this._unitOfWork.SavechangesAsync();
                 response.Data = _mapper.Map<PrestamoDto>(prestamo);
                 response.StatusCode = StatusCodes.Status201Created;
             }
             catch (Exception ex)
             {
-                response.Message = ex.InnerException.Message;
+                response.Message = "Ocurrio un error";
                 response.Succeeded = false;
                 response.StatusCode = StatusCodes.Status400BadRequest;
                 return BadRequest(response);
             }
             return Created("api/Prestamos", response);
         }
+
+
     }
 }

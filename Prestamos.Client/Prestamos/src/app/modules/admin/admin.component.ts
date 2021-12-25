@@ -24,11 +24,14 @@ export class AdminComponent implements OnInit {
     { titulo: 'Prestamos', url: 'prestamos',  icono: 'dashboard', toggled: false },
     { titulo: 'Clientes', url: 'clientes',  icono: 'dashboard', toggled: false },
     { titulo: 'Usuarios', url: 'usuarios',  icono: 'dashboard', toggled: false },
+    { titulo: 'Configuracion', url: 'configuracion',  icono: 'dashboard', toggled: false },
   ];
   user!: UserAuth;
   constructor(private auth: AuthService,
     private router: Router) { 
-  
+      this.auth.getUserAuth().subscribe(res => {
+        this.user = res;
+      });
   }
 
   ngOnInit(): void {

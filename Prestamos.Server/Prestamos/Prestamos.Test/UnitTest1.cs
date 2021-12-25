@@ -15,7 +15,7 @@ namespace Prestamos.Test
         [TestMethod]
         public async void TestMethod1()
         {
-            /*
+            
             // Arrange
             var context = new PrestamosDBContext();
             var unitOfWork = new UnitOfWork(context);
@@ -29,7 +29,7 @@ namespace Prestamos.Test
             // Act
             var result = await controller.GetAll();
             // Assert
-            Assert.AreEqual(200, result.Value.StatusCode);*/
+            Assert.AreEqual(200, result.Value.StatusCode);
         }
     }
 }

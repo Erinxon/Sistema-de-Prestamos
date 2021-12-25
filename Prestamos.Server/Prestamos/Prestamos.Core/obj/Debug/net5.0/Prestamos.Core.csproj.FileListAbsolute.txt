@@ -9,3 +9,4 @@ C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestam
 C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\obj\Debug\net5.0\Prestamos.Core.dll
 C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\obj\Debug\net5.0\ref\Prestamos.Core.dll
 C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\obj\Debug\net5.0\Prestamos.Core.pdb
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\obj\Debug\net5.0\Prestamos.Core.csproj.AssemblyReference.cache

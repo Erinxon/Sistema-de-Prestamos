@@ -10,5 +10,6 @@ namespace Prestamos.Infrastructure.Interfaces
     public interface IDetallePrestamoServices
     {
         Task Add(List<DetallePrestamo> detallePrestamo);
+        Task<List<DetallePrestamo>> GetById(int id);
     }
 }

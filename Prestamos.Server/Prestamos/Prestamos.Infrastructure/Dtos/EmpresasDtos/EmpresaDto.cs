@@ -16,8 +16,6 @@ namespace Prestamos.Infrastructure.Dtos.EmpresasDtos
         public string Rnc { get; set; }
         public string Telefono { get; set; }
         public string Email { get; set; }
-        public DateTime? FechaCreado { get; set; }
-        public DateTime? FechaActualizado { get; set; }
         public UsuarioDto Administrador { get; set; }
         public DireccionDto Direccion { get; set; }
     }

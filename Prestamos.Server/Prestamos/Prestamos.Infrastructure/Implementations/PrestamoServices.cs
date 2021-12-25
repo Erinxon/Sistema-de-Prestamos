@@ -31,6 +31,7 @@ namespace Prestamos.Infrastructure.Implementations
                                             .ToListAsync(),
             RolesUsuario.Cobrador => await this._context.Prestamos
                                            .AsNoTracking()
+                                           .Include(p => p.Cliente)
                                            .Include(p => p.EstatusPrestamo)
                                            .Include(p => p.PeriodoPago)
                                            .Include(p => p.UsuarioUtorizador)
@@ -45,9 +46,12 @@ namespace Prestamos.Infrastructure.Implementations
         {
             return await this._context.Prestamos
                                              .AsNoTracking()
+                                             .Include(p => p.Cliente)
+                                             .ThenInclude(c => c.Direccion)
                                              .Include(p => p.EstatusPrestamo)
                                              .Include(p => p.PeriodoPago)
                                              .Include(p => p.UsuarioUtorizador)
+                                             .Include(p => p.DetallePrestamos)
                                              .FirstOrDefaultAsync(p => p.Id == id);
         }
 

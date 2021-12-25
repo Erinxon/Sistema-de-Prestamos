@@ -33,7 +33,7 @@ namespace Prestamos.Api.Controllers
                  response.Data = _mapper.Map<EmpresaDto>(empresa);
                  response.StatusCode = StatusCodes.Status200OK;
             }
-            catch (System.Exception)
+            catch (Exception ex)
             {
                 response.Message = "Ocurio un error al obtener los datos!";
                 response.Succeeded = false;

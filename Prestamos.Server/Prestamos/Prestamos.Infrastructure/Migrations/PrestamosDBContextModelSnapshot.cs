@@ -230,8 +230,8 @@ namespace Prestamos.Infrastructure.Migrations
                         {
                             Id = 1,
                             Email = "prueba@gmail.com",
-                            FechaActualizado = new DateTime(2021, 12, 23, 20, 14, 56, 73, DateTimeKind.Utc).AddTicks(2836),
-                            FechaCreado = new DateTime(2021, 12, 23, 20, 14, 56, 73, DateTimeKind.Utc).AddTicks(2516),
+                            FechaActualizado = new DateTime(2021, 12, 25, 15, 16, 56, 8, DateTimeKind.Utc).AddTicks(721),
+                            FechaCreado = new DateTime(2021, 12, 25, 15, 16, 56, 8, DateTimeKind.Utc).AddTicks(368),
                             IdAdministrador = 1,
                             IdDireccion = 3,
                             Nombre = "Prueba",
@@ -333,12 +333,12 @@ namespace Prestamos.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            EstatusPrestamos = 2
+                            EstatusPrestamos = 1
                         },
                         new
                         {
                             Id = 2,
-                            EstatusPrestamos = 1
+                            EstatusPrestamos = 2
                         },
                         new
                         {
@@ -541,15 +541,15 @@ namespace Prestamos.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            Apellidos = "Prueba prueba",
+                            Apellidos = "Santana",
                             Cedula = "17895222545",
-                            Email = "prueba1@gmail.com",
-                            FechaActualizado = new DateTime(2021, 12, 23, 20, 14, 56, 72, DateTimeKind.Utc).AddTicks(7977),
-                            FechaCreado = new DateTime(2021, 12, 23, 20, 14, 56, 72, DateTimeKind.Utc).AddTicks(7202),
+                            Email = "erinxon@gmail.com",
+                            FechaActualizado = new DateTime(2021, 12, 25, 15, 16, 56, 7, DateTimeKind.Utc).AddTicks(4555),
+                            FechaCreado = new DateTime(2021, 12, 25, 15, 16, 56, 7, DateTimeKind.Utc).AddTicks(3655),
                             IdDireccion = 1,
                             IdEstatus = 1,
                             IdRol = 1,
-                            Nombres = "Prueba prueba",
+                            Nombres = "Erinxon",
                             Password = "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
                             Telefono = "8294155565"
                         },
@@ -559,8 +559,8 @@ namespace Prestamos.Infrastructure.Migrations
                             Apellidos = "Prueba prueba2",
                             Cedula = "17495221545",
                             Email = "prueba2@gmail.com",
-                            FechaActualizado = new DateTime(2021, 12, 23, 20, 14, 56, 72, DateTimeKind.Utc).AddTicks(8678),
-                            FechaCreado = new DateTime(2021, 12, 23, 20, 14, 56, 72, DateTimeKind.Utc).AddTicks(8674),
+                            FechaActualizado = new DateTime(2021, 12, 25, 15, 16, 56, 7, DateTimeKind.Utc).AddTicks(5313),
+                            FechaCreado = new DateTime(2021, 12, 25, 15, 16, 56, 7, DateTimeKind.Utc).AddTicks(5310),
                             IdDireccion = 2,
                             IdEstatus = 1,
                             IdRol = 2,
@@ -605,14 +605,12 @@ namespace Prestamos.Infrastructure.Migrations
                     b.HasOne("Prestamos.Core.Entities.EstatusPrestamo", "EstatusPrestamo")
                         .WithMany("DetallePrestamos")
                         .HasForeignKey("IdEstatusPrestamo")
-                        .HasConstraintName("FK__DetallePr__IdEst__48CFD27E")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Prestamos.Core.Entities.Prestamo", "Prestamo")
                         .WithMany("DetallePrestamos")
                         .HasForeignKey("IdPrestamo")
-                        .HasConstraintName("FK__DetallePr__IdPre__49C3F6B7")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

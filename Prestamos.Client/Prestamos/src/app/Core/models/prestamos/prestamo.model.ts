@@ -7,7 +7,7 @@ import { DetallePrestamo } from "./detallePrestamo/detalle-Prestamos.model";
 export interface Prestamo {
     id: number;
     interes: number;
-    Cuotas: number;
+    cuotas: number;
     capital: number;
     fechaCreado: Date;
     fechaCulminacion: Date;
@@ -15,5 +15,5 @@ export interface Prestamo {
     periodoPago: PeriodoPago;
     usuarioUtorizador: Usuario;
     cliente: Cliente;
-    detallePrestamo: DetallePrestamo[];
+    detallePrestamos: DetallePrestamo[];
 }

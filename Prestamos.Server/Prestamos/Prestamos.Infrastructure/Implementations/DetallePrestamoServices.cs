@@ -1,4 +1,5 @@
-﻿using Prestamos.Core.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Prestamos.Core.Entities;
 using Prestamos.Infrastructure.DbContexts;
 using Prestamos.Infrastructure.Interfaces;
 using System;
@@ -18,8 +19,17 @@ namespace Prestamos.Infrastructure.Implementations
             this._context = context;
         }
         public async Task Add(List<DetallePrestamo> detallePrestamo)
-        {
+        {         
             await this._context.AddRangeAsync(detallePrestamo);
+        }
+
+        public async Task<List<DetallePrestamo>> GetById(int id)
+        {
+            return await this._context.DetallePrestamos
+                .AsNoTracking()
+                .Include(p => p.EstatusPrestamo)
+                .Where(d => d.IdPrestamo == id)
+                .ToListAsync();
         }
     }
 }

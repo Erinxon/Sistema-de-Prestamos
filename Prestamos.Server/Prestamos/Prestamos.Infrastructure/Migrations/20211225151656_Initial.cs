@@ -264,13 +264,13 @@ namespace Prestamos.Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_DetallePrestamos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK__DetallePr__IdEst__48CFD27E",
+                        name: "FK_DetallePrestamos_EstatusPrestamos_IdEstatusPrestamo",
                         column: x => x.IdEstatusPrestamo,
                         principalTable: "EstatusPrestamos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK__DetallePr__IdPre__49C3F6B7",
+                        name: "FK_DetallePrestamos_Prestamos_IdPrestamo",
                         column: x => x.IdPrestamo,
                         principalTable: "Prestamos",
                         principalColumn: "Id",
@@ -315,8 +315,8 @@ namespace Prestamos.Infrastructure.Migrations
                 {
                     { 4, 4 },
                     { 3, 3 },
-                    { 1, 2 },
-                    { 2, 1 }
+                    { 1, 1 },
+                    { 2, 2 }
                 });
 
             migrationBuilder.InsertData(
@@ -343,17 +343,17 @@ namespace Prestamos.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "Id", "Apellidos", "Cedula", "Email", "FechaActualizado", "FechaCreado", "IdDireccion", "IdEstatus", "IdRol", "Nombres", "Password", "Telefono" },
-                values: new object[] { 1, "Prueba prueba", "17895222545", "prueba1@gmail.com", new DateTime(2021, 12, 23, 20, 14, 56, 72, DateTimeKind.Utc).AddTicks(7977), new DateTime(2021, 12, 23, 20, 14, 56, 72, DateTimeKind.Utc).AddTicks(7202), 1, 1, 1, "Prueba prueba", "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225", "8294155565" });
+                values: new object[] { 1, "Santana", "17895222545", "erinxon@gmail.com", new DateTime(2021, 12, 25, 15, 16, 56, 7, DateTimeKind.Utc).AddTicks(4555), new DateTime(2021, 12, 25, 15, 16, 56, 7, DateTimeKind.Utc).AddTicks(3655), 1, 1, 1, "Erinxon", "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225", "8294155565" });
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "Id", "Apellidos", "Cedula", "Email", "FechaActualizado", "FechaCreado", "IdDireccion", "IdEstatus", "IdRol", "Nombres", "Password", "Telefono" },
-                values: new object[] { 2, "Prueba prueba2", "17495221545", "prueba2@gmail.com", new DateTime(2021, 12, 23, 20, 14, 56, 72, DateTimeKind.Utc).AddTicks(8678), new DateTime(2021, 12, 23, 20, 14, 56, 72, DateTimeKind.Utc).AddTicks(8674), 2, 1, 2, "Prueba prueba2", "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225", "8294555565" });
+                values: new object[] { 2, "Prueba prueba2", "17495221545", "prueba2@gmail.com", new DateTime(2021, 12, 25, 15, 16, 56, 7, DateTimeKind.Utc).AddTicks(5313), new DateTime(2021, 12, 25, 15, 16, 56, 7, DateTimeKind.Utc).AddTicks(5310), 2, 1, 2, "Prueba prueba2", "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225", "8294555565" });
 
             migrationBuilder.InsertData(
                 table: "Empresa",
                 columns: new[] { "Id", "Email", "FechaActualizado", "FechaCreado", "IdAdministrador", "IdDireccion", "Nombre", "RNC", "Telefono" },
-                values: new object[] { 1, "prueba@gmail.com", new DateTime(2021, 12, 23, 20, 14, 56, 73, DateTimeKind.Utc).AddTicks(2836), new DateTime(2021, 12, 23, 20, 14, 56, 73, DateTimeKind.Utc).AddTicks(2516), 1, 3, "Prueba", "875223236", "5556232365" });
+                values: new object[] { 1, "prueba@gmail.com", new DateTime(2021, 12, 25, 15, 16, 56, 8, DateTimeKind.Utc).AddTicks(721), new DateTime(2021, 12, 25, 15, 16, 56, 8, DateTimeKind.Utc).AddTicks(368), 1, 3, "Prueba", "875223236", "5556232365" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Clientes_Cedula",

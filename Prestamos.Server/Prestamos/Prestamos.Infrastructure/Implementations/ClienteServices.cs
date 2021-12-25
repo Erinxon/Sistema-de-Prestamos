@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Prestamos.Infrastructure.ApiResponse;
+using Prestamos.Core.Entities.Enums;
 
 namespace Prestamos.Infrastructure.Implementations
 {
@@ -93,6 +94,22 @@ namespace Prestamos.Infrastructure.Implementations
                .Include(c => c.EstatusCrediticio)
                .FirstOrDefaultAsync(c => c.Cedula == cedula);
             return cliente;
+        }
+
+        public async Task CambiarEstatusCrediticio(int id, int idEstatusCrediticio)
+        {
+            var cliente = await this._context.Clientes
+                .AsNoTracking()
+                .FirstOrDefaultAsync(c => c.Id == id);
+            cliente.IdEstatusCrediticio = idEstatusCrediticio;
+            await this.Update(cliente);
+        }
+
+        public async Task<bool> ClienteHasPrestamos(int id)
+        {
+            return await this._context.Prestamos
+                .AsNoTracking()
+                .AnyAsync(p => p.IdCliente == id);
         }
     }
 }

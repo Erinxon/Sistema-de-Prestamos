@@ -79,7 +79,7 @@ export class UsuariosComponent implements OnInit {
       }, error => {
         this.showToast({
           title: 'Error',
-          body: 'No se pudo eliminar el usuario',
+          body: 'No se puede eliminar el usuario',
           tipo: 'error'
         })
       })

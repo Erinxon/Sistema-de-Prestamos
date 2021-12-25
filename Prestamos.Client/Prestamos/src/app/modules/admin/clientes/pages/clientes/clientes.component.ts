@@ -74,7 +74,7 @@ export class ClientesComponent implements OnInit {
       }, error => {
         this.showToast({
           title: 'Error',
-          body: 'Ha ocurrido un error al eliminar el cliente',
+          body: 'No se puede eliminar el cliente',
           tipo: 'error'
         })
       })

@@ -6,6 +6,8 @@ import { SharedModule } from 'src/app/Shared/shared.module';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FacturaComponent } from './pages/factura/factura.component';
+
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -13,7 +15,8 @@ const maskConfig: Partial<IConfig> = {
 
 @NgModule({
   declarations: [
-    ConcederPrestamoComponent
+    ConcederPrestamoComponent,
+    FacturaComponent
   ],
   imports: [
     CommonModule,

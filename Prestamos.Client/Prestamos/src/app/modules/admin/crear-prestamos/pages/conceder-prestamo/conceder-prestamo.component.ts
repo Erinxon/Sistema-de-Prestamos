@@ -1,8 +1,9 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Cliente } from 'src/app/Core/models/clientes/cliente.model';
-import { EstatuCrediticioCliente, PeriodoDePagos } from 'src/app/Core/models/Enums/enums.model';
+import { EstatuCrediticioCliente, EstatusPrestamosClientes, PeriodoDePagos } from 'src/app/Core/models/Enums/enums.model';
 import { PeriodoPago } from 'src/app/Core/models/periodosPagos/periodoPago.model';
 import { AddPrestamo } from 'src/app/Core/models/prestamos/add-prestamo.model';
 import { AddDetallePrestamo } from 'src/app/Core/models/prestamos/detallePrestamo/add-DetallePrestamo.model';
@@ -12,6 +13,7 @@ import { Usuario } from 'src/app/Core/models/usuarios/usuatio.model';
 import { AuthService } from 'src/app/Shared/services/auth.service';
 import { ToastService } from 'src/app/Shared/services/toast.service';
 import { ClienteService } from '../../../clientes/services/cliente.service';
+import { PdfService } from '../../services/pdf.service';
 import { PeriodoPagoService } from '../../services/periodo-pago.service';
 import { PrestamoService } from '../../services/prestamo.service';
 
@@ -26,6 +28,8 @@ interface ResultadoBusqueda {
   styleUrls: ['./conceder-prestamo.component.scss']
 })
 export class ConcederPrestamoComponent implements OnInit {
+  showDialogo: boolean = false;
+
   cliente!: Cliente;
   readonly columnas: string[] = ['Nombres', 'Apellidos', 'Cedula', 'Telefono', 'Estatus Crediticio'];
   cedula: string = '';
@@ -43,7 +47,8 @@ export class ConcederPrestamoComponent implements OnInit {
     private periodoPagoSve: PeriodoPagoService,
     private authsvc: AuthService,
     private prestamoService: PrestamoService,
-    private toast: ToastService) {
+    private toast: ToastService,
+    private router: Router) {
       this.getPeriodosPrestamos();
       this.createForm();
       this.getUsuario();
@@ -106,10 +111,9 @@ export class ConcederPrestamoComponent implements OnInit {
 
   calcularTabla(){
     const cuotas = this.form.value.cuotas;
-    const interes = this.form.value.interes;
+    const interes = this.form.value.interes / 12;
     const periodoPago = this.form.value.periodoPago
     const capital = this.form.value.capital
-    const fechaCulminacion = this.getFecha(periodoPago, new Date(), cuotas);
     let tabla = [{
       numeroCuota: 0,
       pago: 0,
@@ -121,9 +125,9 @@ export class ConcederPrestamoComponent implements OnInit {
 
     for(let i =1; i <= cuotas; i++){
       const pagoTable = this.getCuota(interes, capital, cuotas);
-      const interesTabla = Number(( tabla[i-1].saldo * (interes / 100)).toFixed(2));
-      const amortizacionTabla = Number((pagoTable - interesTabla).toFixed(2));
-      const saldoTabla = Number(( tabla[i-1].saldo -  amortizacionTabla).toFixed(2));
+      const interesTabla = this.redondear(( tabla[i-1].saldo * (interes / 100)));
+      const amortizacionTabla = this.redondear((pagoTable - interesTabla));
+      const saldoTabla = this.redondear(( tabla[i-1].saldo -  amortizacionTabla));
       tabla = [...tabla, {
         numeroCuota: i,
         pago: this.getCuota(interes, capital, cuotas),
@@ -133,8 +137,12 @@ export class ConcederPrestamoComponent implements OnInit {
         fecha: this.addDaysToDate(tabla[i-1].fecha, this.getDias(periodoPago))
       }]
     }
+    tabla[tabla.length-1].saldo = 0;
     this.tablaAmortizacion = tabla;
   }
+
+
+  
 
   private getFecha(periodoPago: PeriodoDePagos, fechaInicio: Date, cuotas: number): Date  {
     const dias = periodoPago === PeriodoDePagos.Diario ? cuotas :
@@ -160,14 +168,37 @@ export class ConcederPrestamoComponent implements OnInit {
 
   private getCuota(interes: number, capital: number, cuotas: number): number {
     let resultado =  capital * ((interes / 100) / (1 - Math.pow((1 + (interes / 100)), - cuotas)));
-    return Number(resultado.toFixed(2));
+    return this.redondear(resultado);
+  }
+
+  private redondear(numero: number): number {
+    return Number(numero.toFixed(3));
   }
 
   limpiarTabla(){
+    this.cliente = null!;
+    this.tablaAmortizacion = null!;
+    this.cedula = null!;
     this.form.reset();
   }
 
   confirmarPrestamo(){
+    this.showOrHideDialog();
+    
+  }
+
+
+  onConfirmacion(event: boolean){
+    if(event){
+      this.guardarPrestamo();
+      this.showOrHideDialog();
+    }else{
+       this.showOrHideDialog();
+    }
+    
+  }
+
+  private guardarPrestamo(){
     let detallePrestamo: AddDetallePrestamo[] = this.tablaAmortizacion.map((item:any) => {
       return {
         numeroCuota: item.numeroCuota,
@@ -176,10 +207,11 @@ export class ConcederPrestamoComponent implements OnInit {
         capitalAmortizado: item.amortizacion,
         pagado: 0,
         capitalPendiente: item.saldo,
-        fechaPago: item.fecha
+        fechaPago: item.fecha,
+        idEstatusPrestamo: EstatusPrestamosClientes.Pendiente
       }
     })
-
+    
     const prestamo: AddPrestamo = {
       interes: (this.form.value.interes / 100),
       cuotas: this.form.value.cuotas,
@@ -189,7 +221,7 @@ export class ConcederPrestamoComponent implements OnInit {
       fechaCulminacion: this.getFecha(this.form.value.periodoPago, new Date(), this.form.value.cuotas),
       idUsuarioUtorizador: this.usuario.id,
       idCliente: this.cliente.id,
-      detallePrestamo: detallePrestamo,
+      detallePrestamos: detallePrestamo,
     }
 
     this.prestamoService.addPrestamo(prestamo).subscribe(res => {
@@ -197,12 +229,10 @@ export class ConcederPrestamoComponent implements OnInit {
         title: 'Prestamo',
         body: 'Prestamo registrado correctamente',
         tipo: 'success'
+      }, () => {
+        this.router.navigate(['admin/crear-prestamos/factura',res.data.id]);
       });
-      this.cliente = null!;
-      this.tablaAmortizacion = null!;
-      this.cedula = null!;
-      this.form.reset();
-      console.log(res);
+      this.limpiarTabla();
     }, error => {
       this.showToast({
         title: 'Eror',
@@ -212,11 +242,16 @@ export class ConcederPrestamoComponent implements OnInit {
     })
   }
 
-  showToast(toast: ToastModel){
+  showToast(toast: ToastModel, fn?: () => void){
     this.toast.show(toast)
     setTimeout(() => {
+      fn!();
       this.toast.hide();
     }, 2000)
+  }
+  
+  showOrHideDialog(){
+    this.showDialogo = !this.showDialogo;
   }
 
 }

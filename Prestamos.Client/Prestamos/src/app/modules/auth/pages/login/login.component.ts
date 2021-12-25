@@ -35,8 +35,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   createForm(): void {
     this.form = this.fb.group({
-      email: ['prueba1@gmail.com', [Validators.required, Validators.email]],
-      password: ['123456789', [Validators.required]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]]
     });
   }
 
@@ -56,8 +56,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     }, error => {
       this.showToast(
         {
-          title: 'Usuario invalido',
-          body: error.error.message,
+          title: error.error.message,
+          body: null!,
           tipo: 'error'
         }
       )

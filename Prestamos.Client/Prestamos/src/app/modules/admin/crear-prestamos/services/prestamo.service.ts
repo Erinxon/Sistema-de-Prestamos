@@ -23,4 +23,8 @@ export class PrestamoService {
     });
   }
 
+  getPrestamoById(idPrestamo: number): Observable<ApiResponse<Prestamo>>{
+    return this.http.get<ApiResponse<Prestamo>>(`/Prestamos/GetByid/${idPrestamo}`);
+  }
+
 }

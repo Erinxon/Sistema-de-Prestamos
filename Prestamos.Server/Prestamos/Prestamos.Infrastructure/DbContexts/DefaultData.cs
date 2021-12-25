@@ -87,12 +87,12 @@ namespace Prestamos.Infrastructure.DbContexts
                new EstatusPrestamo()
                {
                    Id = 1,
-                       EstatusPrestamos = EstatusPrestamosClientes.Pagado
+                       EstatusPrestamos = EstatusPrestamosClientes.Pendiente
                },
                new EstatusPrestamo()
                {
                    Id = 2,
-                   EstatusPrestamos = EstatusPrestamosClientes.Pendiente
+                   EstatusPrestamos = EstatusPrestamosClientes.Pagado
                },
                new EstatusPrestamo()
                {
@@ -177,10 +177,10 @@ namespace Prestamos.Infrastructure.DbContexts
                 new Usuario
                 {
                     Id = 1,
-                    Nombres = "Prueba prueba",
-                    Apellidos = "Prueba prueba",
+                    Nombres = "Erinxon",
+                    Apellidos = "Santana",
                     Cedula = "17895222545",
-                    Email = "prueba1@gmail.com",
+                    Email = "erinxon@gmail.com",
                     Telefono = "8294155565",
                     IdDireccion = 1,
                     IdEstatus  = 1,

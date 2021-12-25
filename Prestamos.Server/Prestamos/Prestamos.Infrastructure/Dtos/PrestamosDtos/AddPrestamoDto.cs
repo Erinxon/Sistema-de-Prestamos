@@ -17,6 +17,6 @@ namespace Prestamos.Infrastructure.Dtos.PrestamosDtos
         public DateTime FechaCulminacion { get; set; }
         public int IdUsuarioUtorizador { get; set; }
         public int IdCliente { get; set; }
-        public List<AddDetallePrestamoDto> DetallePrestamo { get; set; }
+        public List<AddDetallePrestamoDto> DetallePrestamos { get; set; }
     }
 }

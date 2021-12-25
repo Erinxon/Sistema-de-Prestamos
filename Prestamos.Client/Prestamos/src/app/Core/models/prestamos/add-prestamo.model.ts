@@ -9,6 +9,6 @@ export interface AddPrestamo {
     fechaCulminacion: Date;
     idUsuarioUtorizador: number;
     idCliente: number;
-    detallePrestamo: AddDetallePrestamo[];
+    detallePrestamos: AddDetallePrestamo[];
 }
 

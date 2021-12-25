@@ -1,0 +1,25 @@
+<app-spinner></app-spinner>
+<div class="section-body" *ngIf="!isLoanding">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Seleccione la forma de obtener la factura</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="cal-md-3 item-factura mb-3">
+                            <button (click)="imprimir()" class="btn btn-warning btn-icon icon-left boton"><i class="fas fa-print"></i>Imprimir</button>
+                        </div>
+                        <div class="cal-md-3 ml-3 mb-3">
+                            <button (click)="visualizar()" class="btn btn-primary  btn-icon icon-left boton"><i class="fas fa-eye"></i>Ver en el navegador</button>
+                        </div>
+                        <div class="cal-md-3 ml-3 mb-3">
+                            <button (click)="descargar()" class="btn btn-dark btn-icon icon-left boton"><i class="fas fa-download"></i>Descargar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

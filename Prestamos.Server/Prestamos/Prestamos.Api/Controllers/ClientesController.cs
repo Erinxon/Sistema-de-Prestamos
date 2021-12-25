@@ -213,12 +213,22 @@ namespace Prestamos.Api.Controllers
                     response.Message = "No se encontro el cliente!";
                     response.Succeeded = false;
                     response.StatusCode = StatusCodes.Status404NotFound;
+                    return NotFound(response);
+                }
+                var canRemoved = await this._unitOfWork.Clientes.ClienteHasPrestamos(id);
+                if (canRemoved)
+                {
+                    response.Message = "El cliente está en uso, no se puede eliminar!";
+                    response.Succeeded = false;
+                    response.StatusCode = StatusCodes.Status400BadRequest;
                     return BadRequest(response);
                 }
+
                 await this._unitOfWork.Clientes.Delete(cliente);
                 await this._unitOfWork.SavechangesAsync();
                 await this._unitOfWork.Direcciones.Delete(cliente.Direccion);
                 await this._unitOfWork.SavechangesAsync();
+
             }
             catch (Exception)
             {
@@ -226,8 +236,7 @@ namespace Prestamos.Api.Controllers
                 response.Succeeded = false;
                 response.StatusCode = StatusCodes.Status400BadRequest;
                 return BadRequest(response);
-            }
-           
+            }         
             return NoContent();
         }
     }

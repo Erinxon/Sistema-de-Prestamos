@@ -56,6 +56,13 @@ const routes: Routes = [
           canActivate: [AuthGuard,AuthorizationGuard],
           data: { roles: [RolesUsuario.Prestador] }
       },
+      {
+        path: 'configuracion',
+        loadChildren: () =>
+          import('./configuracion/configuracion.module').then((m) => m.ConfiguracionModule),
+          canActivate: [AuthGuard,AuthorizationGuard],
+          data: { roles: [RolesUsuario.Prestador] }
+      },
     ],
     canActivate: [AuthGuard],
   },

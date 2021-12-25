@@ -96,13 +96,11 @@ namespace Prestamos.Infrastructure.DbContexts
 
                 entity.HasOne(d => d.EstatusPrestamo)
                     .WithMany(p => p.DetallePrestamos)
-                    .HasForeignKey(d => d.IdEstatusPrestamo)
-                    .HasConstraintName("FK__DetallePr__IdEst__48CFD27E");
+                    .HasForeignKey(d => d.IdEstatusPrestamo);
 
                 entity.HasOne(d => d.Prestamo)
                     .WithMany(p => p.DetallePrestamos)
-                    .HasForeignKey(d => d.IdPrestamo)
-                    .HasConstraintName("FK__DetallePr__IdPre__49C3F6B7");
+                    .HasForeignKey(d => d.IdPrestamo);
             });
 
             modelBuilder.Entity<Direccion>(entity =>
@@ -205,6 +203,7 @@ namespace Prestamos.Infrastructure.DbContexts
 
             modelBuilder.Entity<Prestamo>(entity =>
             {
+                entity.HasKey(p => p.Id);
                 entity.Property(e => e.Capital).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.FechaCreado).HasColumnType("datetime");
@@ -216,22 +215,22 @@ namespace Prestamos.Infrastructure.DbContexts
                 entity.HasOne(d => d.EstatusPrestamo)
                     .WithMany(p => p.Prestamos)
                     .HasForeignKey(d => d.IdEstatusPrestamo)
-                    .OnDelete(DeleteBehavior.Restrict); ;
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 entity.HasOne(d => d.PeriodoPago)
                     .WithMany(p => p.Prestamos)
                     .HasForeignKey(d => d.IdPeriodoPago)
-                    .OnDelete(DeleteBehavior.Restrict); ;
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 entity.HasOne(d => d.UsuarioUtorizador)
                     .WithMany(p => p.Prestamos)
                     .HasForeignKey(d => d.IdUsuarioUtorizador)
-                    .OnDelete(DeleteBehavior.Restrict); ;
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 entity.HasOne(d => d.Cliente)
                    .WithMany(p => p.Prestamos)
                    .HasForeignKey(d => d.IdCliente)
-                   .OnDelete(DeleteBehavior.Restrict); ;
+                   .OnDelete(DeleteBehavior.Restrict);
             });
 
 
@@ -334,10 +333,15 @@ namespace Prestamos.Infrastructure.DbContexts
 
             foreach (var entry in ChangeTracker.Entries<Empresa>())
             {
+                entry.Entity.FechaCreado = entry.State switch
+                {
+                    EntityState.Added => DateTime.UtcNow,
+                    _ => entry.Entity.FechaCreado
+                };
                 entry.Entity.FechaActualizado = entry.State switch
                 {
                     EntityState.Modified => DateTime.UtcNow,
-                    _ => entry.Entity.FechaCreado
+                    _ => entry.Entity.FechaActualizado
                 };
             }
             return base.SaveChangesAsync(cancellationToken);

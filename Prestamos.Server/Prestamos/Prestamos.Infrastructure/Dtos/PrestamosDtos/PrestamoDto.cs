@@ -22,6 +22,6 @@ namespace Prestamos.Infrastructure.Dtos.PrestamosDtos
         public PeriodoPagoDto PeriodoPago { get; set; }
         public UsuarioDto UsuarioUtorizador { get; set; }
         public ClienteDto Cliente { get; set; }
-        public List<DetallePrestamoDto> DetallePrestamo { get; set; }
+        public List<DetallePrestamoDto> DetallePrestamos { get; set; }
     }
 }
