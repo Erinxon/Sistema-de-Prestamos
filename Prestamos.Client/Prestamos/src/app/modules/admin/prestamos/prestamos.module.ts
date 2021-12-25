@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { PrestamosRoutingModule } from './prestamos-routing.module';
 import { PrestamosComponent } from './pages/prestamos/prestamos.component';
+import { SharedModule } from 'src/app/Shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import { PrestamosComponent } from './pages/prestamos/prestamos.component';
   ],
   imports: [
     CommonModule,
-    PrestamosRoutingModule
+    PrestamosRoutingModule,
+    FormsModule,
+    SharedModule
   ]
 })
 export class PrestamosModule { }

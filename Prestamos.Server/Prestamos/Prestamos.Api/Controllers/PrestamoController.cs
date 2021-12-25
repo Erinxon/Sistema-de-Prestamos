@@ -26,23 +26,15 @@ namespace Prestamos.Api.Controllers
 
         // GET: api/Prestamos
         [HttpGet]
-        public async Task<ActionResult<ApiResponse<IEnumerable<PrestamoDto>>>> GetAll([FromQuery] int idUsuario)
+        public async Task<ActionResult<PagedResponse<IEnumerable<PrestamoDto>>>> GetAll([FromQuery] Pagination pagination)
         {
-            var response = new ApiResponse<IEnumerable<PrestamoDto>>();
+            var response = new PagedResponse<IEnumerable<PrestamoDto>>(pagination);
             try
             {
-                var usuario = await _unitOfWork.Usuarios.GetById(idUsuario);
-
-                if (usuario is null)
-                {
-                    response.Succeeded = false;
-                    response.Message = "No se encontro el prestamo!";
-                    response.StatusCode = StatusCodes.Status404NotFound;
-                    return NotFound(response);
-                }
-                RolesUsuario rol = usuario.Rol.Roles;
-                var prestamos = await _unitOfWork.Prestamos.GetAll(idUsuario, rol);
+                var prestamos = await _unitOfWork.Prestamos.GetAll(pagination);
                 response.Data = _mapper.Map<IEnumerable<PrestamoDto>>(prestamos);
+                response.pagination = pagination;
+                response.pagination.TotalRegistros = await this._unitOfWork.Prestamos.GetCount();
                 response.StatusCode = StatusCodes.Status200OK;
             }
             catch (Exception ex)
@@ -57,7 +49,7 @@ namespace Prestamos.Api.Controllers
         }
 
         // GET: api/Prestamos/GetByid/1
-        [HttpGet("GetByid/{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<ApiResponse<PrestamoDto>>> Get(int id)
         {
             var response = new ApiResponse<PrestamoDto>();
