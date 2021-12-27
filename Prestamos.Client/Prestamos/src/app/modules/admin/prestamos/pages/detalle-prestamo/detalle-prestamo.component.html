@@ -1,0 +1,96 @@
+<app-spinner></app-spinner>
+<div class="section-body" *ngIf="prestamo">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h3>Usuario Autorizador del Prestamo</h3>
+            <div class="table-responsive">
+                <div id="table-1_wrapper">
+                    <app-table [columnas]="columnasUsuario">
+                        <ng-container data>
+                          <tr>
+                            <td>{{prestamo.usuarioUtorizador.nombres}}</td>
+                            <td>{{prestamo.usuarioUtorizador.apellidos}}</td>
+                            <td>{{prestamo.usuarioUtorizador.cedula|mask: '000-0000000-0'}}</td>
+                           <td>{{prestamo.usuarioUtorizador.telefono |mask: '(000)-000-0000'}}</td>
+                           <td>{{getRolString(prestamo.usuarioUtorizador.rol.roles)}}</td>
+                          </tr>
+                        </ng-container>
+                    </app-table>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h3>Cliente</h3>
+            <div class="table-responsive">
+                <div id="table-1_wrapper">
+                    <app-table [columnas]="columnasCliente">
+                        <ng-container data>
+                          <tr>
+                            <td>{{prestamo.cliente.nombres}}</td>
+                            <td>{{prestamo.cliente.apellidos}}</td>
+                            <td>{{prestamo.cliente.cedula|mask: '000-0000000-0'}}</td>
+                            <td>{{prestamo.cliente.telefono |mask: '(000)-000-0000'}}</td>
+                            <td>{{getEstatusCrediticioString(prestamo.cliente.estatusCrediticio.estatusCrediticios)}}</td>
+                          </tr>
+                        </ng-container>
+                    </app-table>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h3>Prestamo</h3>
+            <div class="table-responsive">
+                <div id="table-1_wrapper">
+                    <app-table [columnas]="columnasPrestamo">
+                        <ng-container data *ngIf="prestamo">
+                          <tr>
+                            <td>{{getPeriodoDePagoString(prestamo.periodoPago.periodoDePagos)}}</td>
+                            <td>{{prestamo.interes|percent}}</td>
+                            <td>{{prestamo.cuotas}}</td>
+                            <td>{{prestamo.capital | currency:'DO':'symbol':'1.2-2'}}</td>
+                            <td>{{prestamo.fechaCulminacion|date:'dd/MM/yyyy'}}</td>
+                          </tr>
+                        </ng-container>
+                    </app-table>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h3>Cronograma de Pago</h3>
+            <div class="table-responsive">
+                <div id="table-1_wrapper">
+                    <app-table [columnas]="columnasCronograma">
+                        <ng-container data>
+                          <tr *ngFor="let detalle of prestamo.detallePrestamos">
+                           <td>{{detalle.numeroCuota}}</td>
+                           <td>{{detalle.cuotaPagar}}</td>
+                           <td>{{detalle.interesPagar}}</td>
+                           <td>{{detalle.capitalAmortizado}}</td>
+                           <td>{{detalle.pagado}}</td>
+                           <td>{{detalle.capitalPendiente}}</td>
+                           <td>{{getEstatusPrestamoString(detalle.estatusPrestamo.estatusPrestamos)}}</td>
+                           <td>{{detalle.fechaPago | date:'dd/MM/yyyy'}}</td>
+                          </tr>
+                        </ng-container>
+                    </app-table>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

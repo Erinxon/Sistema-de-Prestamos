@@ -32,12 +32,12 @@
                      <td>{{usuario.nombres}}</td>
                      <td>{{usuario.apellidos}}</td>
                      <td>{{usuario.cedula|mask: '000-0000000-0'}}</td>
-                      <td>{{usuario.telefono |mask: '(000)-000-0000'}}</td>
+                    <td>{{usuario.telefono |mask: '(000)-000-0000'}}</td>
                     <td>{{getRolString(usuario.rol.roles)}}</td>
                     <td>{{usuario.fechaCreado |date:'dd/MM/yyyy'}}
                     </td>
                       <td>
-                        <button class="btn btn-success mr-1">Detalle</button>                
+                        <button [routerLink]="['detalle', usuario.id]" class="btn btn-success mr-1">Detalle</button>                
                       </td>
                       <td>             
                         <button [routerLink]="['editar', usuario.id]" class="btn btn-primary mr-1"><i class="far fa-edit"></i></button>

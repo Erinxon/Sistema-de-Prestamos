@@ -8,7 +8,8 @@ import { SharedModule } from 'src/app/Shared/shared.module';
 import { AgregarClientesComponent } from './pages/agregar-clientes/agregar-clientes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
-import { EditarClientesComponent } from './pages/editar-clientes/editar-clientes.component'
+import { EditarClientesComponent } from './pages/editar-clientes/editar-clientes.component';
+import { DetalleClienteComponent } from './pages/detalle-cliente/detalle-cliente.component'
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -18,7 +19,8 @@ const maskConfig: Partial<IConfig> = {
   declarations: [
     ClientesComponent,
     AgregarClientesComponent,
-    EditarClientesComponent
+    EditarClientesComponent,
+    DetalleClienteComponent
   ],
   imports: [
     CommonModule,

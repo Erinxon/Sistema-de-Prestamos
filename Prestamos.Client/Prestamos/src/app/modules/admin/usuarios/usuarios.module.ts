@@ -9,6 +9,7 @@ import { SharedModule } from 'src/app/Shared/shared.module';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { EditarUsuarioComponent } from './pages/editar-usuario/editar-usuario.component';
 import { AgregarUsuarioComponent } from './pages/agregar-usuario/agregar-usuario.component';
+import { DetalleUsuarioComponent } from './pages/detalle-usuario/detalle-usuario.component';
 
 
 const maskConfig: Partial<IConfig> = {
@@ -19,7 +20,8 @@ const maskConfig: Partial<IConfig> = {
   declarations: [
     UsuariosComponent,
     EditarUsuarioComponent,
-    AgregarUsuarioComponent
+    AgregarUsuarioComponent,
+    DetalleUsuarioComponent
   ],
   imports: [
     CommonModule,

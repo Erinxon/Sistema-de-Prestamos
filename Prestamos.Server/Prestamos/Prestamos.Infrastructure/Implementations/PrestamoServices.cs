@@ -26,7 +26,9 @@ namespace Prestamos.Infrastructure.Implementations
             var prestamos = await this._context.Prestamos
                                              .AsNoTracking()
                                              .Include(p => p.Cliente)
-                                             .ThenInclude(c => c.Direccion)
+                                                 .ThenInclude(c => c.Direccion)
+                                             .Include(p => p.Cliente)
+                                                 .ThenInclude(c => c.EstatusCrediticio)
                                              .Include(p => p.EstatusPrestamo)
                                              .Include(p => p.PeriodoPago)
                                              .Include(p => p.UsuarioUtorizador)
@@ -42,12 +44,16 @@ namespace Prestamos.Infrastructure.Implementations
         {
             return await this._context.Prestamos
                                              .AsNoTracking()
+                                            .Include(p => p.Cliente)
+                                                 .ThenInclude(c => c.Direccion)
                                              .Include(p => p.Cliente)
-                                             .ThenInclude(c => c.Direccion)
+                                                 .ThenInclude(c => c.EstatusCrediticio)
                                              .Include(p => p.EstatusPrestamo)
                                              .Include(p => p.PeriodoPago)
                                              .Include(p => p.UsuarioUtorizador)
+                                                .ThenInclude(u => u.Rol)
                                              .Include(p => p.DetallePrestamos)
+                                                .ThenInclude(d => d.EstatusPrestamo)
                                              .FirstOrDefaultAsync(p => p.Id == id);
         }
 

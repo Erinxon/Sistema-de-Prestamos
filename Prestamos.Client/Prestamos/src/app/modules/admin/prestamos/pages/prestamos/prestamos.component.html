@@ -1,5 +1,5 @@
 <app-spinner></app-spinner>
-<div class="section-body">
+<div class="section-body" *ngIf="prestamos">
     <div class="row">
       <div class="col-12">
         <div class="card">
@@ -23,7 +23,6 @@
                   </div>
                 <div class="row">
                   <div class="col-sm-12">
-                    <app-spinner></app-spinner>
                     <app-table [columnas]="columnas">
                       <ng-container noHayRegistros *ngIf="prestamos">
                         <tr *ngIf="prestamos.length === 0">
@@ -34,7 +33,7 @@
                         <tr *ngFor="let prestamo of prestamos">
                           <td>{{prestamo.cliente.nombres}} {{prestamo.cliente.apellidos}}</td>
                           <td>{{getPeriodoDePagoString(prestamo.periodoPago.periodoDePagos)}}</td>
-                          <td>{{prestamo.interes}}</td>
+                          <td>{{prestamo.interes|percent}}</td>
                           <td>{{prestamo.cuotas}}</td>
                           <td>{{prestamo.capital | currency:'DO':'symbol':'1.2-2'}}</td>
                           <td>{{prestamo.fechaCulminacion|date:'dd/MM/yyyy'}}</td>
@@ -46,7 +45,7 @@
                             </a>
                           </td>
                           <td>
-                            <button class="btn btn-success mr-1">Detalle</button>
+                            <button [routerLink]="['detalle', prestamo.id]" class="btn btn-success mr-1">Detalle</button>
                           </td>
                         </tr>
                       </ng-container>
@@ -59,14 +58,10 @@
                         </div>
                       </div>
                   </div>
-                </div>
-               
-              </div>
-              
-            </div>
-            
-          </div>
-          
+                </div>             
+              </div>             
+            </div>     
+          </div>  
         </div>
       </div>
     </div>

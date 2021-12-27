@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthorizationGuard } from 'src/app/Core/guards/authorization.guard';
 import { RolesUsuario } from 'src/app/Core/models/Enums/enums.model';
 import { AgregarUsuarioComponent } from './pages/agregar-usuario/agregar-usuario.component';
+import { DetalleUsuarioComponent } from './pages/detalle-usuario/detalle-usuario.component';
 import { EditarUsuarioComponent } from './pages/editar-usuario/editar-usuario.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'editar/:id',
     component: EditarUsuarioComponent,
+  },
+  {
+    path: 'detalle/:id',
+    component: DetalleUsuarioComponent,
   }
 ];
 

@@ -1,0 +1,99 @@
+<app-spinner></app-spinner>
+<div class="section-body" *ngIf="usuario">
+    <div class="row mt-sm-4">
+      <div class="col-12 col-md-12 col-lg-4">
+        <div class="card author-box">
+          <div class="card-body">
+            <div class="author-box-center">
+              <figure class="avatar mr-2 avatar-xl" [attr.data-initial]="getLetrasIniciales(usuario.nombres,usuario.apellidos)"></figure>
+              <div class="clearfix"></div>
+              <div class="author-box-name mt-2">
+                <span>{{usuario.nombres}} {{usuario.apellidos}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h4>Información Rol</h4>
+          </div>
+          <div class="card-body">
+            <div>
+              <p class="clearfix">
+                <span class="float-left">
+                  Rol:
+                </span>
+                <span class="float-right text-muted">
+                    {{getRolString(usuario.rol.roles)}}
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-12 col-lg-8">
+        <div class="card">
+          <div class="padding-20">
+            <ul class="nav nav-tabs" id="myTab2" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab2" data-toggle="tab" href="#about" role="tab" aria-selected="true">Información personal básica</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="profile-tab2" data-toggle="tab" href="#direccion" role="tab" aria-selected="false">Dirección</a>
+              </li>
+            </ul>
+            <div class="tab-content tab-bordered" id="myTab3Content">
+              <div class="tab-pane fade active show" id="about" role="tabpanel" aria-labelledby="home-tab2">
+                <div class="row">
+                  <div class="col-md-3 col-6 b-r">
+                    <strong>Nombre</strong>
+                    <br>
+                    <p class="text-muted">{{usuario.nombres}}</p>
+                  </div>
+                  <div class="col-md-3 col-6 b-r">
+                    <strong>Apellido</strong>
+                    <br>
+                    <p class="text-muted">{{usuario.apellidos}}</p>
+                  </div>
+                  <div class="col-md-3 col-6 b-r">
+                    <strong>Cédula</strong>
+                    <br>
+                    <p class="text-muted">{{usuario.cedula}}</p>
+                  </div>
+                  <div class="col-md-3 col-6 b-r">
+                    <strong>Telefono</strong>
+                    <br>
+                    <p class="text-muted">{{usuario.telefono}}</p>
+                  </div>
+                  <div class="col-md-3 col-6 b-r">
+                    <strong>Email</strong>
+                    <br>
+                    <p class="text-muted">{{usuario.email}}</p>
+                  </div>
+                </div>            
+              </div>
+              <div class="tab-pane fade" id="direccion" role="tabpanel" aria-labelledby="profile-tab2">
+                <div class="row">
+                  <div class="col-md-3 col-6 b-r">
+                    <strong>Provincia</strong>
+                    <br>
+                    <p class="text-muted">{{usuario.direccion.provincia}}</p>
+                  </div>
+                  <div class="col-md-3 col-6 b-r">
+                    <strong>Sector</strong>
+                    <br>
+                    <p class="text-muted">{{usuario.direccion.calle}}</p>
+                  </div>
+                  <div class="col-md-3 col-6 b-r">
+                    <strong>Numero casa</strong>
+                    <br>
+                    <p class="text-muted">{{usuario.direccion.numero}}</p>
+                  </div>
+                </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
