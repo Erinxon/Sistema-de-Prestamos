@@ -135,8 +135,9 @@
                                     <label>Estatus Crediticios</label>
                                     <select formControlName="idEstatusCrediticio" class="form-control">
                                         <option [ngValue]="null" disabled>Por favor seleccione una opción</option>
-                                        <option *ngFor="let estatus of estatusCrediticios$ |async;" [ngValue]="estatus.id" >
-                                            {{ getEstatusCrediticioString(estatus.estatusCrediticios) }}
+                                        <option *ngFor="let estatus of estatusCrediticios$ |async;" [ngValue]="estatus.id"
+                                        [appColorFila]="estatus.estatusCrediticios">
+                                            {{ estatus.estatusCrediticios | estatusCrediticioToString }}
                                          </option>
                                       </select>
                                 </div>

@@ -14,6 +14,10 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
 import { FormsModule } from '@angular/forms';
 import { ColorFilaEstatusCrediticioClienteDirective } from './directives/color-fila-estatus-prestamo.directive';
 import { ColorFilaEstatusPrestamoClienteDirective } from './directives/color-fila-estatus-prestamo-cliente.directive';
+import { EstatusPrestamoToStringPipe } from './pipes/estatus-prestamo-to-string.pipe';
+import { EstatusCrediticioToStringPipe } from './pipes/estatus-crediticio-to-string.pipe';
+import { PeriodoPagoToStringPipe } from './pipes/periodo-pago-to-string.pipe';
+import { RolToStringPipe } from './pipes/rol-to-string.pipe';
 
 
 @NgModule({
@@ -30,6 +34,10 @@ import { ColorFilaEstatusPrestamoClienteDirective } from './directives/color-fil
     BuscadorComponent,
     ColorFilaEstatusCrediticioClienteDirective,
     ColorFilaEstatusPrestamoClienteDirective,
+    EstatusPrestamoToStringPipe,
+    EstatusCrediticioToStringPipe,
+    PeriodoPagoToStringPipe,
+    RolToStringPipe,
   ],
   imports: [
     CommonModule,
@@ -48,7 +56,11 @@ import { ColorFilaEstatusPrestamoClienteDirective } from './directives/color-fil
     Error403Component,
     BuscadorComponent,
     ColorFilaEstatusCrediticioClienteDirective,
-    ColorFilaEstatusPrestamoClienteDirective
+    ColorFilaEstatusPrestamoClienteDirective,
+    EstatusPrestamoToStringPipe,
+    EstatusCrediticioToStringPipe,
+    PeriodoPagoToStringPipe,
+    RolToStringPipe,
   ]
 })
 export class SharedModule { }

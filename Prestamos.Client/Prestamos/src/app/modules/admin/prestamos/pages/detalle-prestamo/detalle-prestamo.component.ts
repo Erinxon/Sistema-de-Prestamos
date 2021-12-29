@@ -28,26 +28,9 @@ export class DetallePrestamoComponent implements OnInit {
     const id = +this.route.snapshot.params['id'];
     this.prestamoSvc.getPrestamoById(id).subscribe(res => {
       this.prestamo = res.data;
-      console.log(this.prestamo)
     }, error => {
       this.router.navigate(['admin/prestamos']);
     });
-  }
-
-  getPeriodoDePagoString(periodo: PeriodoDePagos){
-    return PeriodoDePagos[periodo];
-  }
-
-  getEstatusCrediticioString(estatus: EstatuCrediticioCliente){
-    return EstatuCrediticioCliente[estatus].split(/(?=[A-Z])/).join(' ');
-  }
-
-  getRolString(rol: RolesUsuario){
-    return RolesUsuario[rol];
-  }
-
-  getEstatusPrestamoString(estatus: EstatusPrestamosClientes){
-    return EstatusPrestamosClientes[estatus];
   }
 
 }

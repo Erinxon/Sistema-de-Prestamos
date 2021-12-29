@@ -58,10 +58,6 @@ export class UsuariosComponent implements OnInit {
     this.showDialogo = !this.showDialogo;
   }
 
-  getRolString(estatus: RolesUsuario): string {
-    return RolesUsuario[estatus];
-  }
-
   eliminarUsuario(id: number){
     this.idUsuarioAEliminar = id;
     this.showOrHideDialog();

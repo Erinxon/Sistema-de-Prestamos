@@ -1,19 +1,18 @@
-import { Directive, ElementRef, Input, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { EstatusPrestamosClientes } from 'src/app/Core/models/Enums/enums.model';
 
 @Directive({
   selector: '[appColorFilaEstatusPrestamo]'
 })
-export class ColorFilaEstatusPrestamoClienteDirective implements OnInit {
+export class ColorFilaEstatusPrestamoClienteDirective implements OnChanges {
   @Input() appColorFilaEstatusPrestamo!: EstatusPrestamosClientes;
 
   constructor(private readonly elRef: ElementRef) {
   
   }
-  ngOnInit(): void {
-    if(this.appColorFilaEstatusPrestamo){
-      this.elRef.nativeElement.classList.add(this.getClassByEstatus(this.appColorFilaEstatusPrestamo));
-    }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.elRef.nativeElement.classList.add(this.getClassByEstatus(this.appColorFilaEstatusPrestamo));
   }
 
   private getClassByEstatus(estatus: EstatusPrestamosClientes): string {

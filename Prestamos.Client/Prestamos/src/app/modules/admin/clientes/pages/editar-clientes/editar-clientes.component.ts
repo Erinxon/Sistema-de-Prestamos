@@ -122,10 +122,6 @@ export class EditarClientesComponent implements OnInit {
     }, 2000)
   }
 
-  getEstatusCrediticioString(estatus: EstatuCrediticioCliente): string {
-    return EstatuCrediticioCliente[estatus].split(/(?=[A-Z])/).join(' ');
-  }
-
   getEstadoString(estatus: EstatusClientes): string {
     return  EstatusClientes[estatus];
   }

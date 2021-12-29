@@ -46,10 +46,6 @@ export class ClientesComponent implements OnInit {
     });
   }
 
-  getEstatusString(estatus: EstatuCrediticioCliente): string {
-    return EstatuCrediticioCliente[estatus].split(/(?=[A-Z])/).join(' ');
-  }
-
   searchCliente(text: string){
     if(text.length > 0){
       this.clienteService.search(text.trim(), this.pagination).subscribe((res) => {

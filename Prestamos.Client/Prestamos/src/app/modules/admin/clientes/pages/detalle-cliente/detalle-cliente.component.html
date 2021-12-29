@@ -24,7 +24,7 @@
                   Estatus Crediticio:
                 </span>
                 <span class="float-right text-muted">
-                    {{getEstatusString(cliente.estatusCrediticio.estatusCrediticios)}}
+                    {{cliente.estatusCrediticio.estatusCrediticios | estatusCrediticioToString}}
                 </span>
               </p>
             </div>

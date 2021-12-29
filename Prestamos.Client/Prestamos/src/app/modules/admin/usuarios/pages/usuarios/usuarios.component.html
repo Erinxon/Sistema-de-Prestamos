@@ -33,7 +33,7 @@
                      <td>{{usuario.apellidos}}</td>
                      <td>{{usuario.cedula|mask: '000-0000000-0'}}</td>
                     <td>{{usuario.telefono |mask: '(000)-000-0000'}}</td>
-                    <td>{{getRolString(usuario.rol.roles)}}</td>
+                    <td>{{usuario.rol.roles | rolToString}}</td>
                     <td>{{usuario.fechaCreado |date:'dd/MM/yyyy'}}
                     </td>
                       <td>

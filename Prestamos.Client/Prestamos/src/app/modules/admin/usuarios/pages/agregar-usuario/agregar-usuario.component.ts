@@ -76,10 +76,6 @@ export class AgregarUsuarioComponent implements OnInit {
     }, 2000)
   }
 
-  getRolString(rol: RolesUsuario): string {
-    return  RolesUsuario[rol];
-  }
-
   onSubmit(){
     const usuario = {...this.form.value};
     this.usuarioService.addUsuario(usuario).subscribe((res) => {

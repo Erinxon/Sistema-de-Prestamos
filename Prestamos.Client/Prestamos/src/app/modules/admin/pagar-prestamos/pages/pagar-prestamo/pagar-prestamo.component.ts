@@ -112,9 +112,10 @@ export class PagarPrestamoComponent implements OnInit {
                               : EstatusPrestamosClientes.Abono;
         d.estatusPrestamo = d.pagado === d.cuotaPagar ? this.getEstatus(EstatusPrestamosClientes.Pagado)
                               : this.getEstatus(EstatusPrestamosClientes.Abono);
-        this.detallePrestamo = [...this.detallePrestamo, d]
+        this.detallePrestamo = [...this.detallePrestamo, {...d}]
       }
     })
+    console.log(this.detallePrestamo)
     return this.detallePrestamo;
   }
   
@@ -155,10 +156,6 @@ export class PagarPrestamoComponent implements OnInit {
     this.cedula = '';
     this.prestamo = null!;
     this.detallePrestamo = [];
-  }
-
-  getEstatusString(estatus: EstatusPrestamosClientes): string {
-    return EstatusPrestamosClientes[estatus].split(/(?=[A-Z])/).join(' ');
   }
 
   onConfirmacion(event: boolean){

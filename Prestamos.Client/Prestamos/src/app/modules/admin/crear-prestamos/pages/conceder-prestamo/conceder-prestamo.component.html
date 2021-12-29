@@ -32,9 +32,7 @@
                                             <td>{{cliente.cedula| mask: '000-0000000-0'}}</td>
                                             <td>{{cliente.telefono |mask: '(000)-000-0000'}}</td>
                                             <td>
-                                                <div>
-                                                    {{getEstatusString(cliente.estatusCrediticio.estatusCrediticios)}}
-                                                </div>
+                                                {{cliente.estatusCrediticio.estatusCrediticios | estatusCrediticioToString}}
                                             </td>
                                         </tr>
                                     </ng-container>
@@ -63,7 +61,7 @@
                                         >
                                         <option [ngValue]="null" disabled>Por favor seleccione una opción</option>
                                         <option *ngFor="let periodo of periodoPagos" [ngValue]="periodo.periodoDePagos">
-                                            {{getPeriodoDePagoString(periodo.periodoDePagos)}}
+                                            {{periodo.periodoDePagos | periodoPagoToString}}
                                         </option>
                                     </select>
                                     </div>

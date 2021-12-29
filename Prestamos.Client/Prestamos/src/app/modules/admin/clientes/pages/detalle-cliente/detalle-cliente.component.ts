@@ -28,11 +28,7 @@ export class DetalleClienteComponent implements OnInit {
       this.router.navigate(['admin/clientes'])
     });
   }
-
-  getEstatusString(estatus: EstatuCrediticioCliente): string {
-    return EstatuCrediticioCliente[estatus].split(/(?=[A-Z])/).join(' ');
-  }
-
+  
   getLetrasIniciales(nombre: string, apellido: string): string {
     return nombre.charAt(0) + apellido.charAt(0);
   }

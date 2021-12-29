@@ -166,6 +166,10 @@ namespace Prestamos.Api.Controllers
                     IdPeriodoPago = prestamoDto.PeriodoPago.Id
                 };*/
                 var detalle = _mapper.Map<List<DetallePrestamo>>(prestamoDto.DetallePrestamos);
+                detalle.ForEach(p =>
+                {
+                    p.EstatusPrestamo = null;
+                });
                 //prestamo = await this._unitOfWork.Prestamos.Pagar(prestamo);
                 await this._unitOfWork.DetallesPrestamos.Update(detalle);
                 await this._unitOfWork.SavechangesAsync();
@@ -174,7 +178,7 @@ namespace Prestamos.Api.Controllers
             }
             catch (Exception ex)
             {
-                response.Message = ex.InnerException.Message;
+                response.Message = ex.Message;
                 response.Succeeded = false;
                 response.StatusCode = StatusCodes.Status400BadRequest;
                 return BadRequest(response);

@@ -41,10 +41,6 @@ export class PrestamosComponent implements OnInit {
     
   }
 
-  getPeriodoDePagoString(periodo: PeriodoDePagos){
-    return PeriodoDePagos[periodo];
-  }
-
   pageChange(event: Pagination){
     this.pagination = event;
     this.getPrestamos();

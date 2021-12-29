@@ -92,10 +92,6 @@ export class EditarUsuarioComponent implements OnInit {
     }, 2000)
   }
 
-  getRolString(rol: RolesUsuario): string {
-    return  RolesUsuario[rol];
-  }
-
   onSubmit(){
     const usuario: UpdateUsuario = {...this.form.value};
     this.usuarioService.updateUsuario(this.usuario.id,usuario).subscribe((res) => {

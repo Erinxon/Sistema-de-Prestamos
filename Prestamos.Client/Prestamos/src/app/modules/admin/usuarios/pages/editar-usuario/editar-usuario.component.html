@@ -146,7 +146,7 @@
                                         >
                                         <option [ngValue]="null" disabled>Por favor seleccione una opción</option>
                                         <option *ngFor="let rol of roles | async;" [ngValue]="rol.id">
-                                            {{getRolString(rol.roles)}}
+                                            {{rol.roles | rolToString}}
                                         </option>
                                     </select>
                                     <ng-container

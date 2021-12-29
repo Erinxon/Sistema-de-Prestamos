@@ -64,7 +64,9 @@ namespace Prestamos.Infrastructure.Implementations
 
         public async Task<int> GetCount()
         {
-            return await this._context.Prestamos.CountAsync();
+            return await this._context.Prestamos
+                .AsNoTracking()
+                .CountAsync();
         }
 
         public async Task<Prestamo> GetByCedulaCliente(string cedula)
@@ -96,7 +98,9 @@ namespace Prestamos.Infrastructure.Implementations
 
         public async Task<bool> IsExistById(int id)
         {
-            return await this._context.Prestamos.AnyAsync(p => p.Id == id);
+            return await this._context.Prestamos
+                .AsNoTracking()
+                .AnyAsync(p => p.Id == id);
         }
     }
 }

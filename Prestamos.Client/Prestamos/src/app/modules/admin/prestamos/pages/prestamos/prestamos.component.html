@@ -34,7 +34,7 @@
                         [appColorFilaEstatusPrestamo]="prestamo.estatusPrestamo.estatusPrestamos"
                         >
                           <td>{{prestamo.cliente.nombres}} {{prestamo.cliente.apellidos}}</td>
-                          <td>{{getPeriodoDePagoString(prestamo.periodoPago.periodoDePagos)}}</td>
+                          <td>{{prestamo.periodoPago.periodoDePagos | periodoPagoToString}}</td>
                           <td>{{prestamo.interes|percent}}</td>
                           <td>{{prestamo.cuotas}}</td>
                           <td>{{prestamo.capital | currency:'DO':'symbol':'1.2-2'}}</td>

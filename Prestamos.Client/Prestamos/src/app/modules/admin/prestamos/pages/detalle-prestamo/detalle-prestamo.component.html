@@ -14,7 +14,7 @@
                             <td>{{prestamo.usuarioUtorizador.apellidos}}</td>
                             <td>{{prestamo.usuarioUtorizador.cedula|mask: '000-0000000-0'}}</td>
                            <td>{{prestamo.usuarioUtorizador.telefono |mask: '(000)-000-0000'}}</td>
-                           <td>{{getRolString(prestamo.usuarioUtorizador.rol.roles)}}</td>
+                           <td>{{prestamo.usuarioUtorizador.rol.roles | rolToString}}</td>
                           </tr>
                         </ng-container>
                     </app-table>
@@ -36,7 +36,7 @@
                             <td>{{prestamo.cliente.apellidos}}</td>
                             <td>{{prestamo.cliente.cedula|mask: '000-0000000-0'}}</td>
                             <td>{{prestamo.cliente.telefono |mask: '(000)-000-0000'}}</td>
-                            <td>{{getEstatusCrediticioString(prestamo.cliente.estatusCrediticio.estatusCrediticios)}}</td>
+                            <td>{{prestamo.cliente.estatusCrediticio.estatusCrediticios | estatusCrediticioToString}}</td>
                           </tr>
                         </ng-container>
                     </app-table>
@@ -52,10 +52,11 @@
             <div class="table-responsive">
                 <div id="table-1_wrapper">
                     <app-table [columnas]="columnasPrestamo">
-                        <ng-container data *ngIf="prestamo"
-                        >
-                          <tr>
-                            <td>{{getPeriodoDePagoString(prestamo.periodoPago.periodoDePagos)}}</td>
+                        <ng-container data *ngIf="prestamo">
+                          <tr
+                          [appColorFilaEstatusPrestamo]="prestamo.estatusPrestamo.estatusPrestamos"
+                          >
+                            <td>{{prestamo.periodoPago.periodoDePagos | periodoPagoToString}}</td>
                             <td>{{prestamo.interes|percent}}</td>
                             <td>{{prestamo.cuotas}}</td>
                             <td>{{prestamo.capital | currency:'DO':'symbol':'1.2-2'}}</td>
@@ -84,7 +85,7 @@
                            <td>{{detalle.capitalAmortizado}}</td>
                            <td>{{detalle.pagado}}</td>
                            <td>{{detalle.capitalPendiente}}</td>
-                           <td>{{getEstatusPrestamoString(detalle.estatusPrestamo.estatusPrestamos)}}</td>
+                           <td>{{detalle.estatusPrestamo.estatusPrestamos | estatusPrestamoToString}}</td>
                            <td>{{detalle.fechaPago | date:'dd/MM/yyyy'}}</td>
                           </tr>
                         </ng-container>

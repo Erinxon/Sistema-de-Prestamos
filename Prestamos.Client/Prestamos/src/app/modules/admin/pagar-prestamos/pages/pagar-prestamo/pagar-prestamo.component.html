@@ -28,11 +28,11 @@
                             <div id="table-1_wrapper">
                                 <app-table [columnas]="columnas">
                                     <ng-container data >
-                                        <tr>
+                                        <tr [appColorFila]="prestamo.cliente.estatusCrediticio.estatusCrediticios">
                                             <td>{{prestamo.cliente.nombres}} {{prestamo.cliente.apellidos}}</td>
                                             <td>{{prestamo.capital|currency}}</td>
                                             <td>{{prestamo.fechaCulminacion|date:'dd/MM/yyyy'}}</td>
-                                            <td>{{getEstatusString(prestamo.estatusPrestamo.estatusPrestamos)}}</td>
+                                            <td>{{prestamo.estatusPrestamo.estatusPrestamos | estatusPrestamoToString}}</td>
                                         </tr>
                                     </ng-container>
                                 </app-table>
@@ -88,7 +88,7 @@
                                             <td>{{item.interesPagar}}</td>
                                             <td>{{item.capitalAmortizado}}</td>
                                             <td>{{item.pagado}}</td>
-                                            <td>{{getEstatusString(item.estatusPrestamo.estatusPrestamos)}}</td>
+                                            <td>{{item.estatusPrestamo.estatusPrestamos | estatusPrestamoToString}}</td>
                                         </tr>
                                 </ng-container>
                              </app-table>

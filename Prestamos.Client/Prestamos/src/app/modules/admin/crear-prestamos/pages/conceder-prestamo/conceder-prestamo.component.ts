@@ -101,14 +101,6 @@ export class ConcederPrestamoComponent implements OnInit {
     }
   }
 
-  getEstatusString(estatus: EstatuCrediticioCliente): string {
-    return EstatuCrediticioCliente[estatus].split(/(?=[A-Z])/).join(' ');
-  }
-
-  getPeriodoDePagoString(periodo: PeriodoDePagos){
-    return PeriodoDePagos[periodo];
-  }
-
   calcularTabla(){
     const cuotas = this.form.value.cuotas;
     const interes = this.form.value.interes;

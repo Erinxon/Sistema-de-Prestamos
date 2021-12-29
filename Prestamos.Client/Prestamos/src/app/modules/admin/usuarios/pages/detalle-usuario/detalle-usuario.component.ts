@@ -29,14 +29,8 @@ export class DetalleUsuarioComponent implements OnInit {
     });
   }
 
-  getRolString(rol: RolesUsuario){
-    return RolesUsuario[rol];
-  }
-
   getLetrasIniciales(nombre: string, apellido: string): string {
     return nombre.charAt(0) + apellido.charAt(0);
   }
-
-
-
+  
 }
