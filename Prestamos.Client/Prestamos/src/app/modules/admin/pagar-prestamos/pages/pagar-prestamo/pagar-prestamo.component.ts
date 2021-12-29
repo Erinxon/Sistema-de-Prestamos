@@ -161,13 +161,6 @@ export class PagarPrestamoComponent implements OnInit {
     return EstatusPrestamosClientes[estatus].split(/(?=[A-Z])/).join(' ');
   }
 
-  getClassByEstatusCrediticioCliente(estatus: EstatuCrediticioCliente){
-    return estatus === EstatuCrediticioCliente.Libre ? 'badge badge-primary' :
-    estatus === EstatuCrediticioCliente.CreditosOcupados ? 'badge badge-success' :
-    estatus === EstatuCrediticioCliente.Atrasados ?  'badge badge-warning' : 
-    estatus === EstatuCrediticioCliente.PrestamosVencidos ? '' : 'badge badge-danger';
-  }
-
   onConfirmacion(event: boolean){
     if(event){
       this.pagarPrestamo();

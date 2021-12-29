@@ -30,7 +30,9 @@
                         </tr>
                       </ng-container>
                       <ng-container data *ngIf="prestamos">
-                        <tr *ngFor="let prestamo of prestamos">
+                        <tr *ngFor="let prestamo of prestamos"
+                        [appColorFilaEstatusPrestamo]="prestamo.estatusPrestamo.estatusPrestamos"
+                        >
                           <td>{{prestamo.cliente.nombres}} {{prestamo.cliente.apellidos}}</td>
                           <td>{{getPeriodoDePagoString(prestamo.periodoPago.periodoDePagos)}}</td>
                           <td>{{prestamo.interes|percent}}</td>
@@ -45,7 +47,7 @@
                             </a>
                           </td>
                           <td>
-                            <button [routerLink]="['detalle', prestamo.id]" class="btn btn-success mr-1">Detalle</button>
+                            <button [routerLink]="['detalle', prestamo.id]" class="btn btn-dark  mr-1">Detalle</button>
                           </td>
                         </tr>
                       </ng-container>

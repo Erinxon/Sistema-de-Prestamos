@@ -28,7 +28,7 @@
                       </tr>
                     </ng-container>
                     <ng-container data *ngIf="clientes">
-                      <tr *ngFor="let cliente of clientes">
+                      <tr *ngFor="let cliente of clientes" [appColorFila]="cliente.estatusCrediticio.estatusCrediticios">
                         <td>{{cliente.nombres}}</td>
                         <td>{{cliente.apellidos}}</td>
                         <td>{{cliente.cedula|mask: '000-0000000-0'}}</td>
@@ -36,7 +36,7 @@
                         <td>{{getEstatusString(cliente.estatusCrediticio.estatusCrediticios)}}</td>
                         <td>{{cliente.fechaCreado|date: 'dd/MM/yyyy'}}</td>
                         <td>
-                          <button [routerLink]="['detalle', cliente.id]" class="btn btn-success mr-1">Detalle</button>
+                          <button [routerLink]="['detalle', cliente.id]" class="btn btn-dark  mr-1">Detalle</button>
                         </td>
                         <td>
                           <button [routerLink]="['editar', cliente.id]" class="btn btn-primary mr-1"><i

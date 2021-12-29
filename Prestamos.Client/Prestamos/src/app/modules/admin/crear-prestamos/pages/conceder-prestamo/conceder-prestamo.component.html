@@ -27,12 +27,12 @@
                             <div id="table-1_wrapper">
                                 <app-table [columnas]="columnas">
                                     <ng-container data >
-                                        <tr>
+                                        <tr [appColorFila]="cliente.estatusCrediticio.estatusCrediticios">
                                             <td>{{cliente.nombres}} {{cliente.apellidos}}</td>
                                             <td>{{cliente.cedula| mask: '000-0000000-0'}}</td>
                                             <td>{{cliente.telefono |mask: '(000)-000-0000'}}</td>
                                             <td>
-                                                <div [ngClass]="getClassByEstatusCrediticioCliente(cliente.estatusCrediticio.estatusCrediticios)">
+                                                <div>
                                                     {{getEstatusString(cliente.estatusCrediticio.estatusCrediticios)}}
                                                 </div>
                                             </td>

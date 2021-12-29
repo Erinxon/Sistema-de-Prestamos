@@ -259,13 +259,6 @@ export class ConcederPrestamoComponent implements OnInit {
     this.showDialogo = !this.showDialogo;
   }
 
-  getClassByEstatusCrediticioCliente(estatus: EstatuCrediticioCliente){
-    return estatus === EstatuCrediticioCliente.Libre ? 'badge badge-primary' :
-    estatus === EstatuCrediticioCliente.CreditosOcupados ? 'badge badge-success' :
-    estatus === EstatuCrediticioCliente.Atrasados ?  'badge badge-warning' : 
-    estatus === EstatuCrediticioCliente.PrestamosVencidos ? '' : 'badge badge-danger';
-  }
-
   private comprobarSiElClientePuedeRealizarPrestamo(estatus: EstatuCrediticioCliente){
     return estatus === EstatuCrediticioCliente.Libre;
   }

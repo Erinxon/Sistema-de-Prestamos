@@ -12,6 +12,8 @@ import { ToastrComponent } from './components/toastr/toastr.component';
 import { Error403Component } from './components/errors/error403/error403.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { FormsModule } from '@angular/forms';
+import { ColorFilaEstatusCrediticioClienteDirective } from './directives/color-fila-estatus-prestamo.directive';
+import { ColorFilaEstatusPrestamoClienteDirective } from './directives/color-fila-estatus-prestamo-cliente.directive';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { FormsModule } from '@angular/forms';
     ToastrComponent,
     Error403Component,
     BuscadorComponent,
+    ColorFilaEstatusCrediticioClienteDirective,
+    ColorFilaEstatusPrestamoClienteDirective,
   ],
   imports: [
     CommonModule,
@@ -42,7 +46,9 @@ import { FormsModule } from '@angular/forms';
     SpinnerComponent,
     ToastrComponent,
     Error403Component,
-    BuscadorComponent
+    BuscadorComponent,
+    ColorFilaEstatusCrediticioClienteDirective,
+    ColorFilaEstatusPrestamoClienteDirective
   ]
 })
 export class SharedModule { }

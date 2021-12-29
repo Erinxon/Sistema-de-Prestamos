@@ -31,7 +31,7 @@
                 <div id="table-1_wrapper">
                     <app-table [columnas]="columnasCliente">
                         <ng-container data>
-                          <tr>
+                          <tr [appColorFila]="prestamo.cliente.estatusCrediticio.estatusCrediticios">
                             <td>{{prestamo.cliente.nombres}}</td>
                             <td>{{prestamo.cliente.apellidos}}</td>
                             <td>{{prestamo.cliente.cedula|mask: '000-0000000-0'}}</td>
@@ -52,7 +52,8 @@
             <div class="table-responsive">
                 <div id="table-1_wrapper">
                     <app-table [columnas]="columnasPrestamo">
-                        <ng-container data *ngIf="prestamo">
+                        <ng-container data *ngIf="prestamo"
+                        >
                           <tr>
                             <td>{{getPeriodoDePagoString(prestamo.periodoPago.periodoDePagos)}}</td>
                             <td>{{prestamo.interes|percent}}</td>
@@ -75,7 +76,8 @@
                 <div id="table-1_wrapper">
                     <app-table [columnas]="columnasCronograma">
                         <ng-container data>
-                          <tr *ngFor="let detalle of prestamo.detallePrestamos">
+                          <tr *ngFor="let detalle of prestamo.detallePrestamos"
+                          [appColorFilaEstatusPrestamo]="detalle.estatusPrestamo.estatusPrestamos">
                            <td>{{detalle.numeroCuota}}</td>
                            <td>{{detalle.cuotaPagar}}</td>
                            <td>{{detalle.interesPagar}}</td>
