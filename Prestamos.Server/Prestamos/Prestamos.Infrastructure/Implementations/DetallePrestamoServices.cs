@@ -18,18 +18,10 @@ namespace Prestamos.Infrastructure.Implementations
         {
             this._context = context;
         }
-        public async Task Add(List<DetallePrestamo> detallePrestamo)
-        {         
-            await this._context.AddRangeAsync(detallePrestamo);
-        }
 
-        public async Task<List<DetallePrestamo>> GetById(int id)
+        public async Task Update(List<DetallePrestamo> detallePrestamo)
         {
-            return await this._context.DetallePrestamos
-                .AsNoTracking()
-                .Include(p => p.EstatusPrestamo)
-                .Where(d => d.IdPrestamo == id)
-                .ToListAsync();
+            this._context.DetallePrestamos.UpdateRange(detallePrestamo);
         }
     }
 }

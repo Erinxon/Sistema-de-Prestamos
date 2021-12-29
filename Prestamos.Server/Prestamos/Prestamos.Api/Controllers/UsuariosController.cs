@@ -144,6 +144,7 @@ namespace Prestamos.Api.Controllers
             try
             {
                 var usuario = _mapper.Map<Usuario>(usuarioDto);
+                usuario.Password = usuario.Password.ToEncryptedPassword();
                 usuario.IdEstatus = (int) EstatusClientes.Activo;
                 await this._unitOfWork.Direcciones.Add(usuario.Direccion);
                 await this._unitOfWork.SavechangesAsync();

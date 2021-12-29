@@ -48,7 +48,7 @@ namespace Prestamos.Api.Controllers
             return Ok(response);
         }
 
-        // GET: api/Prestamos/GetByid/1
+        // GET: api/Prestamos/1
         [HttpGet("{id}")]
         public async Task<ActionResult<ApiResponse<PrestamoDto>>> Get(int id)
         {
@@ -75,6 +75,43 @@ namespace Prestamos.Api.Controllers
             }
             return Ok(response);
         }
+
+        // GET: api/Prestamos/GetByCliente/
+        [HttpGet("GetByCliente/{cedula}")]
+        public async Task<ActionResult<ApiResponse<PrestamoDto>>> GetByCliente(string cedula)
+        {
+            var response = new ApiResponse<PrestamoDto>();
+            try
+            {
+                var isClienteExist = await this._unitOfWork.Clientes.GetByCedula(cedula);
+                if (isClienteExist is null)
+                {
+                    response.Succeeded = false;
+                    response.Message = "No se encontró el cliente";
+                    response.StatusCode = StatusCodes.Status404NotFound;
+                    return NotFound(response);
+                }
+                var prestamo = await this._unitOfWork.Prestamos.GetByCedulaCliente(cedula);
+                if (prestamo is null)
+                {
+                    response.Succeeded = false;
+                    response.Message = "No se encontró nungun prestamo activo de dicho cliente";
+                    response.StatusCode = StatusCodes.Status404NotFound;
+                    return NotFound(response);
+                }
+                response.Data = _mapper.Map<PrestamoDto>(prestamo);
+                response.StatusCode = StatusCodes.Status200OK;
+            }
+            catch (Exception ex)
+            {
+                response.Message = "Ocurio un error al obtener los datos!";
+                response.Succeeded = false;
+                response.StatusCode = StatusCodes.Status400BadRequest;
+                return BadRequest(response);
+            }
+            return Ok(response);
+        }
+
 
         // POST: api/Prestamos
         [HttpPost]
@@ -105,6 +142,45 @@ namespace Prestamos.Api.Controllers
             return Created("api/Prestamos", response);
         }
 
+        // PUT: api/api/Prestamos
+        [HttpPut("Pagar/{id}")]
+        public async Task<ActionResult<ApiResponse<PrestamoDto>>> Put(int id, [FromBody] PrestamoDto prestamoDto) 
+        {
+            var response = new ApiResponse<PrestamoDto>();
+            try
+            {
+                var isPrestamoExist = await this._unitOfWork.Prestamos.IsExistById(id);
+                if (!isPrestamoExist)
+                {
+                    response.Succeeded = false;
+                    response.Message = "No se encontró el Prestamo";
+                    response.StatusCode = StatusCodes.Status404NotFound;
+                    return NotFound(response);
+                }
+                /*var prestamo = new Prestamo
+                {
+                    Id = prestamoDto.Id,
+                    IdEstatusPrestamo = prestamoDto.EstatusPrestamo.Id,
+                    IdCliente = prestamoDto.Cliente.Id,
+                    IdUsuarioUtorizador = prestamoDto.UsuarioUtorizador.Id,
+                    IdPeriodoPago = prestamoDto.PeriodoPago.Id
+                };*/
+                var detalle = _mapper.Map<List<DetallePrestamo>>(prestamoDto.DetallePrestamos);
+                //prestamo = await this._unitOfWork.Prestamos.Pagar(prestamo);
+                await this._unitOfWork.DetallesPrestamos.Update(detalle);
+                await this._unitOfWork.SavechangesAsync();
+                //response.Data = _mapper.Map<PrestamoDto>(prestamo);
+                response.StatusCode = StatusCodes.Status200OK;
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.InnerException.Message;
+                response.Succeeded = false;
+                response.StatusCode = StatusCodes.Status400BadRequest;
+                return BadRequest(response);
+            }
+            return Ok(response);
+        }
 
     }
 }

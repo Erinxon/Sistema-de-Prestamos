@@ -31,8 +31,8 @@ export class ConcederPrestamoComponent implements OnInit {
   showDialogo: boolean = false;
 
   cliente!: Cliente;
-  readonly columnas: string[] = ['Nombres', 'Apellidos', 'Cedula', 'Telefono', 'Estatus Crediticio'];
-  cedula: string = '';
+  readonly columnas: string[] = ['Nombre', 'Cedula', 'Telefono', 'Estatus Crediticio'];
+  cedula: string = '40241394648';
   resultadoBusqueda!: ResultadoBusqueda;
 
   form: FormGroup = new FormGroup({});
@@ -111,7 +111,7 @@ export class ConcederPrestamoComponent implements OnInit {
 
   calcularTabla(){
     const cuotas = this.form.value.cuotas;
-    const interes = this.form.value.interes / 12;
+    const interes = this.form.value.interes;
     const periodoPago = this.form.value.periodoPago
     const capital = this.form.value.capital
     let tabla = [{
@@ -120,12 +120,13 @@ export class ConcederPrestamoComponent implements OnInit {
       interes: 0,
       amortizacion: 0,
       saldo: capital,
+      idEstatusPrestamo: EstatusPrestamosClientes.Pagado,
       fecha: new Date()
     }];
 
     for(let i =1; i <= cuotas; i++){
       const pagoTable = this.getCuota(interes, capital, cuotas);
-      const interesTabla = this.redondear(( tabla[i-1].saldo * (interes / 100)));
+      const interesTabla = this.redondear(( tabla[i-1].saldo * ((interes / 100) /12)));
       const amortizacionTabla = this.redondear((pagoTable - interesTabla));
       const saldoTabla = this.redondear(( tabla[i-1].saldo -  amortizacionTabla));
       tabla = [...tabla, {
@@ -134,6 +135,7 @@ export class ConcederPrestamoComponent implements OnInit {
         interes: interesTabla,
         amortizacion: amortizacionTabla,
         saldo: saldoTabla,
+        idEstatusPrestamo: EstatusPrestamosClientes.Pendiente, 
         fecha: this.addDaysToDate(tabla[i-1].fecha, this.getDias(periodoPago))
       }]
     }
@@ -141,15 +143,11 @@ export class ConcederPrestamoComponent implements OnInit {
     this.tablaAmortizacion = tabla;
   }
 
-
-  
-
   private getFecha(periodoPago: PeriodoDePagos, fechaInicio: Date, cuotas: number): Date  {
     const dias = periodoPago === PeriodoDePagos.Diario ? cuotas :
                  periodoPago === PeriodoDePagos.Semanal ? cuotas * 7 : 
                  periodoPago === PeriodoDePagos.Quincenal ? cuotas * 15 :
                  periodoPago === PeriodoDePagos.Mensual ? cuotas * 30 : cuotas * 365;
-
     return this.addDaysToDate(fechaInicio, dias);
   }
 
@@ -167,7 +165,7 @@ export class ConcederPrestamoComponent implements OnInit {
   }
 
   private getCuota(interes: number, capital: number, cuotas: number): number {
-    let resultado =  capital * ((interes / 100) / (1 - Math.pow((1 + (interes / 100)), - cuotas)));
+    let resultado =  capital * (((interes / 100) /12) / (1 - Math.pow((1 + ((interes / 100) /12)), - cuotas)));
     return this.redondear(resultado);
   }
 
@@ -184,14 +182,21 @@ export class ConcederPrestamoComponent implements OnInit {
 
   confirmarPrestamo(){
     this.showOrHideDialog();
-    
   }
 
 
   onConfirmacion(event: boolean){
     if(event){
-      this.guardarPrestamo();
-      this.showOrHideDialog();
+      if(this.comprobarSiElClientePuedeRealizarPrestamo(this.cliente.estatusCrediticio.estatusCrediticios)){
+        this.guardarPrestamo();
+        this.showOrHideDialog();
+      }else{
+        this.showToast({
+          title: 'El cliente no puede realizar prestamos porque tiene un prestamo pendiente',
+          body: '',
+          tipo: 'error'
+        });
+      }
     }else{
        this.showOrHideDialog();
     }
@@ -208,7 +213,7 @@ export class ConcederPrestamoComponent implements OnInit {
         pagado: 0,
         capitalPendiente: item.saldo,
         fechaPago: item.fecha,
-        idEstatusPrestamo: EstatusPrestamosClientes.Pendiente
+        idEstatusPrestamo: item.idEstatusPrestamo
       }
     })
     
@@ -252,6 +257,17 @@ export class ConcederPrestamoComponent implements OnInit {
   
   showOrHideDialog(){
     this.showDialogo = !this.showDialogo;
+  }
+
+  getClassByEstatusCrediticioCliente(estatus: EstatuCrediticioCliente){
+    return estatus === EstatuCrediticioCliente.Libre ? 'badge badge-primary' :
+    estatus === EstatuCrediticioCliente.CreditosOcupados ? 'badge badge-success' :
+    estatus === EstatuCrediticioCliente.Atrasados ?  'badge badge-warning' : 
+    estatus === EstatuCrediticioCliente.PrestamosVencidos ? '' : 'badge badge-danger';
+  }
+
+  private comprobarSiElClientePuedeRealizarPrestamo(estatus: EstatuCrediticioCliente){
+    return estatus === EstatuCrediticioCliente.Libre;
   }
 
 }

@@ -1,32 +1,38 @@
 <app-toastr></app-toastr>
+<app-spinner></app-spinner>
+<app-ventana-confirmacion *ngIf="showDialogo" (confirmar)="onConfirmacion($event)"
+[titulo]="'¿Estás seguro de que quieres confirmar el pago?'"></app-ventana-confirmacion>
 <div class="section-body">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-7">
             <div class="card">
                 <div class="card-header">
                     <h4>Buscar Cliente</h4>
                 </div>
                 <div class="card-body">
                     <div class="input-group">
-                        <input type="text" mask="000-0000000-0" class="form-control"
+                        <input type="text" [(ngModel)]="cedula"  mask="000-0000000-0" class="form-control"
                             placeholder="Introduzca la Cedula del cliente" aria-describedby="button-addon2">
                         <div class="input-group-append">
-                            <button  class="btn btn-primary" type="button"
+                            <button (click)="buscarCliente()"  class="btn btn-primary" type="button"
                                 id="button-addon2">Buscar</button>
                         </div>
                     </div>
-                    <ng-container>
+                    <ng-container *ngIf="resultadoBusqueda && !resultadoBusqueda.succeeded">
                         <div class="alert alert-danger mt-3" role="alert">
-                            <strong></strong>
+                            <strong>{{resultadoBusqueda.message}}</strong>
                         </div>
                     </ng-container>
-                    <ng-container>
+                    <ng-container *ngIf="prestamo">
                         <div class="table-responsive">
-                            <div id="table-1_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
-                                <app-table>
-                                    <ng-container data>
+                            <div id="table-1_wrapper">
+                                <app-table [columnas]="columnas">
+                                    <ng-container data >
                                         <tr>
-                                            
+                                            <td>{{prestamo.cliente.nombres}} {{prestamo.cliente.apellidos}}</td>
+                                            <td>{{prestamo.capital|currency}}</td>
+                                            <td>{{prestamo.fechaCulminacion|date:'dd/MM/yyyy'}}</td>
+                                            <td>{{getEstatusString(prestamo.estatusPrestamo.estatusPrestamos)}}</td>
                                         </tr>
                                     </ng-container>
                                 </app-table>
@@ -36,14 +42,14 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
             <div class="card">
                     <form>
                         <div class="card-header">
                             <h4>Datos del Pago</h4>
                         </div>
                         <div class="card-body">
-                            <div class="form-row">
+                            <div class="form-row" [formGroup]="form">
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>Monto a Pagar</label>
@@ -51,6 +57,7 @@
                                         type="number" 
                                         placeholder="Monto a Pagar" 
                                         class="form-control" 
+                                        formControlName="monto"
                                         >
                                     </div>
                                 </div>
@@ -58,12 +65,38 @@
                     
                         </div>
                         <div class="card-footer text-right">
-                            <button type="button"  class="btn btn-danger mr-2">Cancelar</button>
-                            <button type="button" class="btn btn-primary">Pagar</button>
+                            <button (click)="resetForm()" type="button" class="btn btn-danger mr-2">Cancelar</button>
+                            <button (click)="onSubmit()" [disabled]="form.invalid || !prestamo" type="button" class="btn btn-primary">Pagar</button>
                         </div>
                     </form>
             </div>
         </div>
-
+        <div class="col-md-12 mt-3" *ngIf="detallePrestamo.length > 0">
+            <div class="card">
+                <div class="card-header">
+                    <h4>{{detallePrestamo.length}} Cuotas Afectadas</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <div id="table-1_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                            <ng-container >
+                                <app-table [columnas]="columnasDetallePrestamo">
+                                    <ng-container data>
+                                        <tr *ngFor="let item of detallePrestamo">
+                                            <td>{{item.numeroCuota}}</td>
+                                            <td>{{item.cuotaPagar}}</td>
+                                            <td>{{item.interesPagar}}</td>
+                                            <td>{{item.capitalAmortizado}}</td>
+                                            <td>{{item.pagado}}</td>
+                                            <td>{{getEstatusString(item.estatusPrestamo.estatusPrestamos)}}</td>
+                                        </tr>
+                                </ng-container>
+                             </app-table>
+                        </ng-container>
+                        </div>
+                    </div>                      
+                </div>
+            </div>       
+    </div>
     </div>
 </div>

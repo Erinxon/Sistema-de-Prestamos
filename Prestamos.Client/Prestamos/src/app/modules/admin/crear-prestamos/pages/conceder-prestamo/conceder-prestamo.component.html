@@ -1,6 +1,6 @@
 <app-toastr></app-toastr>
 <app-ventana-confirmacion *ngIf="showDialogo" (confirmar)="onConfirmacion($event)"
-[titulo]="'¿Estás segura de que quieres mantener este préstamo?'"></app-ventana-confirmacion>
+[titulo]="'¿Estás segura de que quieres crear este préstamo?'"></app-ventana-confirmacion>
 <div class="section-body">
     <div class="row">
         <div class="col-md-6">
@@ -24,15 +24,18 @@
                     </ng-container>
                     <ng-container *ngIf="cliente">
                         <div class="table-responsive">
-                            <div id="table-1_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                            <div id="table-1_wrapper">
                                 <app-table [columnas]="columnas">
-                                    <ng-container data>
+                                    <ng-container data >
                                         <tr>
-                                            <td>{{cliente.nombres}}</td>
-                                            <td>{{cliente.apellidos}}</td>
+                                            <td>{{cliente.nombres}} {{cliente.apellidos}}</td>
                                             <td>{{cliente.cedula| mask: '000-0000000-0'}}</td>
                                             <td>{{cliente.telefono |mask: '(000)-000-0000'}}</td>
-                                            <td>{{getEstatusString(cliente.estatusCrediticio.estatusCrediticios)}}</td>
+                                            <td>
+                                                <div [ngClass]="getClassByEstatusCrediticioCliente(cliente.estatusCrediticio.estatusCrediticios)">
+                                                    {{getEstatusString(cliente.estatusCrediticio.estatusCrediticios)}}
+                                                </div>
+                                            </td>
                                         </tr>
                                     </ng-container>
                                 </app-table>

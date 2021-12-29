@@ -9,5 +9,7 @@ export interface DetallePrestamo {
     pagado: number;
     capitalPendiente: number;
     fechaPago: Date;
+    idEstatusPrestamo: number;
+    idPrestamo: number;
     estatusPrestamo: EstatusPrestamo;
 }

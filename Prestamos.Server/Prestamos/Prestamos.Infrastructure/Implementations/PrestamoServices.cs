@@ -66,5 +66,37 @@ namespace Prestamos.Infrastructure.Implementations
         {
             return await this._context.Prestamos.CountAsync();
         }
+
+        public async Task<Prestamo> GetByCedulaCliente(string cedula)
+        {
+            return await this._context.Prestamos
+                                           .AsNoTracking()
+                                           .Include(p => p.Cliente)
+                                                .ThenInclude(c => c.Direccion)
+                                            .Include(p => p.Cliente)
+                                                .ThenInclude(c => c.EstatusCrediticio)
+                                            .Include(p => p.EstatusPrestamo)
+                                            .Include(p => p.PeriodoPago)
+                                            .Include(p => p.UsuarioUtorizador)
+                                               .ThenInclude(u => u.Rol)
+                                            .Include(p => p.DetallePrestamos)
+                                               .ThenInclude(d => d.EstatusPrestamo)
+                                            .FirstOrDefaultAsync(p => p.Cliente.Cedula == cedula 
+                                                && p.Cliente.EstatusCrediticio.EstatusCrediticios 
+                                                != EstatuCrediticioCliente.Libre
+                                                && p.EstatusPrestamo.EstatusPrestamos 
+                                                != EstatusPrestamosClientes.Pagado);
+        }
+
+        public async Task<Prestamo> Pagar(Prestamo prestamo)
+        {
+            this._context.Attach(prestamo).State = EntityState.Modified;
+            return await this.GetByCedulaCliente(prestamo.Cliente.Cedula);
+        }
+
+        public async Task<bool> IsExistById(int id)
+        {
+            return await this._context.Prestamos.AnyAsync(p => p.Id == id);
+        }
     }
 }
