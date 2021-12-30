@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Cliente } from 'src/app/Core/models/clientes/cliente.model';
 import { EstatuCrediticioCliente, EstatusPrestamosClientes } from 'src/app/Core/models/Enums/enums.model';
+import { EstatusCrediticio } from 'src/app/Core/models/estatusCrediticios/estatusCrediticio.model';
 import { EstatusPrestamo } from 'src/app/Core/models/estatusPrestamos/estatusPrestamo.model';
 import { DetallePrestamo } from 'src/app/Core/models/prestamos/detallePrestamo/detalle-Prestamos.model';
 import { Prestamo } from 'src/app/Core/models/prestamos/prestamo.model';
@@ -32,7 +33,6 @@ export class PagarPrestamoComponent implements OnInit {
   showDialogo: boolean = false;
   readonly columnasDetallePrestamo = ['Numero Cuota', 'Cuota a Pagar', 'Interes a Pagar', 'Capital Amortizado', 'Pagado', 'Estatus'];
   estatusPrestamos!: EstatusPrestamo[];
-
   constructor(private pagarPrestamoService: PagarPrestamoService,
     private fb: FormBuilder,
     private toast: ToastService) {
@@ -125,6 +125,15 @@ export class PagarPrestamoComponent implements OnInit {
     this.prestamo.estatusPrestamo = 
         this.verificarPagoCompleto(this.prestamo.detallePrestamos) ? this.getEstatus(EstatusPrestamosClientes.Pagado) 
         : this.prestamo.estatusPrestamo;
+
+    if(this.verificarPagoCompleto(this.prestamo.detallePrestamos)){
+      this.pagarPrestamoService.updateEstatus(this.prestamo.cliente.id, EstatuCrediticioCliente.Libre)
+      .subscribe(res => {
+      }, error => {
+        console.log(error);
+      })
+    }
+    
     this.pagarPrestamoService.pagarPrestamo(this.prestamo).subscribe(res => {
       this.showToast({
         title: 'Prestamo',
@@ -146,7 +155,6 @@ export class PagarPrestamoComponent implements OnInit {
   getEstatus(estatus: EstatusPrestamosClientes){
     return this.estatusPrestamos.find(e => e.estatusPrestamos === estatus)!;
   }
-
   private redondear(numero: number): number {
     return Number(numero.toFixed(3));
   }
@@ -170,14 +178,15 @@ export class PagarPrestamoComponent implements OnInit {
   showToast(toast: ToastModel, fn?: () => void){
     this.toast.show(toast)
     setTimeout(() => {
-      fn!();
       this.toast.hide();
+      fn!();
     }, 2000)
   }
 
   private verificarPagoCompleto(DetalllePrestamo: DetallePrestamo[]): boolean{
     let cuotaFinal = DetalllePrestamo[DetalllePrestamo.length - 1];
-    return cuotaFinal.estatusPrestamo.estatusPrestamos === EstatusPrestamosClientes.Pagado;
+    return cuotaFinal.estatusPrestamo.estatusPrestamos 
+      === EstatusPrestamosClientes.Pagado && this.prestamo.cuotas === DetalllePrestamo.length;
   }
 
 }

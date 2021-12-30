@@ -149,28 +149,32 @@ namespace Prestamos.Api.Controllers
             var response = new ApiResponse<PrestamoDto>();
             try
             {
-                var isPrestamoExist = await this._unitOfWork.Prestamos.IsExistById(id);
-                if (!isPrestamoExist)
+                var prestamo = await this._unitOfWork.Prestamos.GetById(id);
+                if (prestamo is null)
                 {
                     response.Succeeded = false;
                     response.Message = "No se encontró el Prestamo";
                     response.StatusCode = StatusCodes.Status404NotFound;
                     return NotFound(response);
                 }
-                /*var prestamo = new Prestamo
-                {
-                    Id = prestamoDto.Id,
-                    IdEstatusPrestamo = prestamoDto.EstatusPrestamo.Id,
-                    IdCliente = prestamoDto.Cliente.Id,
-                    IdUsuarioUtorizador = prestamoDto.UsuarioUtorizador.Id,
-                    IdPeriodoPago = prestamoDto.PeriodoPago.Id
-                };*/
+
+                //Change estatus prestamo
+                prestamo.IdEstatusPrestamo = prestamoDto.EstatusPrestamo.Id;
+                prestamo.EstatusPrestamo = _mapper.Map<EstatusPrestamo>(prestamoDto.EstatusPrestamo);
+                prestamo.DetallePrestamos = null;
+
+                //Mappper detalle prestamo
                 var detalle = _mapper.Map<List<DetallePrestamo>>(prestamoDto.DetallePrestamos);
                 detalle.ForEach(p =>
                 {
                     p.EstatusPrestamo = null;
                 });
-                //prestamo = await this._unitOfWork.Prestamos.Pagar(prestamo);
+
+                //Update prestamo
+                prestamo = await this._unitOfWork.Prestamos.Pagar(prestamo);
+                await this._unitOfWork.SavechangesAsync();
+
+                //Update detalle prestamo
                 await this._unitOfWork.DetallesPrestamos.Update(detalle);
                 await this._unitOfWork.SavechangesAsync();
                 //response.Data = _mapper.Map<PrestamoDto>(prestamo);

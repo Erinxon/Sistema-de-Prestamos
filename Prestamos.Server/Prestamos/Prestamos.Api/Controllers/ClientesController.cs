@@ -236,5 +236,28 @@ namespace Prestamos.Api.Controllers
             }         
             return NoContent();
         }
+
+        [HttpPut("UpdateEstatus")]
+        [Authorize]
+        public async Task<ActionResult<ApiResponse<Cliente>>> UpdateEstatus([FromQuery] int id, [FromQuery] EstatuCrediticioCliente estatus)
+        {
+
+            var response = new ApiResponse<ClienteDto>();
+            try
+            {
+                await this._unitOfWork.Clientes.UpdateEstatus(id, estatus);
+                await this._unitOfWork.SavechangesAsync();
+                response.StatusCode = StatusCodes.Status200OK;
+            }
+            catch (Exception ex)
+            {
+                response.Message = "Ocurio un error al actualizar los datos!";
+                response.Succeeded = false;
+                response.StatusCode = StatusCodes.Status400BadRequest;
+                return BadRequest(response);
+            }
+            return Ok(response);
+        }
+
     }
 }

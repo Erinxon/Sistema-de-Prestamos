@@ -118,7 +118,7 @@ export class ConcederPrestamoComponent implements OnInit {
 
     for(let i =1; i <= cuotas; i++){
       const pagoTable = this.getCuota(interes, capital, cuotas);
-      const interesTabla = this.redondear(( tabla[i-1].saldo * ((interes / 100) /12)));
+      const interesTabla = this.redondear(( tabla[i-1].saldo * ((interes / 100))));
       const amortizacionTabla = this.redondear((pagoTable - interesTabla));
       const saldoTabla = this.redondear(( tabla[i-1].saldo -  amortizacionTabla));
       tabla = [...tabla, {
@@ -157,7 +157,7 @@ export class ConcederPrestamoComponent implements OnInit {
   }
 
   private getCuota(interes: number, capital: number, cuotas: number): number {
-    let resultado =  capital * (((interes / 100) /12) / (1 - Math.pow((1 + ((interes / 100) /12)), - cuotas)));
+    let resultado =  capital * (((interes / 100)) / (1 - Math.pow((1 + ((interes / 100))), - cuotas)));
     return this.redondear(resultado);
   }
 

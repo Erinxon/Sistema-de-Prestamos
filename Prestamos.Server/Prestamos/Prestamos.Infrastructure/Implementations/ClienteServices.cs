@@ -107,5 +107,12 @@ namespace Prestamos.Infrastructure.Implementations
                 .AsNoTracking()
                 .AnyAsync(p => p.IdCliente == id);
         }
+
+        public async Task UpdateEstatus(int id, EstatuCrediticioCliente estatus)
+        {
+            var cliente = await this._context.Clientes.AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
+            cliente.IdEstatusCrediticio = (int) estatus;
+            await this.Update(cliente);
+        }
     }
 }
