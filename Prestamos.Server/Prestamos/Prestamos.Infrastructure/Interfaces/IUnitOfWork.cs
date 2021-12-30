@@ -13,7 +13,6 @@ namespace Prestamos.Infrastructure.Interfaces
         IEmpresaServices Empresa { get; }
         IEstatusCrediticioServices EstatusCrediticios { get; }
         IEstatusPrestamoServices EstatusPrestamos { get; }
-        IEstatusServices Estatus { get; }
         IPeriodoPadoServices PeriodosPados { get; }
         IPrestamoServices Prestamos { get; }
         IDetallePrestamoServices DetallesPrestamos { get; }

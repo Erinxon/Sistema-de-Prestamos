@@ -146,9 +146,7 @@ namespace Prestamos.Api.Controllers
                 cliente.Apellidos = clienteDto.Apellidos;
                 cliente.Cedula = clienteDto.Cedula;
                 cliente.Telefono = clienteDto.Telefono;
-                cliente.IdEstatus = clienteDto.IdEstatus;
                 cliente.IdEstatusCrediticio = clienteDto.IdEstatusCrediticio;
-                cliente.Estatus = null;
                 cliente.EstatusCrediticio = null;
                 cliente.Direccion = _mapper.Map<Direccion>(clienteDto.Direccion);
                 await this._unitOfWork.Clientes.Update(cliente);
@@ -178,7 +176,6 @@ namespace Prestamos.Api.Controllers
             try
             {
                 var cliente = _mapper.Map<Cliente>(clienteDto);
-                cliente.IdEstatus = (int) EstatusClientes.Activo;
                 cliente.IdEstatusCrediticio =  (int) EstatuCrediticioCliente.Libre;
                 await this._unitOfWork.Direcciones.Add(cliente.Direccion);
                 await this._unitOfWork.SavechangesAsync();

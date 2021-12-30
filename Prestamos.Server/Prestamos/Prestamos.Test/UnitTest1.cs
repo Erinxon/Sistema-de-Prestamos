@@ -24,12 +24,6 @@ namespace Prestamos.Test
                 cfg.AddProfile(new AutoMapperProfile());
             });
             var mapper = mockMapper.CreateMapper();
-
-            var controller = new EstatusController(unitOfWork, mapper);
-            // Act
-            var result = await controller.GetAll();
-            // Assert
-            Assert.AreEqual(200, result.Value.StatusCode);
         }
     }
 }

@@ -14,7 +14,6 @@ namespace Prestamos.Infrastructure.ApiResponse
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public string Email { get; set; }
-        public EstatusDto Estatus { get; set; }
         public RolDto Rol { get; set; }
         public string Token { get; set; }
 

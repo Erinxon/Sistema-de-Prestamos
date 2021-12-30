@@ -112,25 +112,7 @@
                                     </ng-container>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Estatus</label>
-                                    <select formControlName="idEstatus" class="form-control"
-                                    [ngClass]="{'is-invalid': isInvalid('idEstatus')}">
-                                        <option [ngValue]="null" disabled>Por favor seleccione una opción</option>
-                                        <option *ngFor="let estatus of estatus$ |async;" [ngValue]="estatus.id" >
-                                           {{ getEstadoString(estatus.estatusClientes) }}
-                                        </option>
-                                      </select>
-                                      <ng-container
-                                        *ngIf="isInvalid('idEstatus')">
-                                        <div *ngIf="composForm.idEstatus.errors?.['required']" class="invalid-feedback">
-                                            El estatus es requerido
-                                        </div>
-                                    </ng-container>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="form-group">
                                     <label>Estatus Crediticios</label>
                                     <select formControlName="idEstatusCrediticio" class="form-control">

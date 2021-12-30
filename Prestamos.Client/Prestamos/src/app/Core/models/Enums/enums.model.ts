@@ -3,12 +3,6 @@ export enum RolesUsuario {
   Cobrador,
 }
 
-export enum EstatusClientes {
-  Activo = 1,
-  Inactivo,
-  Eliminado,
-}
-
 export enum EstatuCrediticioCliente {
   Libre = 1,
   CreditosOcupados,

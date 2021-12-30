@@ -26,7 +26,6 @@ namespace Prestamos.Infrastructure.Implementations
             return await this._context.Clientes
                 .AsNoTracking()
                 .Include(c => c.Direccion)
-                .Include(c => c.Estatus)
                 .Include(c => c.EstatusCrediticio)
                 .OrderByDescending(c => c.Id)
                 .Skip((pagination.PageNumber - 1) * pagination.PageSize)
@@ -39,7 +38,6 @@ namespace Prestamos.Infrastructure.Implementations
             var cliente = await this._context.Clientes
                 .AsNoTracking()
                 .Include(c => c.Direccion)
-                .Include(c => c.Estatus)
                 .Include(c => c.EstatusCrediticio)
                 .FirstOrDefaultAsync(c => c.Id == id);
             return cliente;
@@ -71,7 +69,6 @@ namespace Prestamos.Infrastructure.Implementations
             return await this._context.Clientes
                 .AsNoTracking()
                 .Include(c => c.Direccion)
-                .Include(c => c.Estatus)
                 .Include(c => c.EstatusCrediticio)
                 .Where(c => c.Nombres.Contains(filter) || c.Apellidos.Contains(filter))
                 .OrderByDescending(c => c.Id)
@@ -90,7 +87,6 @@ namespace Prestamos.Infrastructure.Implementations
             var cliente = await this._context.Clientes
                .AsNoTracking()
                .Include(c => c.Direccion)
-               .Include(c => c.Estatus)
                .Include(c => c.EstatusCrediticio)
                .FirstOrDefaultAsync(c => c.Cedula == cedula);
             return cliente;

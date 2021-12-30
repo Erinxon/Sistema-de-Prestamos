@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Prestamos.Infrastructure.DbContexts;
 
 namespace Prestamos.Infrastructure.Migrations
 {
     [DbContext(typeof(PrestamosDBContext))]
-    partial class PrestamosDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211230134750_Remove Table Estatus")]
+    partial class RemoveTableEstatus
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

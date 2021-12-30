@@ -33,7 +33,6 @@ namespace Prestamos.Api.AutoMapperConfig
             #endregion
 
             #region Enums
-            CreateMap<EstatusDto, Estatus>().ReverseMap();
             CreateMap<EstatusCrediticioDto, EstatusCrediticio>().ReverseMap();
             CreateMap<EstatusPrestamoDto, EstatusPrestamo>().ReverseMap();
             CreateMap<PeriodoPagoDto, PeriodoPago>().ReverseMap();

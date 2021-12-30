@@ -9,11 +9,6 @@ namespace Prestamos.Core.Entities.Enums
         Prestador = 1, Cobrador
     }
 
-    public enum EstatusClientes
-    {
-        Activo = 1, Inactivo, Eliminado
-    }
-
     public enum EstatuCrediticioCliente
     {
         Libre = 1, CreditosOcupados, Atrasados, PrestamosVencidos

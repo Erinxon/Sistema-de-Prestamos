@@ -29,29 +29,6 @@ namespace Prestamos.Infrastructure.DbContexts
             return roles;
         }
 
-        public static Estatus[] GetDefaultDataEstatus()
-        {
-            var estatus = new Estatus[]
-            {
-               new Estatus()
-               {
-                   Id = 1,
-                   EstatusClientes = EstatusClientes.Activo
-               },
-               new Estatus()
-               {
-                   Id = 2,
-                   EstatusClientes = EstatusClientes.Inactivo
-               },
-               new Estatus()
-               {
-                   Id = 3,
-                   EstatusClientes = EstatusClientes.Eliminado
-               }
-            };
-            return estatus;
-        }
-
         public static EstatusCrediticio[] GetDefaultDataEstatusCrediticio()
         {
             var estatusCrediticios = new EstatusCrediticio[]
@@ -183,7 +160,6 @@ namespace Prestamos.Infrastructure.DbContexts
                     Email = "erinxon@gmail.com",
                     Telefono = "8294155565",
                     IdDireccion = 1,
-                    IdEstatus  = 1,
                     IdRol = 1,
                     Password = "123456789".ToEncryptedPassword(),
                     FechaCreado =  DateTime.UtcNow,
@@ -198,7 +174,6 @@ namespace Prestamos.Infrastructure.DbContexts
                     Email = "prueba2@gmail.com",
                     Telefono = "8294555565",
                     IdDireccion = 2,
-                    IdEstatus  = 1,
                     IdRol = 2,
                     Password = "123456789".ToEncryptedPassword(),
                     FechaCreado =  DateTime.UtcNow,

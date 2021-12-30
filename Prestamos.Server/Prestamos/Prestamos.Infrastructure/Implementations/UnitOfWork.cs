@@ -16,7 +16,6 @@ namespace Prestamos.Infrastructure.Implementations
         public IEmpresaServices Empresa { get; private set; }
         public IEstatusCrediticioServices EstatusCrediticios { get; private set; }
         public IEstatusPrestamoServices EstatusPrestamos { get; private set; }
-        public IEstatusServices Estatus { get; private set; }
         public IPeriodoPadoServices PeriodosPados { get; private set; }
         public IPrestamoServices Prestamos { get; private set; }
         public IDetallePrestamoServices DetallesPrestamos { get; private set; }
@@ -32,7 +31,6 @@ namespace Prestamos.Infrastructure.Implementations
             this.Empresa = new EmpresaServices(_context);
             this.EstatusCrediticios = new EstatusCrediticioServices(_context);
             this.EstatusPrestamos = new EstatusPrestamoServices(_context);
-            this.Estatus = new EstatusServices(_context);
             this.PeriodosPados = new PeriodoPadoServices(_context);
             this.Prestamos = new PrestamoServices(_context);
             this.DetallesPrestamos = new DetallePrestamoServices(context);

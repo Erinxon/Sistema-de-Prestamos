@@ -25,7 +25,6 @@ namespace Prestamos.Infrastructure.Implementations
             return await this._context.Usuarios
                 .AsNoTracking()
                 .Include(c => c.Direccion)
-                .Include(c => c.Estatus)
                 .Include(c => c.Rol)
                 .OrderByDescending(c => c.Id)
                 .Skip((pagination.PageNumber - 1) * pagination.PageSize)
@@ -38,7 +37,6 @@ namespace Prestamos.Infrastructure.Implementations
             return await this._context.Usuarios
                 .AsNoTracking()
                 .Include(c => c.Direccion)
-                .Include(c => c.Estatus)
                 .Include(c => c.Rol)
                 .FirstOrDefaultAsync(u => u.Id == id);
         }
@@ -82,7 +80,6 @@ namespace Prestamos.Infrastructure.Implementations
             return await this._context.Usuarios
                .AsNoTracking()
                .Include(c => c.Direccion)
-               .Include(c => c.Estatus)
                .Include(c => c.Rol)
                .OrderByDescending(c => c.Id)
                .Skip((pagination.PageNumber - 1) * pagination.PageSize)

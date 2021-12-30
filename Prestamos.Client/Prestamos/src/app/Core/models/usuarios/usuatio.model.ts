@@ -1,5 +1,4 @@
 import { Direccion } from "../direcciones/direccion.model";
-import { Estatus } from "../estatus/estatus.model";
 import { Rol } from "../roles/rol.model";
 
 export interface Usuario {
@@ -12,7 +11,6 @@ export interface Usuario {
     fechaCreado: string;
     fechaActualizado: string;
     direccion: Direccion;
-    estatus: Estatus,
     rol: Rol
 }
 

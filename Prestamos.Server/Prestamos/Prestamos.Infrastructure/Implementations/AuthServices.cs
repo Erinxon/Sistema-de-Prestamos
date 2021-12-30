@@ -22,7 +22,6 @@ namespace Prestamos.Infrastructure.Implementations
         {
             return await this._context.Usuarios
                 .AsNoTracking()
-                .Include(c => c.Estatus)
                 .Include(c => c.Rol)
                 .FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
         }

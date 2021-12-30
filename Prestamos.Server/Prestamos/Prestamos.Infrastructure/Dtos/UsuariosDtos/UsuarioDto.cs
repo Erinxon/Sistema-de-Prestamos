@@ -20,7 +20,6 @@ namespace Prestamos.Infrastructure.Dtos.UsuariosDtos
         public DateTime? FechaCreado { get; set; }
         public DateTime? FechaActualizado { get; set; }
         public DireccionDto Direccion { get; set; }
-        public EstatusDto Estatus { get; set; }
         public RolDto Rol { get; set; }
     }
 }

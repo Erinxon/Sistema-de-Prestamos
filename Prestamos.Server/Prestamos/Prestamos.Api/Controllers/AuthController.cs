@@ -41,7 +41,6 @@ namespace Prestamos.Api.Controllers
                 }
                 var userResponse = new UserResponse(usuario)
                 {
-                    Estatus = _mapper.Map<EstatusDto>(usuario.Estatus),
                     Rol = _mapper.Map<RolDto>(usuario.Rol),
                     Token = GenerateJWT.Generate(usuario, this.config)
                 };

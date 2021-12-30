@@ -7,7 +7,6 @@ import { Pagination } from 'src/app/Core/models/apiResponse/pagination/paginatio
 import { AddCliente } from 'src/app/Core/models/clientes/addCliente.model';
 import { Cliente } from 'src/app/Core/models/clientes/cliente.model';
 import { UpdateCliente } from 'src/app/Core/models/clientes/update-cliente.model';
-import { Estatus } from 'src/app/Core/models/estatus/estatus.model';
 import { EstatusCrediticio } from 'src/app/Core/models/estatusCrediticios/estatusCrediticio.model';
 
 @Injectable({
@@ -30,10 +29,6 @@ export class ClienteService {
 
   getClienteByCedula(cedula: string): Observable<ApiResponse<Cliente>>{
     return this.http.get<ApiResponse<Cliente>>(`/Clientes/cedula/${cedula}`);
-  }
-
-  getEstatus(): Observable<ApiResponse<Estatus[]>>{
-    return this.http.get<ApiResponse<Estatus[]>>('/Estatus');
   }
 
   getEstatusCrediticios(): Observable<ApiResponse<EstatusCrediticio[]>>{

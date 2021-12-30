@@ -5,8 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Cliente } from 'src/app/Core/models/clientes/cliente.model';
 import { UpdateCliente } from 'src/app/Core/models/clientes/update-cliente.model';
-import { EstatuCrediticioCliente, EstatusClientes } from 'src/app/Core/models/Enums/enums.model';
-import { Estatus } from 'src/app/Core/models/estatus/estatus.model';
+import { EstatuCrediticioCliente } from 'src/app/Core/models/Enums/enums.model';
 import { EstatusCrediticio } from 'src/app/Core/models/estatusCrediticios/estatusCrediticio.model';
 import { ToastModel } from 'src/app/Core/models/toasts/toast.model';
 import { ToastService } from 'src/app/Shared/services/toast.service';
@@ -21,7 +20,6 @@ import { ClienteService } from '../../services/cliente.service';
 export class EditarClientesComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   cliente!: Cliente;
-  estatus$: Observable<Estatus[]>;
   estatusCrediticios$: Observable<EstatusCrediticio[]>;
 
   constructor(private clienteService: ClienteService,
@@ -29,10 +27,6 @@ export class EditarClientesComponent implements OnInit {
     private toastService: ToastService,
     private route: ActivatedRoute,
     private router: Router) {
-      this.estatus$ = this.clienteService.getEstatus()
-      .pipe(
-        map((res) => res.data)
-      );
       this.estatusCrediticios$ = this.clienteService.getEstatusCrediticios()
       .pipe(
         map((res) => res.data)
@@ -46,7 +40,6 @@ export class EditarClientesComponent implements OnInit {
       this.cliente = {... res.data};
       this.form.patchValue({
         ...res.data,
-        idEstatus: res.data.estatus.id,
         idEstatusCrediticio: res.data.estatusCrediticio.id
       });
     })
@@ -59,7 +52,6 @@ export class EditarClientesComponent implements OnInit {
       cedula: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11), 
                     MyValidations.isCedulaInvalid]],
       telefono: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-      idEstatus: ['', [Validators.required]],
       idEstatusCrediticio: ['', [Validators.required]],
       direccion: this.fb.group({
         provincia: ['', [Validators.required]],
@@ -120,10 +112,6 @@ export class EditarClientesComponent implements OnInit {
     setTimeout(() => {
       this.toastService.hide();
     }, 2000)
-  }
-
-  getEstadoString(estatus: EstatusClientes): string {
-    return  EstatusClientes[estatus];
   }
 
 

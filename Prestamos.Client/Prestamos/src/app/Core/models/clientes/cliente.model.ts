@@ -1,6 +1,4 @@
 import { Direccion } from "../direcciones/direccion.model";
-import { EstatuCrediticioCliente, EstatusClientes } from "../Enums/enums.model";
-import { Estatus } from "../estatus/estatus.model";
 import { EstatusCrediticio } from "../estatusCrediticios/estatusCrediticio.model";
 
 export interface Cliente {
@@ -12,6 +10,5 @@ export interface Cliente {
     fechaCreado: Date;
     fechaActualizado: Date;
     direccion: Direccion;
-    estatus: Estatus;
     estatusCrediticio: EstatusCrediticio;
 }

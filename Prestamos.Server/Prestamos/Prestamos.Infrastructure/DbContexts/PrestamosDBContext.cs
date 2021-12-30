@@ -25,7 +25,7 @@ namespace Prestamos.Infrastructure.DbContexts
         public virtual DbSet<DetallePrestamo> DetallePrestamos { get; set; }
         public virtual DbSet<Direccion> Direccions { get; set; }
         public virtual DbSet<Empresa> Empresas { get; set; }
-        public virtual DbSet<Estatus> Estatuses { get; set; }
+        //public virtual DbSet<Estatus> Estatuses { get; set; }
         public virtual DbSet<EstatusCrediticio> EstatusCrediticios { get; set; }
         public virtual DbSet<EstatusPrestamo> EstatusPrestamos { get; set; }
         public virtual DbSet<PeriodoPago> PeriodoPagos { get; set; }
@@ -68,11 +68,6 @@ namespace Prestamos.Infrastructure.DbContexts
                     .WithMany(p => p.Clientes)
                     .HasForeignKey(d => d.IdDireccion)
                     .HasConstraintName("FK__Clientes__IdDire__398D8EEE");
-
-                entity.HasOne(d => d.Estatus)
-                    .WithMany(p => p.Clientes)
-                    .HasForeignKey(d => d.IdEstatus)
-                    .HasConstraintName("FK__Clientes__IdEsta__3A81B327");
 
                 entity.HasOne(d => d.EstatusCrediticio)
                     .WithMany(p => p.Clientes)
@@ -159,16 +154,6 @@ namespace Prestamos.Infrastructure.DbContexts
                     .WithMany(p => p.Empresas)
                     .HasForeignKey(d => d.IdDireccion)
                     .HasConstraintName("FK__Empresa__IdDirec__35BCFE0A");
-            });
-
-            modelBuilder.Entity<Estatus>(entity =>
-            {
-                entity.ToTable("Estatus");
-
-                entity.Property(e => e.EstatusClientes)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<EstatusCrediticio>(entity =>
@@ -274,11 +259,6 @@ namespace Prestamos.Infrastructure.DbContexts
                     .HasForeignKey(d => d.IdDireccion)
                     .HasConstraintName("FK__Usuarios__IdDire__30F848ED");
 
-                entity.HasOne(d => d.Estatus)
-                    .WithMany(p => p.Usuarios)
-                    .HasForeignKey(d => d.IdEstatus)
-                    .HasConstraintName("FK__Usuarios__IdEsta__31EC6D26");
-
                 entity.HasOne(d => d.Rol)
                     .WithMany(p => p.Usuarios)
                     .HasForeignKey(d => d.IdRol)
@@ -290,7 +270,6 @@ namespace Prestamos.Infrastructure.DbContexts
             OnModelCreatingPartial(modelBuilder);
 
             modelBuilder.Entity<Role>().HasData(DefaultData.GetDefaultDataRoles());
-            modelBuilder.Entity<Estatus>().HasData(DefaultData.GetDefaultDataEstatus());
             modelBuilder.Entity<EstatusCrediticio>().HasData(DefaultData.GetDefaultDataEstatusCrediticio());
             modelBuilder.Entity<EstatusPrestamo>().HasData(DefaultData.GetDefaultDataEstatusPrestamo());
             modelBuilder.Entity<PeriodoPago>().HasData(DefaultData.GetDefaultDataPeriodoPago());
