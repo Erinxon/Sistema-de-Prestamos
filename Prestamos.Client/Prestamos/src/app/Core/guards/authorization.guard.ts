@@ -19,6 +19,9 @@ export class AuthorizationGuard implements CanActivate, OnDestroy {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     this.subscription = this.auth.getUserAuth().subscribe(user => {
+      console.log(route.data['roles'])
+      console.log(user.rol.roles)
+      console.log(route.data['roles'].indexOf(user.rol.roles))
       if(!user) {
         this.router.navigate(['/auth/login']);
         return false;
@@ -27,6 +30,7 @@ export class AuthorizationGuard implements CanActivate, OnDestroy {
         if(!isPermission) this.router.navigate(['/403']);
         return isPermission;
       }
+ 
     })
     return true;
   }

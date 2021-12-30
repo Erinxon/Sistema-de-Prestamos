@@ -128,7 +128,7 @@ namespace Prestamos.Api.Controllers
 
         // PUT: api/Clientes/5
         [HttpPut("{id}")]
-        [Authorize(Roles = "Prestador")]
+        [Authorize(Roles = "Admin,Prestador")]
         public async Task<IActionResult> Put(int id, [FromBody] UpdateClienteDto clienteDto)
         {
             var response = new ApiResponse<ClienteDto>();
@@ -169,7 +169,7 @@ namespace Prestamos.Api.Controllers
 
         // POST: api/Clientes
         [HttpPost]
-        [Authorize(Roles = "Prestador")]
+        [Authorize(Roles = "Admin,Prestador")]
         public async Task<ActionResult<Cliente>> Post([FromBody] AddClienteDto clienteDto)
         {
             var response = new ApiResponse<ClienteDto>();
@@ -198,7 +198,7 @@ namespace Prestamos.Api.Controllers
 
         // DELETE: api/Clientes/5
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Prestador")]
+        [Authorize(Roles = "Admin,Prestador")]
         public async Task<IActionResult> Delete(int id)
         {
             var response = new ApiResponse<ClienteDto>();

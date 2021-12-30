@@ -12,7 +12,7 @@ const routes: Routes = [
     path: '',
     component: UsuariosComponent,
     canActivate: [AuthorizationGuard],
-    data: { roles: [RolesUsuario.Prestador] }
+    data: { roles: [RolesUsuario.Admin] }
   },
   {
     path: 'agregar',

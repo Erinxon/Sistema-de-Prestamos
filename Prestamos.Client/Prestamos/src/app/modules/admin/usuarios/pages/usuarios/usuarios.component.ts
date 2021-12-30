@@ -26,7 +26,7 @@ export class UsuariosComponent implements OnInit {
 
   totalPaginas: number = 1;
   
-  rolUsuarioNoEliminar = RolesUsuario.Prestador;
+  rolUsuarioNoEliminar = RolesUsuario.Admin;
 
   constructor(private usuarioService: UsuarioService, private toastService: ToastService) {
     this.pagination = {

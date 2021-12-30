@@ -1,5 +1,6 @@
 export enum RolesUsuario {
-  Prestador = 1,
+  Admin = 1,
+  Prestador,
   Cobrador,
 }
 

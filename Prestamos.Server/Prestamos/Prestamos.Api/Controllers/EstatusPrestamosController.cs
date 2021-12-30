@@ -14,7 +14,7 @@ namespace Prestamos.Api.Controllers
 {
     [ApiController]
     [Route("api/[Controller]")]
-    [Authorize(Roles = "Prestador")]
+    [Authorize(Roles = "Admin,Prestador")]
     public class EstatusPrestamosController : PrestamoControllerBase
     {
         public EstatusPrestamosController(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)

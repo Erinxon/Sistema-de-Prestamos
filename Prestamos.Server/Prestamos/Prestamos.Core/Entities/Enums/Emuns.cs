@@ -6,7 +6,7 @@ namespace Prestamos.Core.Entities.Enums
 {
     public enum RolesUsuario
     {
-        Prestador = 1, Cobrador
+        Admin = 1, Prestador, Cobrador, 
     }
 
     public enum EstatuCrediticioCliente

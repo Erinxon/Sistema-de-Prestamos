@@ -18,11 +18,16 @@ namespace Prestamos.Infrastructure.DbContexts
                 new Role()
                {
                    Id = 1,
-                   Roles = RolesUsuario.Prestador
+                   Roles = RolesUsuario.Admin
                },
                new Role()
                {
                    Id = 2,
+                   Roles = RolesUsuario.Prestador
+               },
+               new Role()
+               {
+                   Id = 3,
                    Roles = RolesUsuario.Cobrador
                }
             };
@@ -142,6 +147,13 @@ namespace Prestamos.Infrastructure.DbContexts
                     Provincia = "Santo Domingo 3",
                     Calle = "Desconocida",
                     Numero = "15"
+                },
+                new Direccion
+                {
+                    Id = 4,
+                    Provincia = "Santo Domingo 4",
+                    Calle = "Desconocida",
+                    Numero = "16"
                 }
             };
             return direcciones;
@@ -153,6 +165,20 @@ namespace Prestamos.Infrastructure.DbContexts
             {
                 new Usuario
                 {
+                    Id = 3,
+                    Nombres = "Super",
+                    Apellidos = "Admin",
+                    Cedula = "10015221545",
+                    Email = "admin@gmail.com",
+                    Telefono = "8294551565",
+                    IdDireccion = 4,
+                    IdRol = (int) RolesUsuario.Admin,
+                    Password = "123456789".ToEncryptedPassword(),
+                    FechaCreado =  DateTime.UtcNow,
+                    FechaActualizado = DateTime.UtcNow,
+                },
+                new Usuario
+                {
                     Id = 1,
                     Nombres = "Erinxon",
                     Apellidos = "Santana",
@@ -160,7 +186,7 @@ namespace Prestamos.Infrastructure.DbContexts
                     Email = "erinxon@gmail.com",
                     Telefono = "8294155565",
                     IdDireccion = 1,
-                    IdRol = 1,
+                    IdRol = (int) RolesUsuario.Prestador,
                     Password = "123456789".ToEncryptedPassword(),
                     FechaCreado =  DateTime.UtcNow,
                     FechaActualizado = DateTime.UtcNow,
@@ -174,7 +200,7 @@ namespace Prestamos.Infrastructure.DbContexts
                     Email = "prueba2@gmail.com",
                     Telefono = "8294555565",
                     IdDireccion = 2,
-                    IdRol = 2,
+                    IdRol = (int) RolesUsuario.Cobrador,
                     Password = "123456789".ToEncryptedPassword(),
                     FechaCreado =  DateTime.UtcNow,
                     FechaActualizado = DateTime.UtcNow,

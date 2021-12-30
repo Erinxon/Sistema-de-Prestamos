@@ -167,6 +167,13 @@ namespace Prestamos.Infrastructure.Migrations
                             Calle = "Desconocida",
                             Numero = "15",
                             Provincia = "Santo Domingo 3"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Calle = "Desconocida",
+                            Numero = "16",
+                            Provincia = "Santo Domingo 4"
                         });
                 });
 
@@ -225,8 +232,8 @@ namespace Prestamos.Infrastructure.Migrations
                         {
                             Id = 1,
                             Email = "prueba@gmail.com",
-                            FechaActualizado = new DateTime(2021, 12, 30, 13, 47, 49, 343, DateTimeKind.Utc).AddTicks(2029),
-                            FechaCreado = new DateTime(2021, 12, 30, 13, 47, 49, 343, DateTimeKind.Utc).AddTicks(1579),
+                            FechaActualizado = new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(5119),
+                            FechaCreado = new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(4806),
                             IdAdministrador = 1,
                             IdDireccion = 3,
                             Nombre = "Prueba",
@@ -428,6 +435,11 @@ namespace Prestamos.Infrastructure.Migrations
                         {
                             Id = 2,
                             Roles = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Roles = 3
                         });
                 });
 
@@ -496,14 +508,28 @@ namespace Prestamos.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
+                            Id = 3,
+                            Apellidos = "Admin",
+                            Cedula = "10015221545",
+                            Email = "admin@gmail.com",
+                            FechaActualizado = new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(4),
+                            FechaCreado = new DateTime(2021, 12, 30, 14, 32, 34, 723, DateTimeKind.Utc).AddTicks(9223),
+                            IdDireccion = 4,
+                            IdRol = 1,
+                            Nombres = "Super",
+                            Password = "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+                            Telefono = "8294551565"
+                        },
+                        new
+                        {
                             Id = 1,
                             Apellidos = "Santana",
                             Cedula = "17895222545",
                             Email = "erinxon@gmail.com",
-                            FechaActualizado = new DateTime(2021, 12, 30, 13, 47, 49, 342, DateTimeKind.Utc).AddTicks(4485),
-                            FechaCreado = new DateTime(2021, 12, 30, 13, 47, 49, 342, DateTimeKind.Utc).AddTicks(3419),
+                            FechaActualizado = new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(680),
+                            FechaCreado = new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(677),
                             IdDireccion = 1,
-                            IdRol = 1,
+                            IdRol = 2,
                             Nombres = "Erinxon",
                             Password = "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
                             Telefono = "8294155565"
@@ -514,10 +540,10 @@ namespace Prestamos.Infrastructure.Migrations
                             Apellidos = "Prueba prueba2",
                             Cedula = "17495221545",
                             Email = "prueba2@gmail.com",
-                            FechaActualizado = new DateTime(2021, 12, 30, 13, 47, 49, 342, DateTimeKind.Utc).AddTicks(5482),
-                            FechaCreado = new DateTime(2021, 12, 30, 13, 47, 49, 342, DateTimeKind.Utc).AddTicks(5479),
+                            FechaActualizado = new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(800),
+                            FechaCreado = new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(799),
                             IdDireccion = 2,
-                            IdRol = 2,
+                            IdRol = 3,
                             Nombres = "Prueba prueba2",
                             Password = "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
                             Telefono = "8294555565"

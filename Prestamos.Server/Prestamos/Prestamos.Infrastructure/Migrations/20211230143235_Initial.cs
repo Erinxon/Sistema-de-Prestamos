@@ -23,19 +23,6 @@ namespace Prestamos.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Estatus",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    EstatusClientes = table.Column<int>(type: "int", unicode: false, maxLength: 50, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Estatus", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "EstatusCrediticio",
                 columns: table => new
                 {
@@ -98,7 +85,6 @@ namespace Prestamos.Infrastructure.Migrations
                     Cedula = table.Column<string>(type: "varchar(11)", unicode: false, maxLength: 11, nullable: false),
                     IdDireccion = table.Column<int>(type: "int", nullable: false),
                     Telefono = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: true),
-                    IdEstatus = table.Column<int>(type: "int", nullable: false),
                     IdEstatusCrediticio = table.Column<int>(type: "int", nullable: false),
                     FechaCreado = table.Column<DateTime>(type: "datetime", nullable: true),
                     FechaActualizado = table.Column<DateTime>(type: "datetime", nullable: true)
@@ -110,12 +96,6 @@ namespace Prestamos.Infrastructure.Migrations
                         name: "FK__Clientes__IdDire__398D8EEE",
                         column: x => x.IdDireccion,
                         principalTable: "Direccion",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK__Clientes__IdEsta__3A81B327",
-                        column: x => x.IdEstatus,
-                        principalTable: "Estatus",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -138,7 +118,6 @@ namespace Prestamos.Infrastructure.Migrations
                     Email = table.Column<string>(type: "varchar(250)", unicode: false, maxLength: 250, nullable: false),
                     IdDireccion = table.Column<int>(type: "int", nullable: false),
                     Telefono = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: true),
-                    IdEstatus = table.Column<int>(type: "int", nullable: false),
                     IdRol = table.Column<int>(type: "int", nullable: false),
                     Password = table.Column<string>(type: "varchar(256)", unicode: false, maxLength: 256, nullable: false),
                     FechaCreado = table.Column<DateTime>(type: "datetime", nullable: true),
@@ -151,12 +130,6 @@ namespace Prestamos.Infrastructure.Migrations
                         name: "FK__Usuarios__IdDire__30F848ED",
                         column: x => x.IdDireccion,
                         principalTable: "Direccion",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK__Usuarios__IdEsta__31EC6D26",
-                        column: x => x.IdEstatus,
-                        principalTable: "Estatus",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -284,17 +257,8 @@ namespace Prestamos.Infrastructure.Migrations
                 {
                     { 1, "Desconocida", "13", "Santo Domingo" },
                     { 2, "Desconocida", "14", "Santo Domingo 2" },
-                    { 3, "Desconocida", "15", "Santo Domingo 3" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Estatus",
-                columns: new[] { "Id", "EstatusClientes" },
-                values: new object[,]
-                {
-                    { 1, 1 },
-                    { 2, 2 },
-                    { 3, 3 }
+                    { 3, "Desconocida", "15", "Santo Domingo 3" },
+                    { 4, "Desconocida", "16", "Santo Domingo 4" }
                 });
 
             migrationBuilder.InsertData(
@@ -315,8 +279,8 @@ namespace Prestamos.Infrastructure.Migrations
                 {
                     { 4, 4 },
                     { 3, 3 },
-                    { 1, 1 },
-                    { 2, 2 }
+                    { 2, 2 },
+                    { 1, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -337,23 +301,29 @@ namespace Prestamos.Infrastructure.Migrations
                 values: new object[,]
                 {
                     { 1, 1 },
-                    { 2, 2 }
+                    { 2, 2 },
+                    { 3, 3 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
-                columns: new[] { "Id", "Apellidos", "Cedula", "Email", "FechaActualizado", "FechaCreado", "IdDireccion", "IdEstatus", "IdRol", "Nombres", "Password", "Telefono" },
-                values: new object[] { 1, "Santana", "17895222545", "erinxon@gmail.com", new DateTime(2021, 12, 25, 15, 16, 56, 7, DateTimeKind.Utc).AddTicks(4555), new DateTime(2021, 12, 25, 15, 16, 56, 7, DateTimeKind.Utc).AddTicks(3655), 1, 1, 1, "Erinxon", "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225", "8294155565" });
+                columns: new[] { "Id", "Apellidos", "Cedula", "Email", "FechaActualizado", "FechaCreado", "IdDireccion", "IdRol", "Nombres", "Password", "Telefono" },
+                values: new object[] { 3, "Admin", "10015221545", "admin@gmail.com", new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(4), new DateTime(2021, 12, 30, 14, 32, 34, 723, DateTimeKind.Utc).AddTicks(9223), 4, 1, "Super", "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225", "8294551565" });
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
-                columns: new[] { "Id", "Apellidos", "Cedula", "Email", "FechaActualizado", "FechaCreado", "IdDireccion", "IdEstatus", "IdRol", "Nombres", "Password", "Telefono" },
-                values: new object[] { 2, "Prueba prueba2", "17495221545", "prueba2@gmail.com", new DateTime(2021, 12, 25, 15, 16, 56, 7, DateTimeKind.Utc).AddTicks(5313), new DateTime(2021, 12, 25, 15, 16, 56, 7, DateTimeKind.Utc).AddTicks(5310), 2, 1, 2, "Prueba prueba2", "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225", "8294555565" });
+                columns: new[] { "Id", "Apellidos", "Cedula", "Email", "FechaActualizado", "FechaCreado", "IdDireccion", "IdRol", "Nombres", "Password", "Telefono" },
+                values: new object[] { 1, "Santana", "17895222545", "erinxon@gmail.com", new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(680), new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(677), 1, 2, "Erinxon", "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225", "8294155565" });
+
+            migrationBuilder.InsertData(
+                table: "Usuarios",
+                columns: new[] { "Id", "Apellidos", "Cedula", "Email", "FechaActualizado", "FechaCreado", "IdDireccion", "IdRol", "Nombres", "Password", "Telefono" },
+                values: new object[] { 2, "Prueba prueba2", "17495221545", "prueba2@gmail.com", new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(800), new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(799), 2, 3, "Prueba prueba2", "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225", "8294555565" });
 
             migrationBuilder.InsertData(
                 table: "Empresa",
                 columns: new[] { "Id", "Email", "FechaActualizado", "FechaCreado", "IdAdministrador", "IdDireccion", "Nombre", "RNC", "Telefono" },
-                values: new object[] { 1, "prueba@gmail.com", new DateTime(2021, 12, 25, 15, 16, 56, 8, DateTimeKind.Utc).AddTicks(721), new DateTime(2021, 12, 25, 15, 16, 56, 8, DateTimeKind.Utc).AddTicks(368), 1, 3, "Prueba", "875223236", "5556232365" });
+                values: new object[] { 1, "prueba@gmail.com", new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(5119), new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(4806), 1, 3, "Prueba", "875223236", "5556232365" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Clientes_Cedula",
@@ -365,11 +335,6 @@ namespace Prestamos.Infrastructure.Migrations
                 name: "IX_Clientes_IdDireccion",
                 table: "Clientes",
                 column: "IdDireccion");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Clientes_IdEstatus",
-                table: "Clientes",
-                column: "IdEstatus");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Clientes_IdEstatusCrediticio",
@@ -422,11 +387,6 @@ namespace Prestamos.Infrastructure.Migrations
                 column: "IdDireccion");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Usuarios_IdEstatus",
-                table: "Usuarios",
-                column: "IdEstatus");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Usuarios_IdRol",
                 table: "Usuarios",
                 column: "IdRol");
@@ -460,9 +420,6 @@ namespace Prestamos.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Direccion");
-
-            migrationBuilder.DropTable(
-                name: "Estatus");
 
             migrationBuilder.DropTable(
                 name: "Roles");
