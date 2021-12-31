@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Cliente } from 'src/app/Core/models/clientes/cliente.model';
 import { EstatuCrediticioCliente, EstatusPrestamosClientes } from 'src/app/Core/models/Enums/enums.model';
 import { EstatusCrediticio } from 'src/app/Core/models/estatusCrediticios/estatusCrediticio.model';
@@ -33,6 +34,7 @@ export class PagarPrestamoComponent implements OnInit {
   showDialogo: boolean = false;
   readonly columnasDetallePrestamo = ['Numero Cuota', 'Cuota a Pagar', 'Interes a Pagar', 'Capital Amortizado', 'Pagado', 'Estatus'];
   estatusPrestamos!: EstatusPrestamo[];
+
   constructor(private pagarPrestamoService: PagarPrestamoService,
     private fb: FormBuilder,
     private toast: ToastService) {
@@ -115,25 +117,31 @@ export class PagarPrestamoComponent implements OnInit {
         this.detallePrestamo = [...this.detallePrestamo, {...d}]
       }
     })
-    console.log(this.detallePrestamo)
     return this.detallePrestamo;
   }
   
 
   pagarPrestamo(){
     this.prestamo.detallePrestamos = [...this.getDataPrestamoForm()];
-    this.prestamo.estatusPrestamo = 
-        this.verificarPagoCompleto(this.prestamo.detallePrestamos) ? this.getEstatus(EstatusPrestamosClientes.Pagado) 
-        : this.prestamo.estatusPrestamo;
 
     if(this.verificarPagoCompleto(this.prestamo.detallePrestamos)){
-      this.pagarPrestamoService.updateEstatus(this.prestamo.cliente.id, EstatuCrediticioCliente.Libre)
+      this.prestamo.estatusPrestamo = this.getEstatus(EstatusPrestamosClientes.Pagado);
+      this.UpdateEstatusCliente();
+    }
+    
+    this.updatePrestamo();
+  
+  }
+
+  private UpdateEstatusCliente(){
+    this.pagarPrestamoService.updateEstatus(this.prestamo.cliente.id, EstatuCrediticioCliente.Libre)
       .subscribe(res => {
       }, error => {
         console.log(error);
       })
-    }
-    
+  }
+
+  private updatePrestamo(){
     this.pagarPrestamoService.pagarPrestamo(this.prestamo).subscribe(res => {
       this.showToast({
         title: 'Prestamo',

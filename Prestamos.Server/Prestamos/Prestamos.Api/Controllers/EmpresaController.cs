@@ -14,7 +14,6 @@ namespace Prestamos.Api.Controllers
 {
     [ApiController]
     [Route("api/[Controller]")]
-    [Authorize(Roles = "Admin")]
     public class EmpresaController : PrestamoControllerBase
     {
         public EmpresaController(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
@@ -24,6 +23,7 @@ namespace Prestamos.Api.Controllers
 
         // GET: api/Empresa
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<EmpresaDto>> GetAll()
         {
             var response = new ApiResponse<EmpresaDto>();
@@ -46,6 +46,7 @@ namespace Prestamos.Api.Controllers
 
         // PUT: api/Empresa/1
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Put(int id, [FromBody] UpdateEmpresaDto empresaDto)
         {
             var response = new ApiResponse<EmpresaDto>();

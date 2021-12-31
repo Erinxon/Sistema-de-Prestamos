@@ -46,4 +46,9 @@ export class AdminComponent implements OnInit {
     this.auth.logout();
   }
 
+  getLetrasIniciales(nombres: string, apellidos: string): string {
+    return  nombres.charAt(0) + apellidos.charAt(0);
+  }
+
+
 }

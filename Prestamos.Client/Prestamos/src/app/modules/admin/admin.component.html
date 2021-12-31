@@ -17,22 +17,18 @@
       </div>
       <ul class="navbar-nav navbar-right">
         <li class="dropdown"><a href="#" data-toggle="dropdown"
-            class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="assets/img/user.png"
-              class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
+            class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+            <figure class="avatar mr-2 bg-primary text-white" 
+            data-initial="UM"
+            [attr.data-initial]="getLetrasIniciales(user.nombres, user.apellidos)"
+            ></figure>
+            <span class="d-sm-none d-lg-inline-block"></span></a>
           <div class="dropdown-menu dropdown-menu-right pullDown">
             <div class="dropdown-title">  
               <ng-container *ngIf="user">
                 {{ user.nombres }} {{ user.nombres }}
               </ng-container>
             </div>
-            <a href="profile.html" class="dropdown-item has-icon"> <i class="far
-										fa-user">
-                  </i> 
-                  Profile               
-            </a> 
-             <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
-              Settings
-            </a>
             <div class="dropdown-divider"></div>
             <a (click)="Logout()" class="dropdown-item has-icon text-danger Logout"> <i class="fas fa-sign-out-alt"></i>
               Logout
@@ -44,7 +40,7 @@
     <div class="main-sidebar sidebar-style-2" tabindex="1" style="overflow: hidden; outline: none;">
       <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-          <a href="index.html"> <img alt="image" src="assets/img/logo.png" class="header-logo"> <span
+          <a routerLink="/"><span
               class="logo-name"> Prestamos</span>
           </a>
         </div>

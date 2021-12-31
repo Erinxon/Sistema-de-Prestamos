@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PdfService } from './pdf.service';
+import { CronogramprestamoPdfService } from './cronograma-prestamo-pdf.service';
 
 describe('PdfService', () => {
-  let service: PdfService;
+  let service: CronogramprestamoPdfService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PdfService);
+    service = TestBed.inject(CronogramprestamoPdfService);
   });
 
   it('should be created', () => {

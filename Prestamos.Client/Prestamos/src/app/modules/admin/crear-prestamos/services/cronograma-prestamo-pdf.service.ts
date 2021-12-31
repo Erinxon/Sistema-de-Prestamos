@@ -6,8 +6,6 @@ import * as pdfFonts from "pdfmake/build/vfs_fonts";
 import { Cliente } from 'src/app/Core/models/clientes/cliente.model';
 import { Empresa } from 'src/app/Core/models/empresa/empresa.model';
 import { PeriodoDePagos } from 'src/app/Core/models/Enums/enums.model';
-import { AddPrestamo } from 'src/app/Core/models/prestamos/add-prestamo.model';
-import { AddDetallePrestamo } from 'src/app/Core/models/prestamos/detallePrestamo/add-DetallePrestamo.model';
 import { DetallePrestamo } from 'src/app/Core/models/prestamos/detallePrestamo/detalle-Prestamos.model';
 import { Prestamo } from 'src/app/Core/models/prestamos/prestamo.model';
 import { ConfiguracionService } from '../../configuracion/services/configuracion.service';
@@ -18,7 +16,7 @@ PdfMakeWrapper.setFonts(pdfFonts);
 @Injectable({
   providedIn: 'root',
 })
-export class PdfService {
+export class CronogramprestamoPdfService {
   private empresa!: Empresa;
   private detalleprestamo!: DetallePrestamo[];
   private prestamo!: Prestamo;

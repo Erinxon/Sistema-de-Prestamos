@@ -13,7 +13,7 @@ const maskConfig: Partial<IConfig> = {
 };
 @NgModule({
   declarations: [
-    PagarPrestamoComponent
+    PagarPrestamoComponent,
   ],
   imports: [
     CommonModule,

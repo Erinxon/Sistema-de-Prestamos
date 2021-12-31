@@ -177,7 +177,9 @@ namespace Prestamos.Api.Controllers
                 //Update detalle prestamo
                 await this._unitOfWork.DetallesPrestamos.Update(detalle);
                 await this._unitOfWork.SavechangesAsync();
-                //response.Data = _mapper.Map<PrestamoDto>(prestamo);
+
+                prestamo.DetallePrestamos = detalle;
+                response.Data = _mapper.Map<PrestamoDto>(prestamo);
                 response.StatusCode = StatusCodes.Status200OK;
             }
             catch (Exception ex)

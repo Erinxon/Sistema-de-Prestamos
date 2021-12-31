@@ -32,7 +32,6 @@ export class JwtInterceptor implements HttpInterceptor, OnDestroy {
       catchError((response: HttpErrorResponse) => {
         if (response.status === 401) {
           this.auth.logout();
-          this.router.navigate(['/auth/login'])
         }
         if(response.status === 403){
           this.router.navigate(['/403'])

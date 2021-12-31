@@ -13,7 +13,7 @@ import { Usuario } from 'src/app/Core/models/usuarios/usuatio.model';
 import { AuthService } from 'src/app/Shared/services/auth.service';
 import { ToastService } from 'src/app/Shared/services/toast.service';
 import { ClienteService } from '../../../clientes/services/cliente.service';
-import { PdfService } from '../../services/pdf.service';
+import { CronogramprestamoPdfService } from '../../services/cronograma-prestamo-pdf.service';
 import { PeriodoPagoService } from '../../services/periodo-pago.service';
 import { PrestamoService } from '../../services/prestamo.service';
 

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Prestamo } from 'src/app/Core/models/prestamos/prestamo.model';
-import { PdfService } from '../../services/pdf.service';
+import { CronogramprestamoPdfService } from '../../services/cronograma-prestamo-pdf.service';
 import { PrestamoService } from '../../services/prestamo.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class FacturaComponent implements OnInit, OnDestroy {
   isLoanding: boolean = false;
   constructor(private route: ActivatedRoute, 
     private router: Router,
-    private pdfService: PdfService,
+    private pdfService: CronogramprestamoPdfService,
     private prestamoService: PrestamoService) {
       this.isLoanding = true;
       const id = +this.route.snapshot.paramMap.get('id')!;
