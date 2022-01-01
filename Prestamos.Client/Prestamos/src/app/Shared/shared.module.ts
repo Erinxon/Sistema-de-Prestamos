@@ -9,7 +9,6 @@ import { RouterModule } from '@angular/router';
 import { PaginacionComponent } from './components/paginacion/paginacion.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { ToastrComponent } from './components/toastr/toastr.component';
-import { Error403Component } from './components/errors/error403/error403.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { FormsModule } from '@angular/forms';
 import { ColorFilaEstatusCrediticioClienteDirective } from './directives/color-fila-estatus-prestamo.directive';
@@ -19,7 +18,6 @@ import { EstatusCrediticioToStringPipe } from './pipes/estatus-crediticio-to-str
 import { PeriodoPagoToStringPipe } from './pipes/periodo-pago-to-string.pipe';
 import { RolToStringPipe } from './pipes/rol-to-string.pipe';
 import { IconoComponent } from './components/menu/icono/icono.component';
-
 
 @NgModule({
   declarations: [
@@ -31,7 +29,6 @@ import { IconoComponent } from './components/menu/icono/icono.component';
     PaginacionComponent,
     SpinnerComponent,
     ToastrComponent,
-    Error403Component,
     BuscadorComponent,
     ColorFilaEstatusCrediticioClienteDirective,
     ColorFilaEstatusPrestamoClienteDirective,
@@ -55,7 +52,6 @@ import { IconoComponent } from './components/menu/icono/icono.component';
     PaginacionComponent,
     SpinnerComponent,
     ToastrComponent,
-    Error403Component,
     BuscadorComponent,
     ColorFilaEstatusCrediticioClienteDirective,
     ColorFilaEstatusPrestamoClienteDirective,

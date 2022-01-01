@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './Core/guards/auth.guard';
-import { Error403Component } from './Shared/components/errors/error403/error403.component';
+import { ErrorGuard } from './Core/guards/error.guard';
 
 const routes: Routes = [
   { 
@@ -17,8 +17,9 @@ const routes: Routes = [
     loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule)
   },
   {
-    path: '403',
-    component: Error403Component
+    path: 'error',
+    loadChildren: () => import('./modules/errors/error/error.module').then((m) => m.ErrorModule),
+    canActivate: [ErrorGuard]
   },
   {
     path: '**',

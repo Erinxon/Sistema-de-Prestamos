@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'src/app/Core/guards/auth.guard';
 import { AuthorizationGuard } from 'src/app/Core/guards/authorization.guard';
 import { RolesUsuario } from 'src/app/Core/models/Enums/enums.model';
-import { Error403Component } from 'src/app/Shared/components/errors/error403/error403.component';
 import { AdminComponent } from './admin.component';
 
 const routes: Routes = [

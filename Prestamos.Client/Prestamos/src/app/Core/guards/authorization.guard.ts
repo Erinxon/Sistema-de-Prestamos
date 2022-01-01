@@ -2,6 +2,7 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/Shared/services/auth.service';
+import { ErrorService } from 'src/app/Shared/services/error.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AuthorizationGuard implements CanActivate, OnDestroy {
   subscription!: Subscription;
 
   constructor(private auth: AuthService, 
-    private router: Router){
+    private router: Router, private errorServices: ErrorService){
 
   }
 
@@ -24,7 +25,12 @@ export class AuthorizationGuard implements CanActivate, OnDestroy {
         return false;
       }else{
         let isPermission = route.data['roles'].indexOf(user.rol.roles) > -1;      
-        if(!isPermission) this.router.navigate(['/403']);
+        if(!isPermission){
+          this.errorServices.setError({
+            error: 403,
+            errorMessage: 'Acceso denegado, no tienes permisos para acceder a esta pagina'
+          })
+        }
         return isPermission;
       }
  
