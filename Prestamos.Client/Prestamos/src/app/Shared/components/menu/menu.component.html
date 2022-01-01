@@ -1,1 +1,22 @@
-<p>menu works!</p>
+<div class="main-sidebar sidebar-style-2" tabindex="1" style="overflow: hidden; outline: none;">
+    <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+            <a routerLink="/"><span class="logo-name">{{titulo}}</span>
+            </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="menu-header">Main</li>
+            <ng-container *ngFor="let pagina of paginas; index as id">
+                <li class="dropdown item-menu">
+                    <a (click)="changeToggle(id)" class="menu-toggle nav-link has-dropdown"
+                        [ngClass]="{'toggled': pagina.toggled}">
+                        <app-icono [icono]="pagina.icono"></app-icono>
+                        <span>{{pagina.titulo}}</span></a>
+                    <ul class="dropdown-menu" [ngStyle]="{'display': pagina.toggled ? 'block' : ''}">
+                        <li><a class="nav-link" [routerLink]="[pagina.url]">{{pagina.titulo}}</a></li>
+                    </ul>
+                </li>
+            </ng-container>
+        </ul>
+    </aside>
+</div>

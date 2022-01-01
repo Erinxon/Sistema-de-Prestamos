@@ -18,6 +18,7 @@ import { EstatusPrestamoToStringPipe } from './pipes/estatus-prestamo-to-string.
 import { EstatusCrediticioToStringPipe } from './pipes/estatus-crediticio-to-string.pipe';
 import { PeriodoPagoToStringPipe } from './pipes/periodo-pago-to-string.pipe';
 import { RolToStringPipe } from './pipes/rol-to-string.pipe';
+import { IconoComponent } from './components/menu/icono/icono.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { RolToStringPipe } from './pipes/rol-to-string.pipe';
     EstatusCrediticioToStringPipe,
     PeriodoPagoToStringPipe,
     RolToStringPipe,
+    IconoComponent,
   ],
   imports: [
     CommonModule,

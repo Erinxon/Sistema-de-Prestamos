@@ -18,13 +18,12 @@
       <ul class="navbar-nav navbar-right">
         <li class="dropdown"><a href="#" data-toggle="dropdown"
             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            <figure class="avatar mr-2 bg-primary text-white" 
-            data-initial="UM"
-            [attr.data-initial]="getLetrasIniciales(user.nombres, user.apellidos)"
-            ></figure>
-            <span class="d-sm-none d-lg-inline-block"></span></a>
+            <figure class="avatar mr-2 bg-primary text-white" data-initial="UM"
+              [attr.data-initial]="getLetrasIniciales(user.nombres, user.apellidos)"></figure>
+            <span class="d-sm-none d-lg-inline-block"></span>
+          </a>
           <div class="dropdown-menu dropdown-menu-right pullDown">
-            <div class="dropdown-title">  
+            <div class="dropdown-title">
               <ng-container *ngIf="user">
                 {{ user.nombres }} {{ user.nombres }}
               </ng-container>
@@ -37,38 +36,12 @@
         </li>
       </ul>
     </nav>
-    <div class="main-sidebar sidebar-style-2" tabindex="1" style="overflow: hidden; outline: none;">
-      <aside id="sidebar-wrapper">
-        <div class="sidebar-brand">
-          <a routerLink="/"><span
-              class="logo-name"> Prestamos</span>
-          </a>
-        </div>
-        <ul class="sidebar-menu">
-          <li class="menu-header">Main</li>
-          <ng-container *ngFor="let pagina of paginas; index as id">
-            <li class="dropdown item-menu">
-              <a (click)="changeToggle(id)" class="menu-toggle nav-link has-dropdown"
-              [ngClass]="{'toggled': pagina.toggled}">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                </svg><span>{{pagina.titulo}}</span></a>
-              <ul class="dropdown-menu" [ngStyle]="{'display': pagina.toggled ? 'block' : ''}">
-                <li><a class="nav-link" [routerLink]="[pagina.url]" >{{pagina.titulo}}</a></li>
-              </ul>
-            </li>
-          </ng-container>
-        </ul>
-      </aside>
-    </div>
+    <app-menu [paginas]="paginas" [titulo]="titulo"></app-menu>
     <div class="main-content" style="min-height: 540px;">
       <section class="section">
         <router-outlet></router-outlet>
       </section>
     </div>
-    <app-footer [goToUrl]="'/'" [title]="'Prestamos'"></app-footer>
+    <app-footer [goToUrl]="'/'" [title]="titulo"></app-footer>
   </div>
 </div>
