@@ -14,7 +14,6 @@ namespace Prestamos.Infrastructure.Dtos.ClientesDtos
         public string Apellidos { get; set; }
         public string Cedula { get; set; }
         public string Telefono { get; set; }
-        public int IdEstatusCrediticio { get; set; }
         public UpdateDireccionDto Direccion { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Prestamos.Infrastructure.BackgroundServices;
 using Prestamos.Infrastructure.DbContexts;
 using Prestamos.Infrastructure.Implementations;
 using Prestamos.Infrastructure.Interfaces;
@@ -19,6 +20,9 @@ namespace Prestamos.Infrastructure
                 b => b.MigrationsAssembly(typeof(PrestamosDBContext).Assembly.FullName)
             ));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            /*services.AddHostedService(serviceProvider =>
+            new BackgroundServiceCliente(
+            serviceProvider.GetRequiredService<IUnitOfWork>()));*/
         }
     }
 }

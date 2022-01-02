@@ -145,7 +145,7 @@
                                         [ngClass]="{'is-invalid': isInvalid('idRol')}"
                                         >
                                         <option [ngValue]="null" disabled>Por favor seleccione una opción</option>
-                                        <option *ngFor="let rol of roles | async;" [ngValue]="rol.id">
+                                        <option *ngFor="let rol of roles" [ngValue]="rol.id">
                                             {{rol.roles | rolToString}}
                                         </option>
                                     </select>

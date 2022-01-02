@@ -5,6 +5,5 @@ export interface UpdateCliente {
     apellidos: string;
     cedula: string;
     telefono: string;
-    idEstatusCrediticio: number;
     direccion: Direccion;
 }

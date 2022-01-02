@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { timeInterval, timeout } from 'rxjs';
 import { AddCliente } from 'src/app/Core/models/clientes/addCliente.model';
 import { ToastModel } from 'src/app/Core/models/toasts/toast.model';
 import { ToastService } from 'src/app/Shared/services/toast.service';

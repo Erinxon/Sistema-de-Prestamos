@@ -1,4 +1,3 @@
-import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,11 +8,9 @@ import { AddPrestamo } from 'src/app/Core/models/prestamos/add-prestamo.model';
 import { AddDetallePrestamo } from 'src/app/Core/models/prestamos/detallePrestamo/add-DetallePrestamo.model';
 import { ToastModel } from 'src/app/Core/models/toasts/toast.model';
 import { UserAuth } from 'src/app/Core/models/userAuth.model';
-import { Usuario } from 'src/app/Core/models/usuarios/usuatio.model';
 import { AuthService } from 'src/app/Shared/services/auth.service';
 import { ToastService } from 'src/app/Shared/services/toast.service';
 import { ClienteService } from '../../../clientes/services/cliente.service';
-import { CronogramprestamoPdfService } from '../../services/cronograma-prestamo-pdf.service';
 import { PeriodoPagoService } from '../../services/periodo-pago.service';
 import { PrestamoService } from '../../services/prestamo.service';
 
@@ -32,7 +29,7 @@ export class ConcederPrestamoComponent implements OnInit {
 
   cliente!: Cliente;
   readonly columnas: string[] = ['Nombre', 'Cedula', 'Telefono', 'Estatus Crediticio'];
-  cedula: string = '40241394648';
+  cedula: string = '';
   resultadoBusqueda!: ResultadoBusqueda;
 
   form: FormGroup = new FormGroup({});

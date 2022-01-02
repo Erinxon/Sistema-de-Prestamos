@@ -28,9 +28,5 @@ export class DetalleUsuarioComponent implements OnInit {
       this.router.navigate(['admin/usuarios']);
     });
   }
-
-  getLetrasIniciales(nombre: string, apellido: string): string {
-    return nombre.charAt(0) + apellido.charAt(0);
-  }
   
 }

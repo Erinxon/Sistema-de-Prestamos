@@ -16,20 +16,23 @@ import { UsuarioService } from '../../services/usuario.service';
 })
 export class AgregarUsuarioComponent implements OnInit {
   form: FormGroup = new FormGroup({});
-  roles: Observable<Rol[]>;
+  roles!: Rol[];
 
   constructor(private usuarioService: UsuarioService,
     private fb: FormBuilder, 
     private toastService: ToastService) {
-      this.roles = this.usuarioService.getRoles()
-      .pipe(
-        map(roles => roles.data)
-      );
+      this.getRoles();
       this.createForm();
   }
 
+  private getRoles(){
+    this.usuarioService.getRoles().subscribe(res => {
+      this.roles = res.data;
+    })
+  }
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    
   }
 
   createForm(){

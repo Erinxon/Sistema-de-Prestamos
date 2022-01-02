@@ -5,7 +5,7 @@
         <div class="card author-box">
           <div class="card-body">
             <div class="author-box-center">
-              <figure class="avatar mr-2 avatar-xl" [attr.data-initial]="getLetrasIniciales(usuario.nombres,usuario.apellidos)"></figure>
+              <figure class="avatar mr-2 avatar-xl" [appIniciales]="[usuario.nombres,usuario.apellidos]"></figure>
               <div class="clearfix"></div>
               <div class="author-box-name mt-2">
                 <span>{{usuario.nombres}} {{usuario.apellidos}}</span>

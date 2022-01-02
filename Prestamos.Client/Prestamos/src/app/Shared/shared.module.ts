@@ -18,6 +18,7 @@ import { EstatusCrediticioToStringPipe } from './pipes/estatus-crediticio-to-str
 import { PeriodoPagoToStringPipe } from './pipes/periodo-pago-to-string.pipe';
 import { RolToStringPipe } from './pipes/rol-to-string.pipe';
 import { IconoComponent } from './components/menu/icono/icono.component';
+import { InicialesDirective } from './directives/iniciales.directive';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { IconoComponent } from './components/menu/icono/icono.component';
     PeriodoPagoToStringPipe,
     RolToStringPipe,
     IconoComponent,
+    InicialesDirective,
   ],
   imports: [
     CommonModule,
@@ -59,6 +61,7 @@ import { IconoComponent } from './components/menu/icono/icono.component';
     EstatusCrediticioToStringPipe,
     PeriodoPagoToStringPipe,
     RolToStringPipe,
+    InicialesDirective
   ]
 })
 export class SharedModule { }

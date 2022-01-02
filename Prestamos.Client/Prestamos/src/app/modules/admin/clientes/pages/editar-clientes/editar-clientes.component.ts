@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Cliente } from 'src/app/Core/models/clientes/cliente.model';
 import { UpdateCliente } from 'src/app/Core/models/clientes/update-cliente.model';
-import { EstatuCrediticioCliente } from 'src/app/Core/models/Enums/enums.model';
 import { EstatusCrediticio } from 'src/app/Core/models/estatusCrediticios/estatusCrediticio.model';
 import { ToastModel } from 'src/app/Core/models/toasts/toast.model';
 import { ToastService } from 'src/app/Shared/services/toast.service';
@@ -52,7 +51,6 @@ export class EditarClientesComponent implements OnInit {
       cedula: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11), 
                     MyValidations.isCedulaInvalid]],
       telefono: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-      idEstatusCrediticio: ['', [Validators.required]],
       direccion: this.fb.group({
         provincia: ['', [Validators.required]],
         calle: ['', [Validators.required]],
@@ -96,7 +94,6 @@ export class EditarClientesComponent implements OnInit {
       cedula: this.form.get('cedula')!,
       telefono: this.form.get('telefono')!,
       idEstatus: this.form.get('idEstatus')!,
-      idEstatusCrediticio: this.form.get('idEstatusCrediticio')!,
       provincia: this.form.get('direccion.provincia')!,
       calle: this.form.get('direccion.calle')!,
       numero: this.form.get('direccion.numero')!

@@ -1,8 +1,6 @@
-import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Pagination } from 'src/app/Core/models/apiResponse/pagination/pagination.model';
 import { Cliente } from 'src/app/Core/models/clientes/cliente.model';
-import { EstatuCrediticioCliente } from 'src/app/Core/models/Enums/enums.model';
 import { ToastModel } from 'src/app/Core/models/toasts/toast.model';
 import { ToastService } from 'src/app/Shared/services/toast.service';
 import { ClienteService } from '../../services/cliente.service';

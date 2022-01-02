@@ -19,7 +19,7 @@ import { UsuarioService } from '../../services/usuario.service';
 })
 export class EditarUsuarioComponent implements OnInit {
   form: FormGroup = new FormGroup({});
-  roles!: Observable<Rol[]>;
+  roles!: Rol[];
   private usuario!: Usuario;
   constructor(private usuarioService: UsuarioService,
     private fb: FormBuilder, 
@@ -44,10 +44,10 @@ export class EditarUsuarioComponent implements OnInit {
   }
 
   getRoles(){
-    this.roles = this.usuarioService.getRoles()
-    .pipe(
-      map(roles => roles.data)
-    );
+    this.usuarioService.getRoles()
+    .subscribe(res => {
+      this.roles = res.data;
+    });
   }
 
   createForm(){

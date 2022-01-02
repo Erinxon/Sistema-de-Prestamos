@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from 'src/app/Core/models/clientes/cliente.model';
-import { EstatuCrediticioCliente } from 'src/app/Core/models/Enums/enums.model';
 import { ClienteService } from '../../services/cliente.service';
 
 @Component({
@@ -28,10 +27,5 @@ export class DetalleClienteComponent implements OnInit {
       this.router.navigate(['admin/clientes'])
     });
   }
-  
-  getLetrasIniciales(nombre: string, apellido: string): string {
-    return nombre.charAt(0) + apellido.charAt(0);
-  }
-
 
 }
