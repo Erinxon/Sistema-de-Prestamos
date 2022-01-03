@@ -34,3 +34,6 @@
 ![N|Solid](https://raw.githubusercontent.com/Erinxon/Sistema-de-Prestamos/master/Prestamos.Imagenes/Usuarios/4.png)
 ![N|Solid](https://raw.githubusercontent.com/Erinxon/Sistema-de-Prestamos/master/Prestamos.Imagenes/Usuarios/5.png)
 ![N|Solid](https://raw.githubusercontent.com/Erinxon/Sistema-de-Prestamos/master/Prestamos.Imagenes/Empresa/1.png)
+
+## Plantilla Utilizada: Otika bootstrap Admin Template
+
