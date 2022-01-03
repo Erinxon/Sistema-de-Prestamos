@@ -1,4 +1,5 @@
-<div class="row ">
+<app-spinner></app-spinner>
+<div class="row" *ngIf="dashboard">
   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
     <div class="card">
       <div class="card-statistic-4">
@@ -6,14 +7,10 @@
           <div class="row ">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
               <div class="card-content">
-                <h5 class="font-15">New Booking</h5>
-                <h2 class="mb-3 font-18">258</h2>
-                <p class="mb-0"><span class="col-green">10%</span> Increase</p>
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
-              <div class="banner-img">
-                <img src="assets/img/banner/1.png" alt="">
+                <h3 class="font-15">Cantidad de Clientes</h3>
+                <h1 class="mb-3 font-18">
+                  <span class="badge badge-secondary">{{dashboard.cantidadClientes}}</span>
+                </h1>
               </div>
             </div>
           </div>
@@ -28,14 +25,10 @@
           <div class="row ">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
               <div class="card-content">
-                <h5 class="font-15"> Customers</h5>
-                <h2 class="mb-3 font-18">1,287</h2>
-                <p class="mb-0"><span class="col-orange">09%</span> Decrease</p>
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
-              <div class="banner-img">
-                <img src="assets/img/banner/2.png" alt="">
+                <h3 class="font-15">Cantidad de Prestamos</h3>
+                <h1 class="mb-3 font-18">
+                  <span class="badge badge-secondary">{{dashboard.cantidadPrestamos}}</span>
+                </h1>
               </div>
             </div>
           </div>
@@ -50,15 +43,10 @@
           <div class="row ">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
               <div class="card-content">
-                <h5 class="font-15">New Project</h5>
-                <h2 class="mb-3 font-18">128</h2>
-                <p class="mb-0"><span class="col-green">18%</span>
-                  Increase</p>
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
-              <div class="banner-img">
-                <img src="assets/img/banner/3.png" alt="">
+                <h3 class="font-15">Prestamos Pagados</h3>
+                <h1 class="mb-3 font-18">
+                  <span class="badge badge-secondary">{{dashboard.cantidadPrestamosPagados}}</span>
+                </h1>
               </div>
             </div>
           </div>
@@ -73,14 +61,10 @@
           <div class="row ">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
               <div class="card-content">
-                <h5 class="font-15">Revenue</h5>
-                <h2 class="mb-3 font-18">$48,697</h2>
-                <p class="mb-0"><span class="col-green">42%</span> Increase</p>
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
-              <div class="banner-img">
-                <img src="assets/img/banner/4.png" alt="">
+                <h3 class="font-15">Cantiad de Prestamos Pendientes</h3>
+                <h1 class="mb-3 font-18">
+                  <span class="badge badge-danger">{{dashboard.cantidadPrestamosPendientes}}</span>
+                </h1>
               </div>
             </div>
           </div>

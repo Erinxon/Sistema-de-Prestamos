@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from 'src/app/Shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    HttpClientModule,
+    SharedModule
   ]
 })
 export class DashboardModule { }

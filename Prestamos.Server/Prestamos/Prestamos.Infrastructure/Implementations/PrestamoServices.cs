@@ -143,5 +143,21 @@ namespace Prestamos.Infrastructure.Implementations
             detalle.IdEstatusPrestamo = (int) estatus;
             this._context.Attach(detalle).State = EntityState.Modified;
         }
+
+        public async Task<int> GetCountPrestamosPagado()
+        {
+            return await this._context.Prestamos.AsNoTracking()
+                 .Include(p => p.EstatusPrestamo)
+                 .Where(p => p.EstatusPrestamo.EstatusPrestamos == EstatusPrestamosClientes.Pagado)
+                 .CountAsync();
+        }
+
+        public async Task<int> GetCountPrestamosAtrasado()
+        {
+            return await this._context.Prestamos.AsNoTracking()
+                .Include(p => p.EstatusPrestamo)
+                .Where(p => p.EstatusPrestamo.EstatusPrestamos != EstatusPrestamosClientes.Pagado)
+                .CountAsync();
+        }
     }
 }

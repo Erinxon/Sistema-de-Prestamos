@@ -21,5 +21,7 @@ namespace Prestamos.Infrastructure.Interfaces
         Task UpdateEstatusPrestamo(int id, EstatusPrestamosClientes estatus);
         Task UpdateEstatusDetallePrestamo(int id, EstatusPrestamosClientes estatus);
         Task<int> GetCount();
+        Task<int> GetCountPrestamosPagado();
+        Task<int> GetCountPrestamosAtrasado();
     }
 }
