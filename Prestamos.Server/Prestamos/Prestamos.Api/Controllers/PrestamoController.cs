@@ -192,5 +192,45 @@ namespace Prestamos.Api.Controllers
             return Ok(response);
         }
 
+        // GET: api/Prestamos/IsPrestamoPagado/1
+        [HttpGet("IsPrestamoPagado/{id}")]
+        public async Task<ActionResult<ApiResponse<bool>>> VerificarPagoCompleto(int id)
+        {
+            var response = new ApiResponse<bool>();
+            try
+            {
+                var isPago = await this._unitOfWork.Prestamos.VerificarGagoCompleto(id);
+                response.Data = isPago;
+                response.StatusCode = StatusCodes.Status200OK;
+            }
+            catch (Exception ex)
+            {
+                response.Message = "Ocurio un error al obtener los datos!";
+                response.Succeeded = false;
+                response.StatusCode = StatusCodes.Status400BadRequest;
+                return BadRequest(response);
+            }
+            return Ok(response);
+        }
+        // PUT: api/Prestamos/UpdateEstatusPrestamo/
+        [HttpPut("UpdateEstatusPrestamo")]
+        public async Task<ActionResult<ApiResponse<PrestamoDto>>> UpdateEstatusPrestamo([FromQuery] int id, [FromQuery] EstatusPrestamosClientes estatus)
+        {
+            var response = new ApiResponse<PrestamoDto>();
+            try
+            {
+                await this._unitOfWork.Prestamos.UpdateEstatusPrestamo(id, estatus);
+                await this._unitOfWork.SavechangesAsync();
+                response.StatusCode = StatusCodes.Status200OK;
+            }
+            catch (Exception ex)
+            {
+                response.Message = "Ocurio un error al actualizar los datos!";
+                response.Succeeded = false;
+                response.StatusCode = StatusCodes.Status400BadRequest;
+                return BadRequest(response);
+            }
+            return Ok(response);
+        }
     }
 }

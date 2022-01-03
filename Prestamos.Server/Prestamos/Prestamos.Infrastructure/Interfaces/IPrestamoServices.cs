@@ -12,10 +12,14 @@ namespace Prestamos.Infrastructure.Interfaces
     {
         Task<IEnumerable<Prestamo>> GetAll(Pagination pagination);
         Task<Prestamo> GetById(int id);
+        Task<IEnumerable<DetallePrestamo>> GetPrestamosRetrasados();
+        Task<bool> VerificarGagoCompleto(int id);
         Task<Prestamo> GetByCedulaCliente(string cedula);
         Task Add(Prestamo prestamo);
         Task<Prestamo> Pagar(Prestamo prestamo);
         Task<bool> IsExistById(int id);
+        Task UpdateEstatusPrestamo(int id, EstatusPrestamosClientes estatus);
+        Task UpdateEstatusDetallePrestamo(int id, EstatusPrestamosClientes estatus);
         Task<int> GetCount();
     }
 }

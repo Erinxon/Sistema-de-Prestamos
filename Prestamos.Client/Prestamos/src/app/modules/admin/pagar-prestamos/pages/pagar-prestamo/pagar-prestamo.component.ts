@@ -9,9 +9,6 @@ import { DetallePrestamo } from 'src/app/Core/models/prestamos/detallePrestamo/d
 import { Prestamo } from 'src/app/Core/models/prestamos/prestamo.model';
 import { ToastModel } from 'src/app/Core/models/toasts/toast.model';
 import { ToastService } from 'src/app/Shared/services/toast.service';
-import { ValidarCedula } from 'src/app/Shared/validations/validar-cedula';
-import { ClienteService } from '../../../clientes/services/cliente.service';
-import { PrestamoService } from '../../../crear-prestamos/services/prestamo.service';
 import { PagarPrestamoService } from '../../services/pagar-prestamo.service';
 
 interface ResultadoBusqueda {
@@ -122,19 +119,13 @@ export class PagarPrestamoComponent implements OnInit {
   
 
   pagarPrestamo(){
-    this.prestamo.detallePrestamos = [...this.getDataPrestamoForm()];
-
-    if(this.verificarPagoCompleto(this.prestamo.detallePrestamos)){
-      this.prestamo.estatusPrestamo = this.getEstatus(EstatusPrestamosClientes.Pagado);
-      this.UpdateEstatusCliente();
-    }
-    
+    this.prestamo.detallePrestamos = [...this.getDataPrestamoForm()]; 
     this.updatePrestamo();
-  
+    this.resetForm();
   }
 
-  private UpdateEstatusCliente(){
-    this.pagarPrestamoService.updateEstatus(this.prestamo.cliente.id, EstatuCrediticioCliente.Libre)
+  private UpdateEstatusCliente(id: number){
+    this.pagarPrestamoService.updateEstatus(id, EstatuCrediticioCliente.Libre)
       .subscribe(res => {
       }, error => {
         console.log(error);
@@ -147,9 +138,8 @@ export class PagarPrestamoComponent implements OnInit {
         title: 'Prestamo',
         body: 'Pago realizado con exito',
         tipo: 'success'
-      }, () => {
-        this.resetForm();
       });
+      this.verificarPagoCompleto(res.data);
     }, error => {
       console.log(error.error.message);
       this.showToast({
@@ -183,18 +173,31 @@ export class PagarPrestamoComponent implements OnInit {
     }
   }
 
-  showToast(toast: ToastModel, fn?: () => void){
+  showToast(toast: ToastModel){
     this.toast.show(toast)
     setTimeout(() => {
       this.toast.hide();
-      fn!();
     }, 2000)
   }
 
-  private verificarPagoCompleto(DetalllePrestamo: DetallePrestamo[]): boolean{
-    let cuotaFinal = DetalllePrestamo[DetalllePrestamo.length - 1];
-    return cuotaFinal.estatusPrestamo.estatusPrestamos 
-      === EstatusPrestamosClientes.Pagado && this.prestamo.cuotas === DetalllePrestamo.length;
+  private updateEstatusPrestamo(id: number){
+    this.pagarPrestamoService.updateEstatusPrestamo(id, EstatusPrestamosClientes.Pagado)
+    .subscribe(res => {
+
+    });
+  }
+
+  private verificarPagoCompleto(prestamo: Prestamo){
+    this.pagarPrestamoService.IsPrestamoPagado(prestamo.id)
+    .subscribe(res => {
+       if(res.data){
+         this.UpdateEstatusCliente(prestamo.cliente.id);
+         this.updateEstatusPrestamo(prestamo.id);
+       }
+       console.log(res)
+    }, error => {
+      console.log(error);
+    });
   }
 
 }

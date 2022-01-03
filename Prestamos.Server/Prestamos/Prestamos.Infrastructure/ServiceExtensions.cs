@@ -20,9 +20,7 @@ namespace Prestamos.Infrastructure
                 b => b.MigrationsAssembly(typeof(PrestamosDBContext).Assembly.FullName)
             ));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            /*services.AddHostedService(serviceProvider =>
-            new BackgroundServiceCliente(
-            serviceProvider.GetRequiredService<IUnitOfWork>()));*/
+            services.AddHostedService<BackgroundServiceCliente>();
         }
     }
 }

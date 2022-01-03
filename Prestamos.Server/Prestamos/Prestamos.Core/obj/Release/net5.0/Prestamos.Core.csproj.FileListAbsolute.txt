@@ -1,0 +1,12 @@
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\bin\Release\net5.0\Prestamos.Core.deps.json
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\bin\Release\net5.0\Prestamos.Core.dll
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\bin\Release\net5.0\ref\Prestamos.Core.dll
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\bin\Release\net5.0\Prestamos.Core.pdb
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\obj\Release\net5.0\Prestamos.Core.csproj.AssemblyReference.cache
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\obj\Release\net5.0\Prestamos.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\obj\Release\net5.0\Prestamos.Core.AssemblyInfoInputs.cache
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\obj\Release\net5.0\Prestamos.Core.AssemblyInfo.cs
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\obj\Release\net5.0\Prestamos.Core.csproj.CoreCompileInputs.cache
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\obj\Release\net5.0\Prestamos.Core.dll
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\obj\Release\net5.0\ref\Prestamos.Core.dll
+C:\Users\Erinxon\Desktop\Proyectos\Sistema de prestamos\Prestamos.Server\Prestamos\Prestamos.Core\obj\Release\net5.0\Prestamos.Core.pdb

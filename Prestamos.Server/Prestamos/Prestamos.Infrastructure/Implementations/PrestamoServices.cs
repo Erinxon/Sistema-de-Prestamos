@@ -83,6 +83,7 @@ namespace Prestamos.Infrastructure.Implementations
                                                .ThenInclude(u => u.Rol)
                                             .Include(p => p.DetallePrestamos)
                                                .ThenInclude(d => d.EstatusPrestamo)
+                                            .OrderByDescending(d => d.Id)
                                             .FirstOrDefaultAsync(p => p.Cliente.Cedula == cedula 
                                                 && p.Cliente.EstatusCrediticio.EstatusCrediticios 
                                                 != EstatuCrediticioCliente.Libre
@@ -101,6 +102,46 @@ namespace Prestamos.Infrastructure.Implementations
             return await this._context.Prestamos
                 .AsNoTracking()
                 .AnyAsync(p => p.Id == id);
+        }
+
+        public async Task<IEnumerable<DetallePrestamo>> GetPrestamosRetrasados()
+        {
+            var prestamos = await this._context.DetallePrestamos
+                .AsNoTracking()
+                .Include(d => d.Prestamo)
+                .ThenInclude(p => p.EstatusPrestamo)
+                .Include(d => d.Prestamo)
+                .ThenInclude(p => p.Cliente)
+                .Include(d => d.Prestamo)
+                .ThenInclude(p => p.PeriodoPago)
+                .Include(d => d.Prestamo)
+                .ThenInclude(p => p.UsuarioUtorizador)
+                .Where(p => p.EstatusPrestamo.EstatusPrestamos == EstatusPrestamosClientes.Pendiente ||
+                p.EstatusPrestamo.EstatusPrestamos == EstatusPrestamosClientes.Abono &&
+                           p.FechaPago < DateTime.UtcNow)
+                .ToListAsync();
+            return prestamos;
+        }
+
+        public async Task<bool> VerificarGagoCompleto(int id)
+        {
+            var prestamo = await this.GetById(id);
+            return prestamo.DetallePrestamos.
+                All(d => d.CuotaPagar == d.Pagado);
+        }
+
+        public async Task UpdateEstatusPrestamo(int id, EstatusPrestamosClientes estatus)
+        {
+            var prestamo = await this._context.Prestamos.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
+            prestamo.IdEstatusPrestamo = (int)estatus;
+            this._context.Attach(prestamo).State = EntityState.Modified;
+        }
+
+        public async Task UpdateEstatusDetallePrestamo(int id, EstatusPrestamosClientes estatus)
+        {
+            var detalle = await this._context.DetallePrestamos.AsNoTracking().FirstOrDefaultAsync(d => d.Id == id);
+            detalle.IdEstatusPrestamo = (int) estatus;
+            this._context.Attach(detalle).State = EntityState.Modified;
         }
     }
 }

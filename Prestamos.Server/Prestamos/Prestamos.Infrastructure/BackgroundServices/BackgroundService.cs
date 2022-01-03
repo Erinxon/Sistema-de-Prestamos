@@ -1,6 +1,10 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Prestamos.Core.Entities.Enums;
 using Prestamos.Infrastructure.ApiResponse;
+using Prestamos.Infrastructure.DbContexts;
+using Prestamos.Infrastructure.Implementations;
 using Prestamos.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -14,16 +18,18 @@ namespace Prestamos.Infrastructure.BackgroundServices
     public class BackgroundServiceCliente : IHostedService, IDisposable
     {
         private Timer _timer;
-        private readonly IUnitOfWork _unitOfWord;
+        private readonly IServiceScopeFactory scopeFactory;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public BackgroundServiceCliente(IUnitOfWork unitOfWord)
+        public BackgroundServiceCliente(IServiceScopeFactory scopeFactory)
         {
-            this._unitOfWord = unitOfWord;
+            this.scopeFactory = scopeFactory;
+            _unitOfWork = scopeFactory.CreateScope().ServiceProvider.GetRequiredService<IUnitOfWork>();
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            _timer = new Timer(VerificarSiElClienteEstaAtrasado, null, TimeSpan.Zero, TimeSpan.FromSeconds(10));
+            _timer = new Timer(VerificarSiElClienteEstaAtrasado, null, TimeSpan.Zero, TimeSpan.FromDays(1));
             return Task.CompletedTask;
         }
 
@@ -35,7 +41,6 @@ namespace Prestamos.Infrastructure.BackgroundServices
 
         private async void VerificarSiElClienteEstaAtrasado(Object state)
         {
-            Console.WriteLine("Hola");
             await PrintClientes();
         }
 
@@ -46,10 +51,37 @@ namespace Prestamos.Infrastructure.BackgroundServices
 
         private async Task PrintClientes()
         {
-            var clientes = await _unitOfWord.Clientes.GetAll(new Pagination());
-            foreach (var item in clientes)
+            try
             {
-                Console.WriteLine(item.Nombres);
+                var prestamos = await this._unitOfWork.Prestamos.GetPrestamosRetrasados();
+                foreach (var prestamo in prestamos)
+                {
+                    #region Actualizar estatus detalle prestamos
+                    await this._unitOfWork.Prestamos.
+                    UpdateEstatusDetallePrestamo(prestamo.Id, EstatusPrestamosClientes.Atraso);
+                    await this._unitOfWork.SavechangesAsync();
+                    #endregion
+
+                    #region Verificar si el prestamo se venció
+                    if (prestamo.FechaPago < prestamo.Prestamo.FechaCulminacion)
+                    {
+                        #region Actualizar estatus Prestamo si se vencio la fecha de cultminacion
+                        await this._unitOfWork.Prestamos.UpdateEstatusPrestamo(prestamo.IdPrestamo, EstatusPrestamosClientes.Atraso);
+                        await this._unitOfWork.SavechangesAsync();
+                        #endregion
+
+                        #region Actualizar estatus del cliente si se vencio la fecha de cultminacion
+                        await this._unitOfWork.Clientes.UpdateEstatus(prestamo.Prestamo.IdCliente, EstatuCrediticioCliente.PrestamosVencidos);
+                        await this._unitOfWork.SavechangesAsync();
+                        #endregion
+                    }
+                    #endregion
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }

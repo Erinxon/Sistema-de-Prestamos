@@ -114,5 +114,6 @@ namespace Prestamos.Infrastructure.Implementations
             cliente.IdEstatusCrediticio = (int) estatus;
             await this.Update(cliente);
         }
+
     }
 }

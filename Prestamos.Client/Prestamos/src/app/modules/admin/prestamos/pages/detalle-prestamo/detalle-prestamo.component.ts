@@ -13,7 +13,7 @@ export class DetallePrestamoComponent implements OnInit {
   prestamo!: Prestamo;
   columnasCliente: string[] =  ['Nombres', 'Apellidos', 'Cedula', 'Telefono', 'Estatus Crediticio'];
   columnasUsuario: string[] = ['Nombres', 'Apellidos', 'Cedula', 'Telefono', 'Rol'];
-  columnasPrestamo: string[] = ['Periodo de pagos', 'Interes', 'Cuotas', 'Capital Prestado', 'Fecha de vencimiento'];
+  columnasPrestamo: string[] = ['Periodo de pagos', 'Interes', 'Cuotas', 'Capital Prestado', 'Estatus','Fecha de vencimiento'];
   columnasCronograma: string[]= ['Número Cuota', 'Pago', 'Interes', 'Amortización', 'Pagado', 'Pendiente', 'Estatus', 'Fecha de pago'];
   constructor(private prestamoSvc: PrestamoService,
     private route: ActivatedRoute,
