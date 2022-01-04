@@ -1,9 +1,10 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Prestamos.Infrastructure.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Initialpostgresql : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,11 +12,11 @@ namespace Prestamos.Infrastructure.Migrations
                 name: "Direccion",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Provincia = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false),
-                    Calle = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false),
-                    Numero = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Provincia = table.Column<string>(type: "character varying(100)", unicode: false, maxLength: 100, nullable: false),
+                    Calle = table.Column<string>(type: "character varying(100)", unicode: false, maxLength: 100, nullable: false),
+                    Numero = table.Column<string>(type: "character varying(100)", unicode: false, maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -26,9 +27,9 @@ namespace Prestamos.Infrastructure.Migrations
                 name: "EstatusCrediticio",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    EstatusCrediticios = table.Column<int>(type: "int", unicode: false, maxLength: 50, nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    EstatusCrediticios = table.Column<int>(type: "integer", unicode: false, maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -39,9 +40,9 @@ namespace Prestamos.Infrastructure.Migrations
                 name: "EstatusPrestamos",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    EstatusPrestamos = table.Column<int>(type: "int", unicode: false, maxLength: 50, nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    EstatusPrestamos = table.Column<int>(type: "integer", unicode: false, maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -52,9 +53,9 @@ namespace Prestamos.Infrastructure.Migrations
                 name: "PeriodoPago",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    PeriodoDePagos = table.Column<int>(type: "int", unicode: false, maxLength: 20, nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    PeriodoDePagos = table.Column<int>(type: "integer", unicode: false, maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -65,9 +66,9 @@ namespace Prestamos.Infrastructure.Migrations
                 name: "Roles",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Roles = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Roles = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -78,16 +79,16 @@ namespace Prestamos.Infrastructure.Migrations
                 name: "Clientes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombres = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false),
-                    Apellidos = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false),
-                    Cedula = table.Column<string>(type: "varchar(11)", unicode: false, maxLength: 11, nullable: false),
-                    IdDireccion = table.Column<int>(type: "int", nullable: false),
-                    Telefono = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: true),
-                    IdEstatusCrediticio = table.Column<int>(type: "int", nullable: false),
-                    FechaCreado = table.Column<DateTime>(type: "datetime", nullable: true),
-                    FechaActualizado = table.Column<DateTime>(type: "datetime", nullable: true)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Nombres = table.Column<string>(type: "character varying(100)", unicode: false, maxLength: 100, nullable: false),
+                    Apellidos = table.Column<string>(type: "character varying(100)", unicode: false, maxLength: 100, nullable: false),
+                    Cedula = table.Column<string>(type: "character varying(11)", unicode: false, maxLength: 11, nullable: false),
+                    IdDireccion = table.Column<int>(type: "integer", nullable: false),
+                    Telefono = table.Column<string>(type: "character varying(10)", unicode: false, maxLength: 10, nullable: true),
+                    IdEstatusCrediticio = table.Column<int>(type: "integer", nullable: false),
+                    FechaCreado = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
+                    FechaActualizado = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -110,18 +111,18 @@ namespace Prestamos.Infrastructure.Migrations
                 name: "Usuarios",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombres = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false),
-                    Apellidos = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false),
-                    Cedula = table.Column<string>(type: "varchar(11)", unicode: false, maxLength: 11, nullable: false),
-                    Email = table.Column<string>(type: "varchar(250)", unicode: false, maxLength: 250, nullable: false),
-                    IdDireccion = table.Column<int>(type: "int", nullable: false),
-                    Telefono = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: true),
-                    IdRol = table.Column<int>(type: "int", nullable: false),
-                    Password = table.Column<string>(type: "varchar(256)", unicode: false, maxLength: 256, nullable: false),
-                    FechaCreado = table.Column<DateTime>(type: "datetime", nullable: true),
-                    FechaActualizado = table.Column<DateTime>(type: "datetime", nullable: true)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Nombres = table.Column<string>(type: "character varying(100)", unicode: false, maxLength: 100, nullable: false),
+                    Apellidos = table.Column<string>(type: "character varying(100)", unicode: false, maxLength: 100, nullable: false),
+                    Cedula = table.Column<string>(type: "character varying(11)", unicode: false, maxLength: 11, nullable: false),
+                    Email = table.Column<string>(type: "character varying(250)", unicode: false, maxLength: 250, nullable: false),
+                    IdDireccion = table.Column<int>(type: "integer", nullable: false),
+                    Telefono = table.Column<string>(type: "character varying(10)", unicode: false, maxLength: 10, nullable: true),
+                    IdRol = table.Column<int>(type: "integer", nullable: false),
+                    Password = table.Column<string>(type: "character varying(256)", unicode: false, maxLength: 256, nullable: false),
+                    FechaCreado = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
+                    FechaActualizado = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -144,16 +145,16 @@ namespace Prestamos.Infrastructure.Migrations
                 name: "Empresa",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false),
-                    RNC = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: true),
-                    Telefono = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: true),
-                    Email = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false),
-                    FechaCreado = table.Column<DateTime>(type: "datetime", nullable: true),
-                    FechaActualizado = table.Column<DateTime>(type: "datetime", nullable: true),
-                    IdDireccion = table.Column<int>(type: "int", nullable: true),
-                    IdAdministrador = table.Column<int>(type: "int", nullable: true)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Nombre = table.Column<string>(type: "character varying(100)", unicode: false, maxLength: 100, nullable: false),
+                    RNC = table.Column<string>(type: "character varying(10)", unicode: false, maxLength: 10, nullable: true),
+                    Telefono = table.Column<string>(type: "character varying(10)", unicode: false, maxLength: 10, nullable: true),
+                    Email = table.Column<string>(type: "character varying(100)", unicode: false, maxLength: 100, nullable: false),
+                    FechaCreado = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
+                    FechaActualizado = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
+                    IdDireccion = table.Column<int>(type: "integer", nullable: true),
+                    IdAdministrador = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -176,17 +177,17 @@ namespace Prestamos.Infrastructure.Migrations
                 name: "Prestamos",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Interes = table.Column<decimal>(type: "decimal(5,3)", nullable: false),
-                    Cuotas = table.Column<int>(type: "int", nullable: false),
-                    Capital = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    IdPeriodoPago = table.Column<int>(type: "int", nullable: false),
-                    FechaCreado = table.Column<DateTime>(type: "datetime", nullable: false),
-                    FechaCulminacion = table.Column<DateTime>(type: "datetime", nullable: false),
-                    IdEstatusPrestamo = table.Column<int>(type: "int", nullable: false),
-                    IdUsuarioUtorizador = table.Column<int>(type: "int", nullable: false),
-                    IdCliente = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Interes = table.Column<decimal>(type: "numeric(5,3)", nullable: false),
+                    Cuotas = table.Column<int>(type: "integer", nullable: false),
+                    Capital = table.Column<decimal>(type: "numeric(18,2)", nullable: false),
+                    IdPeriodoPago = table.Column<int>(type: "integer", nullable: false),
+                    FechaCreado = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    FechaCulminacion = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    IdEstatusPrestamo = table.Column<int>(type: "integer", nullable: false),
+                    IdUsuarioUtorizador = table.Column<int>(type: "integer", nullable: false),
+                    IdCliente = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -221,17 +222,17 @@ namespace Prestamos.Infrastructure.Migrations
                 name: "DetallePrestamos",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    NumeroCuota = table.Column<int>(type: "int", nullable: false),
-                    CuotaPagar = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    InteresPagar = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    CapitalAmortizado = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Pagado = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
-                    CapitalPendiente = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    FechaPago = table.Column<DateTime>(type: "datetime", nullable: false),
-                    IdEstatusPrestamo = table.Column<int>(type: "int", nullable: false),
-                    IdPrestamo = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    NumeroCuota = table.Column<int>(type: "integer", nullable: false),
+                    CuotaPagar = table.Column<decimal>(type: "numeric(18,2)", nullable: false),
+                    InteresPagar = table.Column<decimal>(type: "numeric(18,2)", nullable: false),
+                    CapitalAmortizado = table.Column<decimal>(type: "numeric(18,2)", nullable: false),
+                    Pagado = table.Column<decimal>(type: "numeric(18,2)", nullable: true),
+                    CapitalPendiente = table.Column<decimal>(type: "numeric(18,2)", nullable: false),
+                    FechaPago = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    IdEstatusPrestamo = table.Column<int>(type: "integer", nullable: false),
+                    IdPrestamo = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -308,22 +309,17 @@ namespace Prestamos.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "Id", "Apellidos", "Cedula", "Email", "FechaActualizado", "FechaCreado", "IdDireccion", "IdRol", "Nombres", "Password", "Telefono" },
-                values: new object[] { 3, "Admin", "10015221545", "admin@gmail.com", new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(4), new DateTime(2021, 12, 30, 14, 32, 34, 723, DateTimeKind.Utc).AddTicks(9223), 4, 1, "Super", "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225", "8294551565" });
-
-            migrationBuilder.InsertData(
-                table: "Usuarios",
-                columns: new[] { "Id", "Apellidos", "Cedula", "Email", "FechaActualizado", "FechaCreado", "IdDireccion", "IdRol", "Nombres", "Password", "Telefono" },
-                values: new object[] { 1, "Santana", "17895222545", "erinxon@gmail.com", new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(680), new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(677), 1, 2, "Erinxon", "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225", "8294155565" });
-
-            migrationBuilder.InsertData(
-                table: "Usuarios",
-                columns: new[] { "Id", "Apellidos", "Cedula", "Email", "FechaActualizado", "FechaCreado", "IdDireccion", "IdRol", "Nombres", "Password", "Telefono" },
-                values: new object[] { 2, "Prueba prueba2", "17495221545", "prueba2@gmail.com", new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(800), new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(799), 2, 3, "Prueba prueba2", "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225", "8294555565" });
+                values: new object[,]
+                {
+                    { 3, "Admin", "10015221545", "admin@gmail.com", new DateTimeOffset(new DateTime(2022, 1, 4, 13, 45, 43, 132, DateTimeKind.Unspecified).AddTicks(6407), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 1, 4, 13, 45, 43, 132, DateTimeKind.Unspecified).AddTicks(5963), new TimeSpan(0, 0, 0, 0, 0)), 4, 1, "Super", "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225", "8294551565" },
+                    { 1, "Santana", "17895222545", "erinxon@gmail.com", new DateTimeOffset(new DateTime(2022, 1, 4, 13, 45, 43, 132, DateTimeKind.Unspecified).AddTicks(7085), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 1, 4, 13, 45, 43, 132, DateTimeKind.Unspecified).AddTicks(7081), new TimeSpan(0, 0, 0, 0, 0)), 1, 2, "Erinxon", "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225", "8294155565" },
+                    { 2, "Prueba prueba2", "17495221545", "prueba2@gmail.com", new DateTimeOffset(new DateTime(2022, 1, 4, 13, 45, 43, 132, DateTimeKind.Unspecified).AddTicks(7166), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 1, 4, 13, 45, 43, 132, DateTimeKind.Unspecified).AddTicks(7164), new TimeSpan(0, 0, 0, 0, 0)), 2, 3, "Prueba prueba2", "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225", "8294555565" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Empresa",
                 columns: new[] { "Id", "Email", "FechaActualizado", "FechaCreado", "IdAdministrador", "IdDireccion", "Nombre", "RNC", "Telefono" },
-                values: new object[] { 1, "prueba@gmail.com", new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(5119), new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(4806), 1, 3, "Prueba", "875223236", "5556232365" });
+                values: new object[] { 1, "prueba@gmail.com", new DateTimeOffset(new DateTime(2022, 1, 4, 13, 45, 43, 133, DateTimeKind.Unspecified).AddTicks(1420), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 1, 4, 13, 45, 43, 133, DateTimeKind.Unspecified).AddTicks(1092), new TimeSpan(0, 0, 0, 0, 0)), 1, 3, "Prueba", "875223236", "5556232365" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Clientes_Cedula",

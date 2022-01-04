@@ -12,8 +12,8 @@ namespace Prestamos.Core.Entities
         public string Rnc { get; set; }
         public string Telefono { get; set; }
         public string Email { get; set; }
-        public DateTime? FechaCreado { get; set; }
-        public DateTime? FechaActualizado { get; set; }
+        public DateTimeOffset? FechaCreado { get; set; }
+        public DateTimeOffset? FechaActualizado { get; set; }
         public int? IdDireccion { get; set; }
         public int? IdAdministrador { get; set; }
 

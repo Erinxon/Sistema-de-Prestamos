@@ -174,8 +174,8 @@ namespace Prestamos.Infrastructure.DbContexts
                     IdDireccion = 4,
                     IdRol = (int) RolesUsuario.Admin,
                     Password = "123456789".ToEncryptedPassword(),
-                    FechaCreado =  DateTime.UtcNow,
-                    FechaActualizado = DateTime.UtcNow,
+                    FechaCreado =  DateTimeOffset.UtcNow,
+                    FechaActualizado = DateTimeOffset.UtcNow,
                 },
                 new Usuario
                 {
@@ -188,8 +188,8 @@ namespace Prestamos.Infrastructure.DbContexts
                     IdDireccion = 1,
                     IdRol = (int) RolesUsuario.Prestador,
                     Password = "123456789".ToEncryptedPassword(),
-                    FechaCreado =  DateTime.UtcNow,
-                    FechaActualizado = DateTime.UtcNow,
+                    FechaCreado =  DateTimeOffset.UtcNow,
+                    FechaActualizado = DateTimeOffset.UtcNow,
                 },
                 new Usuario
                 {
@@ -202,8 +202,8 @@ namespace Prestamos.Infrastructure.DbContexts
                     IdDireccion = 2,
                     IdRol = (int) RolesUsuario.Cobrador,
                     Password = "123456789".ToEncryptedPassword(),
-                    FechaCreado =  DateTime.UtcNow,
-                    FechaActualizado = DateTime.UtcNow,
+                    FechaCreado =  DateTimeOffset.UtcNow,
+                    FechaActualizado = DateTimeOffset.UtcNow,
                 }
             };
             return usuarios;
@@ -220,8 +220,8 @@ namespace Prestamos.Infrastructure.DbContexts
                     Rnc = "875223236",
                     Telefono = "5556232365",
                     Email = "prueba@gmail.com",
-                    FechaCreado = DateTime.UtcNow,
-                    FechaActualizado = DateTime.UtcNow,
+                    FechaCreado = DateTimeOffset.UtcNow,
+                    FechaActualizado = DateTimeOffset.UtcNow,
                     IdDireccion = 3,
                     IdAdministrador = 1
                 }

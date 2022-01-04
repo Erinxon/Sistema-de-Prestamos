@@ -25,7 +25,6 @@ namespace Prestamos.Infrastructure.DbContexts
         public virtual DbSet<DetallePrestamo> DetallePrestamos { get; set; }
         public virtual DbSet<Direccion> Direccions { get; set; }
         public virtual DbSet<Empresa> Empresas { get; set; }
-        //public virtual DbSet<Estatus> Estatuses { get; set; }
         public virtual DbSet<EstatusCrediticio> EstatusCrediticios { get; set; }
         public virtual DbSet<EstatusPrestamo> EstatusPrestamos { get; set; }
         public virtual DbSet<PeriodoPago> PeriodoPagos { get; set; }
@@ -51,9 +50,9 @@ namespace Prestamos.Infrastructure.DbContexts
 
                 entity.HasIndex(e => e.Cedula).IsUnique();
 
-                entity.Property(e => e.FechaActualizado).HasColumnType("datetime");
+                entity.Property(e => e.FechaActualizado);
 
-                entity.Property(e => e.FechaCreado).HasColumnType("datetime");
+                entity.Property(e => e.FechaCreado);
 
                 entity.Property(e => e.Nombres)
                     .IsRequired()
@@ -83,7 +82,7 @@ namespace Prestamos.Infrastructure.DbContexts
 
                 entity.Property(e => e.CuotaPagar).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.FechaPago).HasColumnType("datetime");
+                entity.Property(e => e.FechaPago);
 
                 entity.Property(e => e.InteresPagar).HasColumnType("decimal(18, 2)");
 
@@ -127,9 +126,9 @@ namespace Prestamos.Infrastructure.DbContexts
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.Property(e => e.FechaActualizado).HasColumnType("datetime");
+                entity.Property(e => e.FechaActualizado);
 
-                entity.Property(e => e.FechaCreado).HasColumnType("datetime");
+                entity.Property(e => e.FechaCreado);
 
                 entity.Property(e => e.Nombre)
                     .IsRequired()
@@ -191,9 +190,9 @@ namespace Prestamos.Infrastructure.DbContexts
                 entity.HasKey(p => p.Id);
                 entity.Property(e => e.Capital).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.FechaCreado).HasColumnType("datetime");
+                entity.Property(e => e.FechaCreado);
 
-                entity.Property(e => e.FechaCulminacion).HasColumnType("datetime");
+                entity.Property(e => e.FechaCulminacion);
 
                 entity.Property(e => e.Interes).HasColumnType("decimal(5, 3)");
 
@@ -236,9 +235,9 @@ namespace Prestamos.Infrastructure.DbContexts
                     .HasMaxLength(250)
                     .IsUnicode(false);
 
-                entity.Property(e => e.FechaActualizado).HasColumnType("datetime");
+                entity.Property(e => e.FechaActualizado);
 
-                entity.Property(e => e.FechaCreado).HasColumnType("datetime");
+                entity.Property(e => e.FechaCreado);
 
                 entity.Property(e => e.Nombres)
                     .IsRequired()
@@ -286,12 +285,12 @@ namespace Prestamos.Infrastructure.DbContexts
             {
                 entry.Entity.FechaCreado = entry.State switch
                 {
-                    EntityState.Added => DateTime.UtcNow,
+                    EntityState.Added => DateTimeOffset.UtcNow,
                     _ => entry.Entity.FechaCreado
                 };
                 entry.Entity.FechaActualizado = entry.State switch
                 {
-                    EntityState.Modified => DateTime.UtcNow,
+                    EntityState.Modified => DateTimeOffset.UtcNow,
                     _ => entry.Entity.FechaCreado
                 };
             }
@@ -300,12 +299,12 @@ namespace Prestamos.Infrastructure.DbContexts
             {
                 entry.Entity.FechaCreado = entry.State switch
                 {
-                    EntityState.Added => DateTime.UtcNow,
+                    EntityState.Added => DateTimeOffset.UtcNow,
                     _ => entry.Entity.FechaCreado
                 };
                 entry.Entity.FechaActualizado = entry.State switch
                 {
-                    EntityState.Modified => DateTime.UtcNow,
+                    EntityState.Modified => DateTimeOffset.UtcNow,
                     _ => entry.Entity.FechaCreado
                 };
             }
@@ -314,12 +313,12 @@ namespace Prestamos.Infrastructure.DbContexts
             {
                 entry.Entity.FechaCreado = entry.State switch
                 {
-                    EntityState.Added => DateTime.UtcNow,
+                    EntityState.Added => DateTimeOffset.UtcNow,
                     _ => entry.Entity.FechaCreado
                 };
                 entry.Entity.FechaActualizado = entry.State switch
                 {
-                    EntityState.Modified => DateTime.UtcNow,
+                    EntityState.Modified => DateTimeOffset.UtcNow,
                     _ => entry.Entity.FechaActualizado
                 };
             }

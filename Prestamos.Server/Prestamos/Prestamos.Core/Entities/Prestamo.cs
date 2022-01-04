@@ -18,8 +18,8 @@ namespace Prestamos.Core.Entities
         public int Cuotas { get; set; }
         public decimal Capital { get; set; }
         public int IdPeriodoPago { get; set; }
-        public DateTime FechaCreado { get; set; }
-        public DateTime FechaCulminacion { get; set; }
+        public DateTimeOffset FechaCreado { get; set; }
+        public DateTimeOffset FechaCulminacion { get; set; }
         public int IdEstatusPrestamo { get; set; }
         public int IdUsuarioUtorizador { get; set; }
         public int IdCliente { get; set; }

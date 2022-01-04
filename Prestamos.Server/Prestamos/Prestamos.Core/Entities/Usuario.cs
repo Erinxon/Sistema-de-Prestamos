@@ -23,8 +23,8 @@ namespace Prestamos.Core.Entities
         public string Telefono { get; set; }
         public int IdRol { get; set; }
         public string Password { get; set; }
-        public DateTime? FechaCreado { get; set; }
-        public DateTime? FechaActualizado { get; set; }
+        public DateTimeOffset? FechaCreado { get; set; }
+        public DateTimeOffset? FechaActualizado { get; set; }
         public Direccion Direccion { get; set; }
         public Role Rol { get; set; }
         public ICollection<Empresa> Empresas { get; set; }

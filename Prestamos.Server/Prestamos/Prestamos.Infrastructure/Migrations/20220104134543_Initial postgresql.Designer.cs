@@ -2,67 +2,67 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Prestamos.Infrastructure.DbContexts;
 
 namespace Prestamos.Infrastructure.Migrations
 {
     [DbContext(typeof(PrestamosDBContext))]
-    [Migration("20211230143235_Initial")]
-    partial class Initial
+    [Migration("20220104134543_Initial postgresql")]
+    partial class Initialpostgresql
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("Relational:MaxIdentifierLength", 63)
                 .HasAnnotation("ProductVersion", "5.0.12")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
             modelBuilder.Entity("Prestamos.Core.Entities.Cliente", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Apellidos")
                         .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Cedula")
                         .IsRequired()
                         .HasMaxLength(11)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(11)");
+                        .HasColumnType("character varying(11)");
 
-                    b.Property<DateTime?>("FechaActualizado")
-                        .HasColumnType("datetime");
+                    b.Property<DateTimeOffset?>("FechaActualizado")
+                        .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("FechaCreado")
-                        .HasColumnType("datetime");
+                    b.Property<DateTimeOffset?>("FechaCreado")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("IdDireccion")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("IdEstatusCrediticio")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Nombres")
                         .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Telefono")
                         .HasMaxLength(10)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(10)");
+                        .HasColumnType("character varying(10)");
 
                     b.HasKey("Id");
 
@@ -80,35 +80,35 @@ namespace Prestamos.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<decimal>("CapitalAmortizado")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("numeric(18,2)");
 
                     b.Property<decimal>("CapitalPendiente")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("numeric(18,2)");
 
                     b.Property<decimal>("CuotaPagar")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("numeric(18,2)");
 
-                    b.Property<DateTime>("FechaPago")
-                        .HasColumnType("datetime");
+                    b.Property<DateTimeOffset>("FechaPago")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("IdEstatusPrestamo")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("IdPrestamo")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<decimal>("InteresPagar")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("numeric(18,2)");
 
                     b.Property<int>("NumeroCuota")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<decimal?>("Pagado")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("numeric(18,2)");
 
                     b.HasKey("Id");
 
@@ -123,26 +123,26 @@ namespace Prestamos.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Calle")
                         .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Numero")
                         .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Provincia")
                         .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.HasKey("Id");
 
@@ -183,43 +183,43 @@ namespace Prestamos.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("character varying(100)");
 
-                    b.Property<DateTime?>("FechaActualizado")
-                        .HasColumnType("datetime");
+                    b.Property<DateTimeOffset?>("FechaActualizado")
+                        .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("FechaCreado")
-                        .HasColumnType("datetime");
+                    b.Property<DateTimeOffset?>("FechaCreado")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int?>("IdAdministrador")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int?>("IdDireccion")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Rnc")
                         .HasMaxLength(10)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(10)")
+                        .HasColumnType("character varying(10)")
                         .HasColumnName("RNC");
 
                     b.Property<string>("Telefono")
                         .HasMaxLength(10)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(10)");
+                        .HasColumnType("character varying(10)");
 
                     b.HasKey("Id");
 
@@ -234,8 +234,8 @@ namespace Prestamos.Infrastructure.Migrations
                         {
                             Id = 1,
                             Email = "prueba@gmail.com",
-                            FechaActualizado = new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(5119),
-                            FechaCreado = new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(4806),
+                            FechaActualizado = new DateTimeOffset(new DateTime(2022, 1, 4, 13, 45, 43, 133, DateTimeKind.Unspecified).AddTicks(1420), new TimeSpan(0, 0, 0, 0, 0)),
+                            FechaCreado = new DateTimeOffset(new DateTime(2022, 1, 4, 13, 45, 43, 133, DateTimeKind.Unspecified).AddTicks(1092), new TimeSpan(0, 0, 0, 0, 0)),
                             IdAdministrador = 1,
                             IdDireccion = 3,
                             Nombre = "Prueba",
@@ -248,13 +248,13 @@ namespace Prestamos.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<int>("EstatusCrediticios")
                         .HasMaxLength(50)
                         .IsUnicode(false)
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -287,13 +287,13 @@ namespace Prestamos.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<int>("EstatusPrestamos")
                         .HasMaxLength(50)
                         .IsUnicode(false)
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -326,13 +326,13 @@ namespace Prestamos.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<int>("PeriodoDePagos")
                         .HasMaxLength(20)
                         .IsUnicode(false)
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -370,35 +370,35 @@ namespace Prestamos.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<decimal>("Capital")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("numeric(18,2)");
 
                     b.Property<int>("Cuotas")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    b.Property<DateTime>("FechaCreado")
-                        .HasColumnType("datetime");
+                    b.Property<DateTimeOffset>("FechaCreado")
+                        .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("FechaCulminacion")
-                        .HasColumnType("datetime");
+                    b.Property<DateTimeOffset>("FechaCulminacion")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("IdCliente")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("IdEstatusPrestamo")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("IdPeriodoPago")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("IdUsuarioUtorizador")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<decimal>("Interes")
-                        .HasColumnType("decimal(5,3)");
+                        .HasColumnType("numeric(5,3)");
 
                     b.HasKey("Id");
 
@@ -417,11 +417,11 @@ namespace Prestamos.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<int>("Roles")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -449,55 +449,55 @@ namespace Prestamos.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Apellidos")
                         .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Cedula")
                         .IsRequired()
                         .HasMaxLength(11)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(11)");
+                        .HasColumnType("character varying(11)");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(250)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(250)");
+                        .HasColumnType("character varying(250)");
 
-                    b.Property<DateTime?>("FechaActualizado")
-                        .HasColumnType("datetime");
+                    b.Property<DateTimeOffset?>("FechaActualizado")
+                        .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("FechaCreado")
-                        .HasColumnType("datetime");
+                    b.Property<DateTimeOffset?>("FechaCreado")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("IdDireccion")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("IdRol")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Nombres")
                         .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasMaxLength(256)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<string>("Telefono")
                         .HasMaxLength(10)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(10)");
+                        .HasColumnType("character varying(10)");
 
                     b.HasKey("Id");
 
@@ -514,8 +514,8 @@ namespace Prestamos.Infrastructure.Migrations
                             Apellidos = "Admin",
                             Cedula = "10015221545",
                             Email = "admin@gmail.com",
-                            FechaActualizado = new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(4),
-                            FechaCreado = new DateTime(2021, 12, 30, 14, 32, 34, 723, DateTimeKind.Utc).AddTicks(9223),
+                            FechaActualizado = new DateTimeOffset(new DateTime(2022, 1, 4, 13, 45, 43, 132, DateTimeKind.Unspecified).AddTicks(6407), new TimeSpan(0, 0, 0, 0, 0)),
+                            FechaCreado = new DateTimeOffset(new DateTime(2022, 1, 4, 13, 45, 43, 132, DateTimeKind.Unspecified).AddTicks(5963), new TimeSpan(0, 0, 0, 0, 0)),
                             IdDireccion = 4,
                             IdRol = 1,
                             Nombres = "Super",
@@ -528,8 +528,8 @@ namespace Prestamos.Infrastructure.Migrations
                             Apellidos = "Santana",
                             Cedula = "17895222545",
                             Email = "erinxon@gmail.com",
-                            FechaActualizado = new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(680),
-                            FechaCreado = new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(677),
+                            FechaActualizado = new DateTimeOffset(new DateTime(2022, 1, 4, 13, 45, 43, 132, DateTimeKind.Unspecified).AddTicks(7085), new TimeSpan(0, 0, 0, 0, 0)),
+                            FechaCreado = new DateTimeOffset(new DateTime(2022, 1, 4, 13, 45, 43, 132, DateTimeKind.Unspecified).AddTicks(7081), new TimeSpan(0, 0, 0, 0, 0)),
                             IdDireccion = 1,
                             IdRol = 2,
                             Nombres = "Erinxon",
@@ -542,8 +542,8 @@ namespace Prestamos.Infrastructure.Migrations
                             Apellidos = "Prueba prueba2",
                             Cedula = "17495221545",
                             Email = "prueba2@gmail.com",
-                            FechaActualizado = new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(800),
-                            FechaCreado = new DateTime(2021, 12, 30, 14, 32, 34, 724, DateTimeKind.Utc).AddTicks(799),
+                            FechaActualizado = new DateTimeOffset(new DateTime(2022, 1, 4, 13, 45, 43, 132, DateTimeKind.Unspecified).AddTicks(7166), new TimeSpan(0, 0, 0, 0, 0)),
+                            FechaCreado = new DateTimeOffset(new DateTime(2022, 1, 4, 13, 45, 43, 132, DateTimeKind.Unspecified).AddTicks(7164), new TimeSpan(0, 0, 0, 0, 0)),
                             IdDireccion = 2,
                             IdRol = 3,
                             Nombres = "Prueba prueba2",

@@ -15,8 +15,13 @@ namespace Prestamos.Infrastructure
     {
         public static void AddInfraestructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<PrestamosDBContext>(option => option.UseSqlServer(
+            /*services.AddDbContext<PrestamosDBContext>(option => option.UseSqlServer(
                 configuration.GetConnectionString("DefaultConnection"),
+                b => b.MigrationsAssembly(typeof(PrestamosDBContext).Assembly.FullName)
+            ));*/
+
+            services.AddDbContext<PrestamosDBContext>(option => option.UseNpgsql(
+                configuration.GetConnectionString("DefaultConnectionPostgresql"),
                 b => b.MigrationsAssembly(typeof(PrestamosDBContext).Assembly.FullName)
             ));
             services.AddScoped<IUnitOfWork, UnitOfWork>();

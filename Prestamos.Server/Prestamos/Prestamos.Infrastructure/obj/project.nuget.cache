@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "swRlZqOrmpz5qm+wLuVcIuSWHu4Nio2e9yhcFlc1Pom3x6P+B+NODOwTK5swfAIQNTSVu1iLlkEyyabJNpupEw==",
+  "dgSpecHash": "ySQcqdJE1N+Vjr+yUpPLO+8K3JMHJ4Sv/bjk/bG63HI9sM3hgKiw14QfDHiiveYrh0pZRKiVPqLl/+30pzCeYg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Erinxon\\Desktop\\Proyectos\\Sistema de prestamos\\Prestamos.Server\\Prestamos\\Prestamos.Infrastructure\\Prestamos.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -37,6 +37,8 @@
     "C:\\Users\\Erinxon\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Erinxon\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Erinxon\\.nuget\\packages\\newtonsoft.json\\10.0.1\\newtonsoft.json.10.0.1.nupkg.sha512",
+    "C:\\Users\\Erinxon\\.nuget\\packages\\npgsql\\5.0.10\\npgsql.5.0.10.nupkg.sha512",
+    "C:\\Users\\Erinxon\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\5.0.10\\npgsql.entityframeworkcore.postgresql.5.0.10.nupkg.sha512",
     "C:\\Users\\Erinxon\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Erinxon\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\Erinxon\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
