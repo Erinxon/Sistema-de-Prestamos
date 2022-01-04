@@ -4,7 +4,7 @@
 ## Backend: Net Core
 
 ## Demo del proyecto
-[prestamos-money.netlify.app](https://prestamos-money.netlify.app/)
+[https://sistema-de-prestamos.vercel.app](https://sistema-de-prestamos.vercel.app)
 ## Usuarios de Pruebas
 | Usuario         | Contraseña   |
 | --------------- |:------------:|
