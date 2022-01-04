@@ -16,8 +16,8 @@ namespace Prestamos.Infrastructure.Dtos.PrestamosDtos
         public decimal Interes { get; set; }
         public int Cuotas { get; set; }
         public decimal Capital { get; set; }
-        public DateTime FechaCreado { get; set; }
-        public DateTime FechaCulminacion { get; set; }
+        public DateTimeOffset FechaCreado { get; set; }
+        public DateTimeOffset FechaCulminacion { get; set; }
         public EstatusPrestamoDto EstatusPrestamo { get; set; }
         public PeriodoPagoDto PeriodoPago { get; set; }
         public UsuarioDto UsuarioUtorizador { get; set; }

@@ -36,6 +36,7 @@ namespace Prestamos.Api.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 response.Message = "Ocurio un error al obtener los datos!";
                 response.Succeeded = false;
                 response.StatusCode = StatusCodes.Status400BadRequest;
@@ -66,6 +67,7 @@ namespace Prestamos.Api.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 response.Message = "Ocurio un error al obtener los datos!";
                 response.Succeeded = false;
                 response.StatusCode = StatusCodes.Status400BadRequest;
@@ -183,8 +185,9 @@ namespace Prestamos.Api.Controllers
                 response.Data = _mapper.Map<ClienteDto>(cliente);
                 response.StatusCode = StatusCodes.Status201Created;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 response.Message = "Ocurio un error al obtener los datos!";
                 response.Succeeded = false;
                 response.StatusCode = StatusCodes.Status400BadRequest;

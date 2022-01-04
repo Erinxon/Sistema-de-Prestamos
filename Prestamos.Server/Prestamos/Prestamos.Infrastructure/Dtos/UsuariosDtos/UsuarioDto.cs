@@ -17,8 +17,8 @@ namespace Prestamos.Infrastructure.Dtos.UsuariosDtos
         public string Cedula { get; set; }
         public string Email { get; set; }
         public string Telefono { get; set; }
-        public DateTime? FechaCreado { get; set; }
-        public DateTime? FechaActualizado { get; set; }
+        public DateTimeOffset? FechaCreado { get; set; }
+        public DateTimeOffset? FechaActualizado { get; set; }
         public DireccionDto Direccion { get; set; }
         public RolDto Rol { get; set; }
     }

@@ -15,6 +15,6 @@ namespace Prestamos.Infrastructure.Dtos.PrestamosDtos.DetallePrestamosDto
         public int IdEstatusPrestamo { get; set; }
         public decimal? Pagado { get; set; }
         public decimal CapitalPendiente { get; set; }
-        public DateTime FechaPago { get; set; }
+        public DateTimeOffset FechaPago { get; set; }
     }
 }
