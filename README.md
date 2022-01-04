@@ -5,6 +5,11 @@
 
 ## Demo del proyecto
 [prestamos-money.netlify.app](https://prestamos-money.netlify.app/)
+## Usuarios de Pruebas
+| Usuario         | Contraseña   |
+| --------------- |:------------:|
+| admin@gmail.com | 123456789 | 
+
 ## Endpoints API
 
 ![N|Solid](https://raw.githubusercontent.com/Erinxon/Sistema-de-Prestamos/master/Prestamos.Imagenes/Api/1.png)
