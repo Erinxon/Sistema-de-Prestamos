@@ -54,6 +54,7 @@ namespace Prestamos.Infrastructure.BackgroundServices
             try
             {
                 var prestamos = await this._unitOfWork.Prestamos.GetPrestamosRetrasados();
+                Console.WriteLine(prestamos.Count());
                 foreach (var prestamo in prestamos)
                 {
                     #region Actualizar estatus detalle prestamos

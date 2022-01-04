@@ -32,7 +32,7 @@ namespace Prestamos.Infrastructure.Implementations
                                              .Include(p => p.EstatusPrestamo)
                                              .Include(p => p.PeriodoPago)
                                              .Include(p => p.UsuarioUtorizador)
-                                             .Include(p => p.DetallePrestamos)
+                                             .Include(p => p.DetallePrestamos.OrderBy(d => d.NumeroCuota))
                                              .OrderByDescending(p => p.Id)
                                              .Skip((pagination.PageNumber - 1) * pagination.PageSize)
                                              .Take(pagination.PageSize)
@@ -52,7 +52,7 @@ namespace Prestamos.Infrastructure.Implementations
                                              .Include(p => p.PeriodoPago)
                                              .Include(p => p.UsuarioUtorizador)
                                                 .ThenInclude(u => u.Rol)
-                                             .Include(p => p.DetallePrestamos)
+                                             .Include(p => p.DetallePrestamos.OrderBy(d => d.NumeroCuota))
                                                 .ThenInclude(d => d.EstatusPrestamo)
                                              .FirstOrDefaultAsync(p => p.Id == id);
         }
@@ -81,7 +81,7 @@ namespace Prestamos.Infrastructure.Implementations
                                             .Include(p => p.PeriodoPago)
                                             .Include(p => p.UsuarioUtorizador)
                                                .ThenInclude(u => u.Rol)
-                                            .Include(p => p.DetallePrestamos)
+                                            .Include(p => p.DetallePrestamos.OrderBy(d => d.NumeroCuota))
                                                .ThenInclude(d => d.EstatusPrestamo)
                                             .OrderByDescending(d => d.Id)
                                             .FirstOrDefaultAsync(p => p.Cliente.Cedula == cedula 
@@ -116,9 +116,10 @@ namespace Prestamos.Infrastructure.Implementations
                 .ThenInclude(p => p.PeriodoPago)
                 .Include(d => d.Prestamo)
                 .ThenInclude(p => p.UsuarioUtorizador)
-                .Where(p => p.EstatusPrestamo.EstatusPrestamos == EstatusPrestamosClientes.Pendiente ||
-                p.EstatusPrestamo.EstatusPrestamos == EstatusPrestamosClientes.Abono &&
-                           p.FechaPago < DateTime.UtcNow)
+                .Where(p => (p.EstatusPrestamo.EstatusPrestamos == EstatusPrestamosClientes.Pendiente ||
+                p.EstatusPrestamo.EstatusPrestamos == EstatusPrestamosClientes.Abono) &&
+                           p.FechaPago < DateTimeOffset.Now)
+                .OrderBy(d => d.NumeroCuota)
                 .ToListAsync();
             return prestamos;
         }
