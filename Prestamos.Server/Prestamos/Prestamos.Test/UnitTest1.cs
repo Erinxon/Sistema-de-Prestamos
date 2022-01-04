@@ -15,7 +15,7 @@ namespace Prestamos.Test
         [TestMethod]
         public async void TestMethod1()
         {
-            
+            /*
             // Arrange
             var context = new PrestamosDBContext();
             var unitOfWork = new UnitOfWork(context);
@@ -23,7 +23,7 @@ namespace Prestamos.Test
             {
                 cfg.AddProfile(new AutoMapperProfile());
             });
-            var mapper = mockMapper.CreateMapper();
+            var mapper = mockMapper.CreateMapper();*/
         }
     }
 }
