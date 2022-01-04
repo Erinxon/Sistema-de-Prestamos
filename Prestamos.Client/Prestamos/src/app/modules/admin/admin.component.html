@@ -1,9 +1,19 @@
 <div id="app">
   <div class="main-wrapper main-wrapper-1">
     <div class="navbar-bg"></div>
+
     <nav class="navbar navbar-expand-lg main-navbar sticky">
       <div class="form-inline mr-auto">
         <ul class="navbar-nav mr-3">
+          <li><button (click)="ocultarOMostrarMenu()" data-toggle="sidebar" class="nav-link nav-link-lg
+            collapse-btn buton"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-align-justify">
+                <line x1="21" y1="10" x2="3" y2="10"></line>
+                <line x1="21" y1="6" x2="3" y2="6"></line>
+                <line x1="21" y1="14" x2="3" y2="14"></line>
+                <line x1="21" y1="18" x2="3" y2="18"></line>
+              </svg></button></li>
           <li><button class="nav-link nav-link-lg fullscreen-btn buton">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -18,8 +28,7 @@
       <ul class="navbar-nav navbar-right">
         <li class="dropdown"><a href="#" data-toggle="dropdown"
             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            <figure class="avatar mr-2 bg-primary text-white"
-              [appIniciales]="[user.nombres, user.apellidos]"></figure>
+            <figure class="avatar mr-2 bg-primary text-white" [appIniciales]="[user.nombres, user.apellidos]"></figure>
             <span class="d-sm-none d-lg-inline-block"></span>
           </a>
           <div class="dropdown-menu dropdown-menu-right pullDown">
