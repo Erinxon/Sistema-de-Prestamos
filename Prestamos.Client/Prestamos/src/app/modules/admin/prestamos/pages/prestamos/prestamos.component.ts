@@ -26,7 +26,7 @@ export class PrestamosComponent implements OnInit {
       pageNumber: 1,
       pageSize: 5,
     };
-    this.getPrestamos();
+    
   }
 
   getPrestamos(){
@@ -38,7 +38,7 @@ export class PrestamosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.getPrestamos();
   }
 
   pageChange(event: Pagination){

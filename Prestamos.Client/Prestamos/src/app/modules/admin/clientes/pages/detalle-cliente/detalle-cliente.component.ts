@@ -13,10 +13,11 @@ export class DetalleClienteComponent implements OnInit {
   constructor(private clienteSvc: ClienteService,
     private route: ActivatedRoute,
     private router: Router) {
-      this.getCliente();
+     
      }
 
   ngOnInit(): void {
+    this.getCliente();
   }
 
   getCliente(){

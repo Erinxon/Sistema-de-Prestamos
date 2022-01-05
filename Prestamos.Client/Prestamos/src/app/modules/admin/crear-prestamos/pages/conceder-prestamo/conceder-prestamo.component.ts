@@ -46,13 +46,12 @@ export class ConcederPrestamoComponent implements OnInit {
     private prestamoService: PrestamoService,
     private toast: ToastService,
     private router: Router) {
-      this.getPeriodosPrestamos();
-      this.createForm();
-      this.getUsuario();
+     this.createForm();
     }
 
   ngOnInit(): void {
-
+    this.getPeriodosPrestamos();
+    this.getUsuario();
   }
 
   private getPeriodosPrestamos(){

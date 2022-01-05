@@ -29,11 +29,11 @@ export class ClientesComponent implements OnInit {
         pageNumber: 1,
         pageSize: 5,
       };
-      this.getClientes();
+     
   }
 
   ngOnInit(): void {
-    
+    this.getClientes();
   }
 
   getClientes(){

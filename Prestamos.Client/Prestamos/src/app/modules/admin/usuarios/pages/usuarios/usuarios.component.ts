@@ -33,7 +33,7 @@ export class UsuariosComponent implements OnInit {
       pageNumber: 1,
       pageSize: 5,
     };
-    this.getUsuarios();
+   
   }
 
   getUsuarios(): void {
@@ -47,6 +47,7 @@ export class UsuariosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getUsuarios();
   }
 
   pageChange(pagination: Pagination){
