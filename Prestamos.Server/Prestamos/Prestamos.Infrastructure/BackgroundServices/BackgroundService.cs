@@ -29,7 +29,7 @@ namespace Prestamos.Infrastructure.BackgroundServices
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            _timer = new Timer(VerificarSiElClienteEstaAtrasado, null, TimeSpan.Zero, TimeSpan.FromDays(1));
+            _timer = new Timer(VerificarSiElClienteEstaAtrasado, null, TimeSpan.Zero, TimeSpan.FromSeconds(10));
             return Task.CompletedTask;
         }
 
@@ -54,7 +54,6 @@ namespace Prestamos.Infrastructure.BackgroundServices
             try
             {
                 var prestamos = await this._unitOfWork.Prestamos.GetPrestamosRetrasados();
-                Console.WriteLine(prestamos.Count());
                 foreach (var prestamo in prestamos)
                 {
                     #region Actualizar estatus detalle prestamos

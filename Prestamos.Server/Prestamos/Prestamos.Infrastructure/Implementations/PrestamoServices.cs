@@ -106,8 +106,9 @@ namespace Prestamos.Infrastructure.Implementations
 
         public async Task<IEnumerable<DetallePrestamo>> GetPrestamosRetrasados()
         {
-            var prestamos = await this._context.DetallePrestamos
+            var prestamos = this._context.DetallePrestamos
                 .AsNoTracking()
+                .Include(d => d.EstatusPrestamo)
                 .Include(d => d.Prestamo)
                 .ThenInclude(p => p.EstatusPrestamo)
                 .Include(d => d.Prestamo)
@@ -116,11 +117,12 @@ namespace Prestamos.Infrastructure.Implementations
                 .ThenInclude(p => p.PeriodoPago)
                 .Include(d => d.Prestamo)
                 .ThenInclude(p => p.UsuarioUtorizador)
+                .AsEnumerable()
                 .Where(p => (p.EstatusPrestamo.EstatusPrestamos == EstatusPrestamosClientes.Pendiente ||
                 p.EstatusPrestamo.EstatusPrestamos == EstatusPrestamosClientes.Abono) &&
                            p.FechaPago < DateTimeOffset.Now)
                 .OrderBy(d => d.NumeroCuota)
-                .ToListAsync();
+                .ToList();
             return prestamos;
         }
 

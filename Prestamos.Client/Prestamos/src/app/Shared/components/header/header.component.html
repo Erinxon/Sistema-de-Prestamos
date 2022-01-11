@@ -24,7 +24,7 @@
     <ul class="navbar-nav navbar-right">
       <li class="dropdown"><a href="#" data-toggle="dropdown"
           class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-          <figure class="avatar mr-2 bg-primary text-white" [appIniciales]="[user.nombres, user.apellidos]"></figure>
+          <figure *ngIf="user" class="avatar mr-2 bg-primary text-white" [appIniciales]="[user.nombres, user.apellidos]"></figure>
           <span class="d-sm-none d-lg-inline-block"></span>
         </a>
         <div class="dropdown-menu dropdown-menu-right pullDown">
