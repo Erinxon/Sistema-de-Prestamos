@@ -1,0 +1,2286 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>prestamos documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">prestamos documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  ConcederPrestamoComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-conceder-prestamo</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./conceder-prestamo.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./conceder-prestamo.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cedula" >cedula</a>
+                            </li>
+                            <li>
+                                <a href="#cliente" >cliente</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#columnas" >columnas</a>
+                            </li>
+                            <li>
+                                <a href="#columnasTablaAmortizacion" >columnasTablaAmortizacion</a>
+                            </li>
+                            <li>
+                                <a href="#form" >form</a>
+                            </li>
+                            <li>
+                                <a href="#periodoPagos" >periodoPagos</a>
+                            </li>
+                            <li>
+                                <a href="#resultadoBusqueda" >resultadoBusqueda</a>
+                            </li>
+                            <li>
+                                <a href="#showDialogo" >showDialogo</a>
+                            </li>
+                            <li>
+                                <a href="#tablaAmortizacion" >tablaAmortizacion</a>
+                            </li>
+                            <li>
+                                <a href="#usuario" >usuario</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#addDaysToDate" >addDaysToDate</a>
+                            </li>
+                            <li>
+                                <a href="#buscarCliente" >buscarCliente</a>
+                            </li>
+                            <li>
+                                <a href="#calcularTabla" >calcularTabla</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#comprobarSiElClientePuedeRealizarPrestamo" >comprobarSiElClientePuedeRealizarPrestamo</a>
+                            </li>
+                            <li>
+                                <a href="#confirmarPrestamo" >confirmarPrestamo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createForm" >createForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getCuota" >getCuota</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getDias" >getDias</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getFecha" >getFecha</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getPeriodosPrestamos" >getPeriodosPrestamos</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getUsuario" >getUsuario</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#guardarPrestamo" >guardarPrestamo</a>
+                            </li>
+                            <li>
+                                <a href="#isInvalid" >isInvalid</a>
+                            </li>
+                            <li>
+                                <a href="#limpiarTabla" >limpiarTabla</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onConfirmacion" >onConfirmacion</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#redondear" >redondear</a>
+                            </li>
+                            <li>
+                                <a href="#showOrHideDialog" >showOrHideDialog</a>
+                            </li>
+                            <li>
+                                <a href="#showToast" >showToast</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(clienteSvc: <a href="../injectables/ClienteService.html" target="_self">ClienteService</a>, fb: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, periodoPagoSve: <a href="../injectables/PeriodoPagoService.html" target="_self">PeriodoPagoService</a>, authsvc: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, prestamoService: <a href="../injectables/PrestamoService.html" target="_self">PrestamoService</a>, toast: <a href="../injectables/ToastService.html" target="_self">ToastService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>clienteSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ClienteService.html" target="_self" >ClienteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>periodoPagoSve</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PeriodoPagoService.html" target="_self" >PeriodoPagoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authsvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>prestamoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PrestamoService.html" target="_self" >PrestamoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>toast</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ToastService.html" target="_self" >ToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addDaysToDate"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>addDaysToDate</b></span>
+                        <a href="#addDaysToDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addDaysToDate(date: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, days: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="149"
+                            class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:149</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>date</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>days</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buscarCliente"></a>
+                    <span class="name">
+                        <span ><b>buscarCliente</b></span>
+                        <a href="#buscarCliente"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>buscarCliente()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:83</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calcularTabla"></a>
+                    <span class="name">
+                        <span ><b>calcularTabla</b></span>
+                        <a href="#calcularTabla"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calcularTabla()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:100</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="comprobarSiElClientePuedeRealizarPrestamo"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>comprobarSiElClientePuedeRealizarPrestamo</b></span>
+                        <a href="#comprobarSiElClientePuedeRealizarPrestamo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>comprobarSiElClientePuedeRealizarPrestamo(estatus: <a href="../interfaces/Cliente.html" target="_self">EstatuCrediticioCliente</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="250"
+                            class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:250</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>estatus</td>
+                                    <td>
+                                                <code><a href="../interfaces/Cliente.html" target="_self" >EstatuCrediticioCliente</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmarPrestamo"></a>
+                    <span class="name">
+                        <span ><b>confirmarPrestamo</b></span>
+                        <a href="#confirmarPrestamo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>confirmarPrestamo()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="171"
+                            class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:171</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createForm"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>createForm</b></span>
+                        <a href="#createForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createForm()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:70</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCuota"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>getCuota</b></span>
+                        <a href="#getCuota"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getCuota(interes: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, capital: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, cuotas: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="155"
+                            class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:155</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>interes</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>capital</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>cuotas</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDias"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>getDias</b></span>
+                        <a href="#getDias"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getDias(periodoPago: <a href="../undefineds/PeriodoDePagos.html" target="_self">PeriodoDePagos</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="142"
+                            class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:142</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>periodoPago</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/enumerations.html#PeriodoDePagos" target="_self" >PeriodoDePagos</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFecha"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>getFecha</b></span>
+                        <a href="#getFecha"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getFecha(periodoPago: <a href="../undefineds/PeriodoDePagos.html" target="_self">PeriodoDePagos</a>, fechaInicio: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, cuotas: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:134</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>periodoPago</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/enumerations.html#PeriodoDePagos" target="_self" >PeriodoDePagos</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>fechaInicio</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>cuotas</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPeriodosPrestamos"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>getPeriodosPrestamos</b></span>
+                        <a href="#getPeriodosPrestamos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getPeriodosPrestamos()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:57</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUsuario"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>getUsuario</b></span>
+                        <a href="#getUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUsuario()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:63</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardarPrestamo"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>guardarPrestamo</b></span>
+                        <a href="#guardarPrestamo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>guardarPrestamo()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="194"
+                            class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:194</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isInvalid"></a>
+                    <span class="name">
+                        <span ><b>isInvalid</b></span>
+                        <a href="#isInvalid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isInvalid(campo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:79</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>campo</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="limpiarTabla"></a>
+                    <span class="name">
+                        <span ><b>limpiarTabla</b></span>
+                        <a href="#limpiarTabla"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>limpiarTabla()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="164"
+                            class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:164</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:52</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onConfirmacion"></a>
+                    <span class="name">
+                        <span ><b>onConfirmacion</b></span>
+                        <a href="#onConfirmacion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onConfirmacion(event: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="176"
+                            class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:176</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="redondear"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>redondear</b></span>
+                        <a href="#redondear"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>redondear(numero: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="160"
+                            class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:160</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>numero</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showOrHideDialog"></a>
+                    <span class="name">
+                        <span ><b>showOrHideDialog</b></span>
+                        <a href="#showOrHideDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showOrHideDialog()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="246"
+                            class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:246</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showToast"></a>
+                    <span class="name">
+                        <span ><b>showToast</b></span>
+                        <a href="#showToast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showToast(toast: <a href="../interfaces/ToastModel.html" target="_self">ToastModel</a>, fn?: () => void)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="238"
+                            class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:238</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>toast</td>
+                                    <td>
+                                                <code><a href="../interfaces/ToastModel.html" target="_self" >ToastModel</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>fn</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cedula"></a>
+                    <span class="name">
+                        <span ><b>cedula</b></span>
+                        <a href="#cedula"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cliente"></a>
+                    <span class="name">
+                        <span ><b>cliente</b></span>
+                        <a href="#cliente"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Cliente.html" target="_self" >Cliente</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columnas"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>columnas</b></span>
+                        <a href="#columnas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;Nombre&#x27;, &#x27;Cedula&#x27;, &#x27;Telefono&#x27;, &#x27;Estatus Crediticio&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columnasTablaAmortizacion"></a>
+                    <span class="name">
+                        <span ><b>columnasTablaAmortizacion</b></span>
+                        <a href="#columnasTablaAmortizacion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;Numero Cuota&#x27;, &#x27;Pago&#x27;, &#x27;Interes&#x27;, &#x27;Amortizacion&#x27;, &#x27;Pendiente&#x27;, &#x27;Fecha&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="form"></a>
+                    <span class="name">
+                        <span ><b>form</b></span>
+                        <a href="#form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({})</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="periodoPagos"></a>
+                    <span class="name">
+                        <span ><b>periodoPagos</b></span>
+                        <a href="#periodoPagos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/PeriodoPago.html" target="_self" >PeriodoPago[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resultadoBusqueda"></a>
+                    <span class="name">
+                        <span ><b>resultadoBusqueda</b></span>
+                        <a href="#resultadoBusqueda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ResultadoBusqueda.html" target="_self" >ResultadoBusqueda</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showDialogo"></a>
+                    <span class="name">
+                        <span ><b>showDialogo</b></span>
+                        <a href="#showDialogo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tablaAmortizacion"></a>
+                    <span class="name">
+                        <span ><b>tablaAmortizacion</b></span>
+                        <a href="#tablaAmortizacion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuario"></a>
+                    <span class="name">
+                        <span ><b>usuario</b></span>
+                        <a href="#usuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/UserAuth.html" target="_self" >UserAuth</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/modules/admin/crear-prestamos/pages/conceder-prestamo/conceder-prestamo.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { Cliente } from &#x27;src/app/Core/models/clientes/cliente.model&#x27;;
+import { EstatuCrediticioCliente, EstatusPrestamosClientes, PeriodoDePagos } from &#x27;src/app/Core/models/Enums/enums.model&#x27;;
+import { PeriodoPago } from &#x27;src/app/Core/models/periodosPagos/periodoPago.model&#x27;;
+import { AddPrestamo } from &#x27;src/app/Core/models/prestamos/add-prestamo.model&#x27;;
+import { AddDetallePrestamo } from &#x27;src/app/Core/models/prestamos/detallePrestamo/add-DetallePrestamo.model&#x27;;
+import { ToastModel } from &#x27;src/app/Core/models/toasts/toast.model&#x27;;
+import { UserAuth } from &#x27;src/app/Core/models/userAuth.model&#x27;;
+import { AuthService } from &#x27;src/app/Shared/services/auth.service&#x27;;
+import { ToastService } from &#x27;src/app/Shared/services/toast.service&#x27;;
+import { ClienteService } from &#x27;../../../clientes/services/cliente.service&#x27;;
+import { PeriodoPagoService } from &#x27;../../services/periodo-pago.service&#x27;;
+import { PrestamoService } from &#x27;../../services/prestamo.service&#x27;;
+
+interface ResultadoBusqueda {
+  succeeded: boolean;
+  message?: string;
+}
+
+@Component({
+  selector: &#x27;app-conceder-prestamo&#x27;,
+  templateUrl: &#x27;./conceder-prestamo.component.html&#x27;,
+  styleUrls: [&#x27;./conceder-prestamo.component.scss&#x27;]
+})
+export class ConcederPrestamoComponent implements OnInit {
+  showDialogo: boolean &#x3D; false;
+
+  cliente!: Cliente;
+  readonly columnas: string[] &#x3D; [&#x27;Nombre&#x27;, &#x27;Cedula&#x27;, &#x27;Telefono&#x27;, &#x27;Estatus Crediticio&#x27;];
+  cedula: string &#x3D; &#x27;&#x27;;
+  resultadoBusqueda!: ResultadoBusqueda;
+
+  form: FormGroup &#x3D; new FormGroup({});
+  periodoPagos!: PeriodoPago[];
+
+  tablaAmortizacion!: any;
+  columnasTablaAmortizacion &#x3D; [&#x27;Numero Cuota&#x27;, &#x27;Pago&#x27;, &#x27;Interes&#x27;, &#x27;Amortizacion&#x27;, &#x27;Pendiente&#x27;, &#x27;Fecha&#x27;];
+
+  usuario!: UserAuth;
+  constructor(private clienteSvc: ClienteService,
+    private fb: FormBuilder,
+    private periodoPagoSve: PeriodoPagoService,
+    private authsvc: AuthService,
+    private prestamoService: PrestamoService,
+    private toast: ToastService,
+    private router: Router) {
+     this.createForm();
+    }
+
+  ngOnInit(): void {
+    this.getPeriodosPrestamos();
+    this.getUsuario();
+  }
+
+  private getPeriodosPrestamos(){
+    this.periodoPagoSve.getPeriodosDePagos().subscribe(res &#x3D;&gt; {
+      this.periodoPagos &#x3D; res.data;
+    });
+  }
+
+  private getUsuario(){
+    this.authsvc.getUserAuth().subscribe(res &#x3D;&gt; {
+      this.usuario &#x3D; res;
+    });
+  }
+
+
+  private createForm(){
+    this.form &#x3D; this.fb.group({
+      interes: [null, [Validators.required, Validators.min(1), Validators.max(100)]],
+      capital: [null, [Validators.required, Validators.min(1)]],
+      cuotas: [null, [Validators.required, Validators.min(1)]],
+      periodoPago: [null, [Validators.required]],
+    });
+  }
+
+  isInvalid(campo: string){
+    return this.form.get(campo)!.invalid &amp;&amp; (this.form.get(campo)!.dirty || this.form.get(campo)!.touched);
+  }
+
+  buscarCliente(){
+    this.cliente &#x3D; null!;
+    if(this.cedula.length &gt; 0){
+      this.clienteSvc.getClienteByCedula(this.cedula.trim()).subscribe(res &#x3D;&gt; {
+        this.cliente &#x3D; res.data;
+        this.resultadoBusqueda &#x3D; {
+          succeeded: true,
+        }
+      }, error &#x3D;&gt; {
+        this.resultadoBusqueda &#x3D; {
+          succeeded: false,
+          message: error.error.message
+        }
+      })
+    }
+  }
+
+  calcularTabla(){
+    const cuotas &#x3D; this.form.value.cuotas;
+    const interes &#x3D; this.form.value.interes;
+    const periodoPago &#x3D; this.form.value.periodoPago
+    const capital &#x3D; this.form.value.capital
+    let tabla &#x3D; [{
+      numeroCuota: 0,
+      pago: 0,
+      interes: 0,
+      amortizacion: 0,
+      saldo: capital,
+      idEstatusPrestamo: EstatusPrestamosClientes.Pagado,
+      fecha: new Date()
+    }];
+
+    for(let i &#x3D;1; i &lt;&#x3D; cuotas; i++){
+      const pagoTable &#x3D; this.getCuota(interes, capital, cuotas);
+      const interesTabla &#x3D; this.redondear(( tabla[i-1].saldo * ((interes / 100))));
+      const amortizacionTabla &#x3D; this.redondear((pagoTable - interesTabla));
+      const saldoTabla &#x3D; this.redondear(( tabla[i-1].saldo -  amortizacionTabla));
+      tabla &#x3D; [...tabla, {
+        numeroCuota: i,
+        pago: this.getCuota(interes, capital, cuotas),
+        interes: interesTabla,
+        amortizacion: amortizacionTabla,
+        saldo: saldoTabla,
+        idEstatusPrestamo: EstatusPrestamosClientes.Pendiente, 
+        fecha: this.addDaysToDate(tabla[i-1].fecha, this.getDias(periodoPago))
+      }]
+    }
+    tabla[tabla.length-1].saldo &#x3D; 0;
+    this.tablaAmortizacion &#x3D; tabla;
+  }
+
+  private getFecha(periodoPago: PeriodoDePagos, fechaInicio: Date, cuotas: number): Date  {
+    const dias &#x3D; periodoPago &#x3D;&#x3D;&#x3D; PeriodoDePagos.Diario ? cuotas :
+                 periodoPago &#x3D;&#x3D;&#x3D; PeriodoDePagos.Semanal ? cuotas * 7 : 
+                 periodoPago &#x3D;&#x3D;&#x3D; PeriodoDePagos.Quincenal ? cuotas * 15 :
+                 periodoPago &#x3D;&#x3D;&#x3D; PeriodoDePagos.Mensual ? cuotas * 30 : cuotas * 365;
+    return this.addDaysToDate(fechaInicio, dias);
+  }
+
+  private getDias(periodoPago: PeriodoDePagos): number {
+    return periodoPago &#x3D;&#x3D;&#x3D; PeriodoDePagos.Diario ? 1 :
+           periodoPago &#x3D;&#x3D;&#x3D; PeriodoDePagos.Semanal ? 7 : 
+           periodoPago &#x3D;&#x3D;&#x3D; PeriodoDePagos.Quincenal ? 15 :
+           periodoPago &#x3D;&#x3D;&#x3D; PeriodoDePagos.Mensual ? 30 : 365;
+  }
+
+  private addDaysToDate(date: Date, days: number): Date {
+    var res &#x3D; new Date(date);
+    res.setDate(res.getDate() + days);
+    return res;
+  }
+
+  private getCuota(interes: number, capital: number, cuotas: number): number {
+    let resultado &#x3D;  capital * (((interes / 100)) / (1 - Math.pow((1 + ((interes / 100))), - cuotas)));
+    return this.redondear(resultado);
+  }
+
+  private redondear(numero: number): number {
+    return Number(numero.toFixed(3));
+  }
+
+  limpiarTabla(){
+    this.cliente &#x3D; null!;
+    this.tablaAmortizacion &#x3D; null!;
+    this.cedula &#x3D; null!;
+    this.form.reset();
+  }
+
+  confirmarPrestamo(){
+    this.showOrHideDialog();
+  }
+
+
+  onConfirmacion(event: boolean){
+    if(event){
+      if(this.comprobarSiElClientePuedeRealizarPrestamo(this.cliente.estatusCrediticio.estatusCrediticios)){
+        this.guardarPrestamo();
+        this.showOrHideDialog();
+      }else{
+        this.showToast({
+          title: &#x27;El cliente no puede realizar prestamos porque tiene un prestamo pendiente&#x27;,
+          body: &#x27;&#x27;,
+          tipo: &#x27;error&#x27;
+        });
+      }
+    }else{
+       this.showOrHideDialog();
+    }
+    
+  }
+
+  private guardarPrestamo(){
+    let detallePrestamo: AddDetallePrestamo[] &#x3D; this.tablaAmortizacion.map((item:any) &#x3D;&gt; {
+      return {
+        numeroCuota: item.numeroCuota,
+        cuotaPagar: item.pago,
+        interesPagar: item.interes,
+        capitalAmortizado: item.amortizacion,
+        pagado: 0,
+        capitalPendiente: item.saldo,
+        fechaPago: item.fecha,
+        idEstatusPrestamo: item.idEstatusPrestamo
+      }
+    })
+    
+    const prestamo: AddPrestamo &#x3D; {
+      interes: (this.form.value.interes / 100),
+      cuotas: this.form.value.cuotas,
+      capital: this.form.value.capital,
+      idPeriodoPago: Number(this.periodoPagos.find(p &#x3D;&gt; p.periodoDePagos &#x3D;&#x3D;&#x3D; this.form.value.periodoPago)?.id),
+      fechaCreado: new Date(),
+      fechaCulminacion: this.getFecha(this.form.value.periodoPago, new Date(), this.form.value.cuotas),
+      idUsuarioUtorizador: this.usuario.id,
+      idCliente: this.cliente.id,
+      detallePrestamos: detallePrestamo,
+    }
+
+    this.prestamoService.addPrestamo(prestamo).subscribe(res &#x3D;&gt; {
+      this.showToast({
+        title: &#x27;Prestamo&#x27;,
+        body: &#x27;Prestamo registrado correctamente&#x27;,
+        tipo: &#x27;success&#x27;
+      }, () &#x3D;&gt; {
+        this.router.navigate([&#x27;admin/crear-prestamos/factura&#x27;,res.data.id]);
+      });
+      this.limpiarTabla();
+    }, error &#x3D;&gt; {
+      this.showToast({
+        title: &#x27;Eror&#x27;,
+        body: &#x27;Ocurio un error&#x27;,
+        tipo: &#x27;error&#x27;
+      });
+    })
+  }
+
+  showToast(toast: ToastModel, fn?: () &#x3D;&gt; void){
+    this.toast.show(toast)
+    setTimeout(() &#x3D;&gt; {
+      fn!();
+      this.toast.hide();
+    }, 2000)
+  }
+  
+  showOrHideDialog(){
+    this.showDialogo &#x3D; !this.showDialogo;
+  }
+
+  private comprobarSiElClientePuedeRealizarPrestamo(estatus: EstatuCrediticioCliente){
+    return estatus &#x3D;&#x3D;&#x3D; EstatuCrediticioCliente.Libre;
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-toastr&gt;&lt;/app-toastr&gt;
+&lt;app-ventana-confirmacion *ngIf&#x3D;&quot;showDialogo&quot; (confirmar)&#x3D;&quot;onConfirmacion($event)&quot;
+[titulo]&#x3D;&quot;&#x27;¿Estás segura de que quieres crear este préstamo?&#x27;&quot;&gt;&lt;/app-ventana-confirmacion&gt;
+&lt;div class&#x3D;&quot;section-body&quot;&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+            &lt;div class&#x3D;&quot;card&quot;&gt;
+                &lt;div class&#x3D;&quot;card-header&quot;&gt;
+                    &lt;h4&gt;Buscar cliente&lt;/h4&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                    &lt;div class&#x3D;&quot;input-group&quot;&gt;
+                        &lt;input type&#x3D;&quot;text&quot; [(ngModel)]&#x3D;&quot;cedula&quot; mask&#x3D;&quot;000-0000000-0&quot; class&#x3D;&quot;form-control&quot;
+                            placeholder&#x3D;&quot;Buscar cliente&quot; aria-describedby&#x3D;&quot;button-addon2&quot;&gt;
+                        &lt;div class&#x3D;&quot;input-group-append&quot;&gt;
+                            &lt;button (click)&#x3D;&quot;buscarCliente()&quot; class&#x3D;&quot;btn btn-primary&quot; type&#x3D;&quot;button&quot;
+                                id&#x3D;&quot;button-addon2&quot;&gt;Buscar&lt;/button&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;ng-container *ngIf&#x3D;&quot;resultadoBusqueda &amp;&amp; !resultadoBusqueda.succeeded&quot;&gt;
+                        &lt;div class&#x3D;&quot;alert alert-danger mt-3&quot; role&#x3D;&quot;alert&quot;&gt;
+                            &lt;strong&gt;{{resultadoBusqueda.message}}&lt;/strong&gt;
+                        &lt;/div&gt;
+                    &lt;/ng-container&gt;
+                    &lt;ng-container *ngIf&#x3D;&quot;cliente&quot;&gt;
+                        &lt;div class&#x3D;&quot;table-responsive&quot;&gt;
+                            &lt;div id&#x3D;&quot;table-1_wrapper&quot;&gt;
+                                &lt;app-table [columnas]&#x3D;&quot;columnas&quot;&gt;
+                                    &lt;ng-container data &gt;
+                                        &lt;tr [appColorFila]&#x3D;&quot;cliente.estatusCrediticio.estatusCrediticios&quot;&gt;
+                                            &lt;td&gt;{{cliente.nombres}} {{cliente.apellidos}}&lt;/td&gt;
+                                            &lt;td&gt;{{cliente.cedula| mask: &#x27;000-0000000-0&#x27;}}&lt;/td&gt;
+                                            &lt;td&gt;{{cliente.telefono |mask: &#x27;(000)-000-0000&#x27;}}&lt;/td&gt;
+                                            &lt;td&gt;
+                                                {{cliente.estatusCrediticio.estatusCrediticios | estatusCrediticioToString}}
+                                            &lt;/td&gt;
+                                        &lt;/tr&gt;
+                                    &lt;/ng-container&gt;
+                                &lt;/app-table&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/ng-container&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+            &lt;div class&#x3D;&quot;card&quot;&gt;
+                    &lt;form [formGroup]&#x3D;&quot;form&quot;&gt;
+                        &lt;div class&#x3D;&quot;card-header&quot;&gt;
+                            &lt;h4&gt;Datos prestamo&lt;/h4&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                            &lt;div class&#x3D;&quot;form-row&quot;&gt;
+                                &lt;div class&#x3D;&quot;col-lg-12&quot;&gt;
+                                    &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                                        &lt;label&gt;Periodos de pagos&lt;/label&gt;
+                                        &lt;select 
+                                        formControlName&#x3D;&quot;periodoPago&quot; 
+                                        class&#x3D;&quot;form-control&quot;
+                                        [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: isInvalid(&#x27;periodoPago&#x27;)}&quot;
+                                        &gt;
+                                        &lt;option [ngValue]&#x3D;&quot;null&quot; disabled&gt;Por favor seleccione una opción&lt;/option&gt;
+                                        &lt;option *ngFor&#x3D;&quot;let periodo of periodoPagos&quot; [ngValue]&#x3D;&quot;periodo.periodoDePagos&quot;&gt;
+                                            {{periodo.periodoDePagos | periodoPagoToString}}
+                                        &lt;/option&gt;
+                                    &lt;/select&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;col-lg-6&quot;&gt;
+                                    &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                                        &lt;label&gt;Interes&lt;/label&gt;
+                                        &lt;input 
+                                        type&#x3D;&quot;number&quot; 
+                                        formControlName&#x3D;&quot;interes&quot; 
+                                        placeholder&#x3D;&quot;Interes&quot; 
+                                        class&#x3D;&quot;form-control&quot; 
+                                        [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: isInvalid(&#x27;interes&#x27;)}&quot;
+                                        &gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;col-lg-6&quot;&gt;
+                                    &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                                        &lt;label&gt;Cuotas&lt;/label&gt;
+                                        &lt;input 
+                                        type&#x3D;&quot;number&quot; 
+                                        formControlName&#x3D;&quot;cuotas&quot; 
+                                        placeholder&#x3D;&quot;Cuotas&quot; 
+                                        class&#x3D;&quot;form-control&quot; 
+                                        [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: isInvalid(&#x27;cuotas&#x27;)}&quot;
+                                        &gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;col-lg-12&quot;&gt;
+                                    &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                                        &lt;label&gt;Capital&lt;/label&gt;
+                                        &lt;input 
+                                        type&#x3D;&quot;number&quot; 
+                                        formControlName&#x3D;&quot;capital&quot; 
+                                        placeholder&#x3D;&quot;Capital&quot; 
+                                        class&#x3D;&quot;form-control&quot; 
+                                        [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: isInvalid(&#x27;capital&#x27;)}&quot;
+                                        &gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                    
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;card-footer text-right&quot;&gt;
+                            &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;limpiarTabla()&quot; class&#x3D;&quot;btn btn-danger mr-2&quot;&gt;Limpiar&lt;/button&gt;
+                            &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;calcularTabla()&quot; [disabled]&#x3D;&quot;form.invalid || !cliente&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Calcular&lt;/button&gt;
+                        &lt;/div&gt;
+                    &lt;/form&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-12 mt-3&quot; *ngIf&#x3D;&quot;tablaAmortizacion&quot;&gt;
+                &lt;div class&#x3D;&quot;card&quot;&gt;
+                    &lt;div class&#x3D;&quot;card-header&quot;&gt;
+                        &lt;h4&gt;Tabla de amortización&lt;/h4&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                        &lt;div class&#x3D;&quot;table-responsive&quot;&gt;
+                            &lt;div id&#x3D;&quot;table-1_wrapper&quot; class&#x3D;&quot;dataTables_wrapper container-fluid dt-bootstrap4 no-footer&quot;&gt;
+                                &lt;ng-container &gt;
+                                    &lt;app-table [columnas]&#x3D;&quot;columnasTablaAmortizacion&quot;&gt;
+                                        &lt;ng-container data&gt;
+                                            &lt;tr *ngFor&#x3D;&quot;let item of tablaAmortizacion&quot;&gt;
+                                                &lt;td&gt;{{item.numeroCuota}}&lt;/td&gt;
+                                                &lt;td&gt;{{item.pago}}&lt;/td&gt;
+                                                &lt;td&gt;{{item.interes}}&lt;/td&gt;
+                                                &lt;td&gt;{{item.amortizacion}}&lt;/td&gt;
+                                                &lt;td&gt;{{item.saldo}}&lt;/td&gt;
+                                                &lt;td&gt;{{item.fecha | date:&#x27;dd/MM/yyyy&#x27;}}&lt;/td&gt;
+                                            &lt;/tr&gt;
+                                    &lt;/ng-container&gt;
+                                 &lt;/app-table&gt;
+                            &lt;/ng-container&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;card-footer text-right&quot;&gt;
+                                &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;limpiarTabla()&quot; class&#x3D;&quot;btn btn-danger mr-2&quot;&gt;Limpiar&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;confirmarPrestamo()&quot; [disabled]&#x3D;&quot;form.invalid&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Confirmar prestamo&lt;/button&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;                      
+                    &lt;/div&gt;
+                &lt;/div&gt;       
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./conceder-prestamo.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.card .card-body {
+    padding-top: 5px !important;
+    padding-bottom: 20px;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-toastr></app-toastr><app-ventana-confirmacion *ngIf="showDialogo" (confirmar)="onConfirmacion($event)"[titulo]="\'¿Estás segura de que quieres crear este préstamo?\'"></app-ventana-confirmacion><div class="section-body">    <div class="row">        <div class="col-md-6">            <div class="card">                <div class="card-header">                    <h4>Buscar cliente</h4>                </div>                <div class="card-body">                    <div class="input-group">                        <input type="text" [(ngModel)]="cedula" mask="000-0000000-0" class="form-control"                            placeholder="Buscar cliente" aria-describedby="button-addon2">                        <div class="input-group-append">                            <button (click)="buscarCliente()" class="btn btn-primary" type="button"                                id="button-addon2">Buscar</button>                        </div>                    </div>                    <ng-container *ngIf="resultadoBusqueda && !resultadoBusqueda.succeeded">                        <div class="alert alert-danger mt-3" role="alert">                            <strong>{{resultadoBusqueda.message}}</strong>                        </div>                    </ng-container>                    <ng-container *ngIf="cliente">                        <div class="table-responsive">                            <div id="table-1_wrapper">                                <app-table [columnas]="columnas">                                    <ng-container data >                                        <tr [appColorFila]="cliente.estatusCrediticio.estatusCrediticios">                                            <td>{{cliente.nombres}} {{cliente.apellidos}}</td>                                            <td>{{cliente.cedula| mask: \'000-0000000-0\'}}</td>                                            <td>{{cliente.telefono |mask: \'(000)-000-0000\'}}</td>                                            <td>                                                {{cliente.estatusCrediticio.estatusCrediticios | estatusCrediticioToString}}                                            </td>                                        </tr>                                    </ng-container>                                </app-table>                            </div>                        </div>                    </ng-container>                </div>            </div>        </div>        <div class="col-md-6">            <div class="card">                    <form [formGroup]="form">                        <div class="card-header">                            <h4>Datos prestamo</h4>                        </div>                        <div class="card-body">                            <div class="form-row">                                <div class="col-lg-12">                                    <div class="form-group">                                        <label>Periodos de pagos</label>                                        <select                                         formControlName="periodoPago"                                         class="form-control"                                        [ngClass]="{\'is-invalid\': isInvalid(\'periodoPago\')}"                                        >                                        <option [ngValue]="null" disabled>Por favor seleccione una opción</option>                                        <option *ngFor="let periodo of periodoPagos" [ngValue]="periodo.periodoDePagos">                                            {{periodo.periodoDePagos | periodoPagoToString}}                                        </option>                                    </select>                                    </div>                                </div>                                <div class="col-lg-6">                                    <div class="form-group">                                        <label>Interes</label>                                        <input                                         type="number"                                         formControlName="interes"                                         placeholder="Interes"                                         class="form-control"                                         [ngClass]="{\'is-invalid\': isInvalid(\'interes\')}"                                        >                                    </div>                                </div>                                <div class="col-lg-6">                                    <div class="form-group">                                        <label>Cuotas</label>                                        <input                                         type="number"                                         formControlName="cuotas"                                         placeholder="Cuotas"                                         class="form-control"                                         [ngClass]="{\'is-invalid\': isInvalid(\'cuotas\')}"                                        >                                    </div>                                </div>                                <div class="col-lg-12">                                    <div class="form-group">                                        <label>Capital</label>                                        <input                                         type="number"                                         formControlName="capital"                                         placeholder="Capital"                                         class="form-control"                                         [ngClass]="{\'is-invalid\': isInvalid(\'capital\')}"                                        >                                    </div>                                </div>                            </div>                                            </div>                        <div class="card-footer text-right">                            <button type="button" (click)="limpiarTabla()" class="btn btn-danger mr-2">Limpiar</button>                            <button type="button" (click)="calcularTabla()" [disabled]="form.invalid || !cliente" class="btn btn-primary">Calcular</button>                        </div>                    </form>            </div>        </div>        <div class="col-md-12 mt-3" *ngIf="tablaAmortizacion">                <div class="card">                    <div class="card-header">                        <h4>Tabla de amortización</h4>                    </div>                    <div class="card-body">                        <div class="table-responsive">                            <div id="table-1_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">                                <ng-container >                                    <app-table [columnas]="columnasTablaAmortizacion">                                        <ng-container data>                                            <tr *ngFor="let item of tablaAmortizacion">                                                <td>{{item.numeroCuota}}</td>                                                <td>{{item.pago}}</td>                                                <td>{{item.interes}}</td>                                                <td>{{item.amortizacion}}</td>                                                <td>{{item.saldo}}</td>                                                <td>{{item.fecha | date:\'dd/MM/yyyy\'}}</td>                                            </tr>                                    </ng-container>                                 </app-table>                            </ng-container>                            </div>                            <div class="card-footer text-right">                                <button type="button" (click)="limpiarTabla()" class="btn btn-danger mr-2">Limpiar</button>                                <button type="button" (click)="confirmarPrestamo()" [disabled]="form.invalid" class="btn btn-primary">Confirmar prestamo</button>                            </div>                        </div>                                          </div>                </div>               </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AgregarClientesComponent', 'selector': 'app-agregar-clientes'},{'name': 'AgregarUsuarioComponent', 'selector': 'app-agregar-usuario'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BuscadorComponent', 'selector': 'app-buscador'},{'name': 'ClientesComponent', 'selector': 'app-clientes'},{'name': 'ConcederPrestamoComponent', 'selector': 'app-conceder-prestamo'},{'name': 'ConfiguracionComponent', 'selector': 'app-configuracion'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DetalleClienteComponent', 'selector': 'app-detalle-cliente'},{'name': 'DetallePrestamoComponent', 'selector': 'app-detalle-prestamo'},{'name': 'DetalleUsuarioComponent', 'selector': 'app-detalle-usuario'},{'name': 'EditarClientesComponent', 'selector': 'app-editar-clientes'},{'name': 'EditarUsuarioComponent', 'selector': 'app-editar-usuario'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FacturaComponent', 'selector': 'app-factura'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'IconoComponent', 'selector': 'app-icono'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'PagarPrestamoComponent', 'selector': 'app-pagar-prestamo'},{'name': 'PaginacionComponent', 'selector': 'app-paginacion'},{'name': 'PrestamosComponent', 'selector': 'app-prestamos'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'ToastrComponent', 'selector': 'app-toastr'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'},{'name': 'VentanaConfirmacionComponent', 'selector': 'app-ventana-confirmacion'}];
+    var DIRECTIVES = [{'name': 'ColorFilaEstatusCrediticioClienteDirective', 'selector': '[appColorFila]'},{'name': 'ColorFilaEstatusPrestamoClienteDirective', 'selector': '[appColorFilaEstatusPrestamo]'},{'name': 'InicialesDirective', 'selector': '[appIniciales]'}];
+    var ACTUAL_COMPONENT = {'name': 'ConcederPrestamoComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ConcederPrestamoComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

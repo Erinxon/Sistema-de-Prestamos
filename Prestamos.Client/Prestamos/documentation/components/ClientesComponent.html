@@ -1,0 +1,1239 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>prestamos documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">prestamos documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  ClientesComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/admin/clientes/pages/clientes/clientes.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-clientes</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./clientes.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./clientes.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#clientes" >clientes</a>
+                            </li>
+                            <li>
+                                <a href="#columnas" >columnas</a>
+                            </li>
+                            <li>
+                                <a href="#idClenteAEliminar" >idClenteAEliminar</a>
+                            </li>
+                            <li>
+                                <a href="#listaPageSizes" >listaPageSizes</a>
+                            </li>
+                            <li>
+                                <a href="#pagination" >pagination</a>
+                            </li>
+                            <li>
+                                <a href="#showDialogo" >showDialogo</a>
+                            </li>
+                            <li>
+                                <a href="#totalPaginas" >totalPaginas</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#eliminarCliente" >eliminarCliente</a>
+                            </li>
+                            <li>
+                                <a href="#getClientes" >getClientes</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onConfirmacion" >onConfirmacion</a>
+                            </li>
+                            <li>
+                                <a href="#pageChange" >pageChange</a>
+                            </li>
+                            <li>
+                                <a href="#searchCliente" >searchCliente</a>
+                            </li>
+                            <li>
+                                <a href="#showOrHideDialog" >showOrHideDialog</a>
+                            </li>
+                            <li>
+                                <a href="#showToast" >showToast</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(clienteService: <a href="../injectables/ClienteService.html" target="_self">ClienteService</a>, toastService: <a href="../injectables/ToastService.html" target="_self">ToastService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/modules/admin/clientes/pages/clientes/clientes.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>clienteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ClienteService.html" target="_self" >ClienteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>toastService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ToastService.html" target="_self" >ToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eliminarCliente"></a>
+                    <span class="name">
+                        <span ><b>eliminarCliente</b></span>
+                        <a href="#eliminarCliente"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>eliminarCliente(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/app/modules/admin/clientes/pages/clientes/clientes.component.ts:83</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getClientes"></a>
+                    <span class="name">
+                        <span ><b>getClientes</b></span>
+                        <a href="#getClientes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getClientes()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/modules/admin/clientes/pages/clientes/clientes.component.ts:39</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/modules/admin/clientes/pages/clientes/clientes.component.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onConfirmacion"></a>
+                    <span class="name">
+                        <span ><b>onConfirmacion</b></span>
+                        <a href="#onConfirmacion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onConfirmacion(event: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">src/app/modules/admin/clientes/pages/clientes/clientes.component.ts:59</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pageChange"></a>
+                    <span class="name">
+                        <span ><b>pageChange</b></span>
+                        <a href="#pageChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>pageChange(pagination: <a href="../interfaces/Pagination.html" target="_self">Pagination</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="95"
+                            class="link-to-prism">src/app/modules/admin/clientes/pages/clientes/clientes.component.ts:95</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>pagination</td>
+                                    <td>
+                                                <code><a href="../interfaces/Pagination.html" target="_self" >Pagination</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchCliente"></a>
+                    <span class="name">
+                        <span ><b>searchCliente</b></span>
+                        <a href="#searchCliente"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>searchCliente(text: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/modules/admin/clientes/pages/clientes/clientes.component.ts:47</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>text</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showOrHideDialog"></a>
+                    <span class="name">
+                        <span ><b>showOrHideDialog</b></span>
+                        <a href="#showOrHideDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showOrHideDialog()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">src/app/modules/admin/clientes/pages/clientes/clientes.component.ts:79</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showToast"></a>
+                    <span class="name">
+                        <span ><b>showToast</b></span>
+                        <a href="#showToast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showToast(toast: <a href="../interfaces/ToastModel.html" target="_self">ToastModel</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="88"
+                            class="link-to-prism">src/app/modules/admin/clientes/pages/clientes/clientes.component.ts:88</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>toast</td>
+                                    <td>
+                                                <code><a href="../interfaces/ToastModel.html" target="_self" >ToastModel</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clientes"></a>
+                    <span class="name">
+                        <span ><b>clientes</b></span>
+                        <a href="#clientes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Cliente.html" target="_self" >Cliente[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/modules/admin/clientes/pages/clientes/clientes.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columnas"></a>
+                    <span class="name">
+                        <span ><b>columnas</b></span>
+                        <a href="#columnas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;Nombres&#x27;, &#x27;Apellidos&#x27;, &#x27;Cedula&#x27;, &#x27;Telefono&#x27;, &#x27;Estatus Crediticio&#x27;, &#x27;Fecha Creado&#x27;, &#x27;Detalle&#x27;, &#x27;Editar&#x27;, &#x27;Eliminar&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/modules/admin/clientes/pages/clientes/clientes.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="idClenteAEliminar"></a>
+                    <span class="name">
+                        <span ><b>idClenteAEliminar</b></span>
+                        <a href="#idClenteAEliminar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/modules/admin/clientes/pages/clientes/clientes.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listaPageSizes"></a>
+                    <span class="name">
+                        <span ><b>listaPageSizes</b></span>
+                        <a href="#listaPageSizes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[5, 10, 15, 20]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/modules/admin/clientes/pages/clientes/clientes.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pagination"></a>
+                    <span class="name">
+                        <span ><b>pagination</b></span>
+                        <a href="#pagination"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Pagination.html" target="_self" >Pagination</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/modules/admin/clientes/pages/clientes/clientes.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showDialogo"></a>
+                    <span class="name">
+                        <span ><b>showDialogo</b></span>
+                        <a href="#showDialogo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/modules/admin/clientes/pages/clientes/clientes.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="totalPaginas"></a>
+                    <span class="name">
+                        <span ><b>totalPaginas</b></span>
+                        <a href="#totalPaginas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/modules/admin/clientes/pages/clientes/clientes.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Pagination } from &#x27;src/app/Core/models/apiResponse/pagination/pagination.model&#x27;;
+import { Cliente } from &#x27;src/app/Core/models/clientes/cliente.model&#x27;;
+import { ToastModel } from &#x27;src/app/Core/models/toasts/toast.model&#x27;;
+import { ToastService } from &#x27;src/app/Shared/services/toast.service&#x27;;
+import { ClienteService } from &#x27;../../services/cliente.service&#x27;;
+
+@Component({
+  selector: &#x27;app-clientes&#x27;,
+  templateUrl: &#x27;./clientes.component.html&#x27;,
+  styleUrls: [&#x27;./clientes.component.scss&#x27;]
+})
+export class ClientesComponent implements OnInit {
+  clientes!: Cliente[];
+  columnas: string[] &#x3D; [&#x27;Nombres&#x27;, &#x27;Apellidos&#x27;, &#x27;Cedula&#x27;, &#x27;Telefono&#x27;, &#x27;Estatus Crediticio&#x27;, &#x27;Fecha Creado&#x27;, &#x27;Detalle&#x27;, &#x27;Editar&#x27;, &#x27;Eliminar&#x27;];
+
+  showDialogo: boolean &#x3D; false;
+  idClenteAEliminar!: number;
+
+  pagination: Pagination;
+
+  listaPageSizes: number[] &#x3D; [5, 10, 15, 20];
+
+  totalPaginas: number &#x3D; 1;
+  
+  constructor(private clienteService: ClienteService,
+    private toastService: ToastService) { 
+      this.pagination &#x3D; {
+        pageNumber: 1,
+        pageSize: 5,
+      };
+     
+  }
+
+  ngOnInit(): void {
+    this.getClientes();
+  }
+
+  getClientes(){
+    this.clienteService.getClientes(this.pagination).subscribe((res) &#x3D;&gt; {
+      this.totalPaginas &#x3D; Math.ceil(res.pagination.totalRegistros! / this.pagination.pageSize);
+      this.clientes &#x3D; res.data;
+      this.pagination &#x3D; res.pagination;
+    });
+  }
+
+  searchCliente(text: string){
+    if(text.length &gt; 0){
+      this.clienteService.search(text.trim(), this.pagination).subscribe((res) &#x3D;&gt; {
+        this.totalPaginas &#x3D; Math.ceil(res.data.length! / this.pagination.pageSize);
+        this.clientes &#x3D; res.data;
+        this.pagination &#x3D; res.pagination;
+      });
+    }else{
+      this.getClientes();
+    }
+  }
+
+  onConfirmacion(event: boolean){
+    if(event &amp;&amp; this.idClenteAEliminar){
+      this.clienteService.deleteCliente(this.idClenteAEliminar).subscribe(res &#x3D;&gt; {
+        this.showToast({
+          title: &#x27;Cliente Eliminado&#x27;,
+          body: &#x27;El cliente se ha eliminado correctamente&#x27;,
+          tipo: &#x27;success&#x27;
+        })
+        this.getClientes();    
+      }, error &#x3D;&gt; {
+        this.showToast({
+          title: &#x27;Error&#x27;,
+          body: &#x27;No se puede eliminar el cliente&#x27;,
+          tipo: &#x27;error&#x27;
+        })
+      })
+    }
+    this.showOrHideDialog();
+  }
+
+  showOrHideDialog(){
+    this.showDialogo &#x3D; !this.showDialogo;
+  }
+
+  eliminarCliente(id: number){
+    this.idClenteAEliminar &#x3D; id;
+    this.showOrHideDialog();
+  }
+
+  showToast(toast: ToastModel){
+    this.toastService.show(toast)
+    setTimeout(() &#x3D;&gt; {
+      this.toastService.hide();
+    }, 2000)
+  }
+  
+  pageChange(pagination: Pagination){
+    this.pagination &#x3D; pagination;
+    this.getClientes();
+  }
+
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-toastr&gt;&lt;/app-toastr&gt;
+&lt;div class&#x3D;&quot;section-body&quot;&gt;
+  &lt;div class&#x3D;&quot;row&quot;&gt;
+    &lt;div class&#x3D;&quot;col-12&quot;&gt;
+      &lt;div class&#x3D;&quot;card&quot;&gt;
+        &lt;div class&#x3D;&quot;card-header&quot;&gt;
+          &lt;h4&gt;Clientes&lt;/h4&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;card-body&quot;&gt;
+          &lt;div class&#x3D;&quot;table-responsive&quot;&gt;
+            &lt;div id&#x3D;&quot;table-1_wrapper&quot; class&#x3D;&quot;dataTables_wrapper container-fluid dt-bootstrap4 no-footer&quot;&gt;
+              &lt;div class&#x3D;&quot;row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-sm-12 col-md-6&quot;&gt;
+                  &lt;button routerLink&#x3D;&quot;agregar&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;&lt;i class&#x3D;&quot;fa fa-plus mr-1&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+                      Agregar&lt;/i&gt;&lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-sm-12 col-md-6 col-md-6&quot;&gt;
+                  &lt;app-buscador (search)&#x3D;&quot;searchCliente($event)&quot;&gt;&lt;/app-buscador&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-sm-12&quot;&gt;
+                  &lt;app-spinner&gt;&lt;/app-spinner&gt;
+                  &lt;app-table [columnas]&#x3D;&quot;columnas&quot;&gt;
+                    &lt;ng-container noHayRegistros *ngIf&#x3D;&quot;clientes&quot;&gt;
+                      &lt;tr *ngIf&#x3D;&quot;clientes.length &#x3D;&#x3D;&#x3D; 0&quot;&gt;
+                        &lt;td colspan&#x3D;&quot;10&quot; class&#x3D;&quot;text-center&quot;&gt;No hay registros&lt;/td&gt;
+                      &lt;/tr&gt;
+                    &lt;/ng-container&gt;
+                    &lt;ng-container data *ngIf&#x3D;&quot;clientes&quot;&gt;
+                      &lt;tr *ngFor&#x3D;&quot;let cliente of clientes&quot; [appColorFila]&#x3D;&quot;cliente.estatusCrediticio.estatusCrediticios&quot;&gt;
+                        &lt;td&gt;{{cliente.nombres}}&lt;/td&gt;
+                        &lt;td&gt;{{cliente.apellidos}}&lt;/td&gt;
+                        &lt;td&gt;{{cliente.cedula|mask: &#x27;000-0000000-0&#x27;}}&lt;/td&gt;
+                        &lt;td&gt;{{cliente.telefono |mask: &#x27;(000)-000-0000&#x27;}}&lt;/td&gt;
+                        &lt;td&gt;{{cliente.estatusCrediticio.estatusCrediticios | estatusCrediticioToString}}&lt;/td&gt;
+                        &lt;td&gt;{{cliente.fechaCreado|date: &#x27;dd/MM/yyyy&#x27;}}&lt;/td&gt;
+                        &lt;td&gt;
+                          &lt;button [routerLink]&#x3D;&quot;[&#x27;detalle&#x27;, cliente.id]&quot; class&#x3D;&quot;btn btn-dark  mr-1&quot;&gt;Detalle&lt;/button&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                          &lt;button [routerLink]&#x3D;&quot;[&#x27;editar&#x27;, cliente.id]&quot; class&#x3D;&quot;btn btn-primary mr-1&quot;&gt;&lt;i
+                              class&#x3D;&quot;far fa-edit&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;
+                          &lt;app-ventana-confirmacion *ngIf&#x3D;&quot;showDialogo&quot; (confirmar)&#x3D;&quot;onConfirmacion($event)&quot;
+                            [titulo]&#x3D;&quot;&#x27;Estas seguro que quieres eliminar este cliente?&#x27;&quot;&gt;&lt;/app-ventana-confirmacion&gt;
+                          &lt;button (click)&#x3D;&quot;eliminarCliente(cliente.id)&quot; class&#x3D;&quot;btn btn-danger&quot;&gt;&lt;i
+                              class&#x3D;&quot;far fa-trash-alt&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+                        &lt;/td&gt;
+                      &lt;/tr&gt;
+                    &lt;/ng-container&gt;
+                  &lt;/app-table&gt;
+
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-sm-12 col-md-5&quot;&gt;
+                  &lt;div class&#x3D;&quot;dataTables_length&quot; id&#x3D;&quot;table-1_length&quot;&gt;
+                    &lt;label&gt;Mostrar
+                      &lt;select [(ngModel)]&#x3D;&quot;pagination.pageSize&quot; (ngModelChange)&#x3D;&quot;getClientes()&quot; name&#x3D;&quot;table-1_length&quot;
+                        aria-controls&#x3D;&quot;table-1&quot; class&#x3D;&quot;form-control form-control-sm&quot;&gt;
+                        &lt;option [ngValue]&#x3D;&quot;item&quot; *ngFor&#x3D;&quot;let item of listaPageSizes&quot;&gt;{{item}}&lt;/option&gt;
+                      &lt;/select&gt;registros
+                    &lt;/label&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-sm-12 col-md-7&quot;&gt;
+                  &lt;app-paginacion [totalPaginas]&#x3D;&quot;totalPaginas&quot; [paginacion]&#x3D;&quot;pagination&quot;
+                    (pageChange)&#x3D;&quot;pageChange($event)&quot;&gt;
+                    &gt;&lt;/app-paginacion&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./clientes.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-toastr></app-toastr><div class="section-body">  <div class="row">    <div class="col-12">      <div class="card">        <div class="card-header">          <h4>Clientes</h4>        </div>        <div class="card-body">          <div class="table-responsive">            <div id="table-1_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">              <div class="row">                <div class="col-sm-12 col-md-6">                  <button routerLink="agregar" class="btn btn-primary"><i class="fa fa-plus mr-1" aria-hidden="true">                      Agregar</i></button>                </div>                <div class="col-sm-12 col-md-6 col-md-6">                  <app-buscador (search)="searchCliente($event)"></app-buscador>                </div>              </div>              <div class="row">                <div class="col-sm-12">                  <app-spinner></app-spinner>                  <app-table [columnas]="columnas">                    <ng-container noHayRegistros *ngIf="clientes">                      <tr *ngIf="clientes.length === 0">                        <td colspan="10" class="text-center">No hay registros</td>                      </tr>                    </ng-container>                    <ng-container data *ngIf="clientes">                      <tr *ngFor="let cliente of clientes" [appColorFila]="cliente.estatusCrediticio.estatusCrediticios">                        <td>{{cliente.nombres}}</td>                        <td>{{cliente.apellidos}}</td>                        <td>{{cliente.cedula|mask: \'000-0000000-0\'}}</td>                        <td>{{cliente.telefono |mask: \'(000)-000-0000\'}}</td>                        <td>{{cliente.estatusCrediticio.estatusCrediticios | estatusCrediticioToString}}</td>                        <td>{{cliente.fechaCreado|date: \'dd/MM/yyyy\'}}</td>                        <td>                          <button [routerLink]="[\'detalle\', cliente.id]" class="btn btn-dark  mr-1">Detalle</button>                        </td>                        <td>                          <button [routerLink]="[\'editar\', cliente.id]" class="btn btn-primary mr-1"><i                              class="far fa-edit"></i></button>                        </td>                        <td>                          <app-ventana-confirmacion *ngIf="showDialogo" (confirmar)="onConfirmacion($event)"                            [titulo]="\'Estas seguro que quieres eliminar este cliente?\'"></app-ventana-confirmacion>                          <button (click)="eliminarCliente(cliente.id)" class="btn btn-danger"><i                              class="far fa-trash-alt"></i></button>                        </td>                      </tr>                    </ng-container>                  </app-table>                </div>              </div>              <div class="row">                <div class="col-sm-12 col-md-5">                  <div class="dataTables_length" id="table-1_length">                    <label>Mostrar                      <select [(ngModel)]="pagination.pageSize" (ngModelChange)="getClientes()" name="table-1_length"                        aria-controls="table-1" class="form-control form-control-sm">                        <option [ngValue]="item" *ngFor="let item of listaPageSizes">{{item}}</option>                      </select>registros                    </label>                  </div>                </div>                <div class="col-sm-12 col-md-7">                  <app-paginacion [totalPaginas]="totalPaginas" [paginacion]="pagination"                    (pageChange)="pageChange($event)">                    ></app-paginacion>                </div>              </div>            </div>          </div>        </div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AgregarClientesComponent', 'selector': 'app-agregar-clientes'},{'name': 'AgregarUsuarioComponent', 'selector': 'app-agregar-usuario'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BuscadorComponent', 'selector': 'app-buscador'},{'name': 'ClientesComponent', 'selector': 'app-clientes'},{'name': 'ConcederPrestamoComponent', 'selector': 'app-conceder-prestamo'},{'name': 'ConfiguracionComponent', 'selector': 'app-configuracion'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DetalleClienteComponent', 'selector': 'app-detalle-cliente'},{'name': 'DetallePrestamoComponent', 'selector': 'app-detalle-prestamo'},{'name': 'DetalleUsuarioComponent', 'selector': 'app-detalle-usuario'},{'name': 'EditarClientesComponent', 'selector': 'app-editar-clientes'},{'name': 'EditarUsuarioComponent', 'selector': 'app-editar-usuario'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FacturaComponent', 'selector': 'app-factura'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'IconoComponent', 'selector': 'app-icono'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'PagarPrestamoComponent', 'selector': 'app-pagar-prestamo'},{'name': 'PaginacionComponent', 'selector': 'app-paginacion'},{'name': 'PrestamosComponent', 'selector': 'app-prestamos'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'ToastrComponent', 'selector': 'app-toastr'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'},{'name': 'VentanaConfirmacionComponent', 'selector': 'app-ventana-confirmacion'}];
+    var DIRECTIVES = [{'name': 'ColorFilaEstatusCrediticioClienteDirective', 'selector': '[appColorFila]'},{'name': 'ColorFilaEstatusPrestamoClienteDirective', 'selector': '[appColorFilaEstatusPrestamo]'},{'name': 'InicialesDirective', 'selector': '[appIniciales]'}];
+    var ACTUAL_COMPONENT = {'name': 'ClientesComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ClientesComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

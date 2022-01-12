@@ -1,0 +1,748 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>prestamos documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">prestamos documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  DetallePrestamoComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/admin/prestamos/pages/detalle-prestamo/detalle-prestamo.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-detalle-prestamo</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./detalle-prestamo.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./detalle-prestamo.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#columnasCliente" >columnasCliente</a>
+                            </li>
+                            <li>
+                                <a href="#columnasCronograma" >columnasCronograma</a>
+                            </li>
+                            <li>
+                                <a href="#columnasPrestamo" >columnasPrestamo</a>
+                            </li>
+                            <li>
+                                <a href="#columnasUsuario" >columnasUsuario</a>
+                            </li>
+                            <li>
+                                <a href="#prestamo" >prestamo</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getPrestamo" >getPrestamo</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(prestamoSvc: <a href="../injectables/PrestamoService.html" target="_self">PrestamoService</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/modules/admin/prestamos/pages/detalle-prestamo/detalle-prestamo.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>prestamoSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PrestamoService.html" target="_self" >PrestamoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPrestamo"></a>
+                    <span class="name">
+                        <span ><b>getPrestamo</b></span>
+                        <a href="#getPrestamo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPrestamo()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/app/modules/admin/prestamos/pages/detalle-prestamo/detalle-prestamo.component.ts:27</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/modules/admin/prestamos/pages/detalle-prestamo/detalle-prestamo.component.ts:24</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columnasCliente"></a>
+                    <span class="name">
+                        <span ><b>columnasCliente</b></span>
+                        <a href="#columnasCliente"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;Nombres&#x27;, &#x27;Apellidos&#x27;, &#x27;Cedula&#x27;, &#x27;Telefono&#x27;, &#x27;Estatus Crediticio&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/modules/admin/prestamos/pages/detalle-prestamo/detalle-prestamo.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columnasCronograma"></a>
+                    <span class="name">
+                        <span ><b>columnasCronograma</b></span>
+                        <a href="#columnasCronograma"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;Número Cuota&#x27;, &#x27;Pago&#x27;, &#x27;Interes&#x27;, &#x27;Amortización&#x27;, &#x27;Pagado&#x27;, &#x27;Pendiente&#x27;, &#x27;Estatus&#x27;, &#x27;Fecha de pago&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/modules/admin/prestamos/pages/detalle-prestamo/detalle-prestamo.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columnasPrestamo"></a>
+                    <span class="name">
+                        <span ><b>columnasPrestamo</b></span>
+                        <a href="#columnasPrestamo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;Periodo de pagos&#x27;, &#x27;Interes&#x27;, &#x27;Cuotas&#x27;, &#x27;Capital Prestado&#x27;, &#x27;Estatus&#x27;,&#x27;Fecha de vencimiento&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/modules/admin/prestamos/pages/detalle-prestamo/detalle-prestamo.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columnasUsuario"></a>
+                    <span class="name">
+                        <span ><b>columnasUsuario</b></span>
+                        <a href="#columnasUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;Nombres&#x27;, &#x27;Apellidos&#x27;, &#x27;Cedula&#x27;, &#x27;Telefono&#x27;, &#x27;Rol&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/modules/admin/prestamos/pages/detalle-prestamo/detalle-prestamo.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prestamo"></a>
+                    <span class="name">
+                        <span ><b>prestamo</b></span>
+                        <a href="#prestamo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Prestamo.html" target="_self" >Prestamo</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/modules/admin/prestamos/pages/detalle-prestamo/detalle-prestamo.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
+import { EstatuCrediticioCliente, EstatusPrestamosClientes, PeriodoDePagos, RolesUsuario } from &#x27;src/app/Core/models/Enums/enums.model&#x27;;
+import { Prestamo } from &#x27;src/app/Core/models/prestamos/prestamo.model&#x27;;
+import { PrestamoService } from &#x27;../../../crear-prestamos/services/prestamo.service&#x27;;
+
+@Component({
+  selector: &#x27;app-detalle-prestamo&#x27;,
+  templateUrl: &#x27;./detalle-prestamo.component.html&#x27;,
+  styleUrls: [&#x27;./detalle-prestamo.component.scss&#x27;]
+})
+export class DetallePrestamoComponent implements OnInit {
+  prestamo!: Prestamo;
+  columnasCliente: string[] &#x3D;  [&#x27;Nombres&#x27;, &#x27;Apellidos&#x27;, &#x27;Cedula&#x27;, &#x27;Telefono&#x27;, &#x27;Estatus Crediticio&#x27;];
+  columnasUsuario: string[] &#x3D; [&#x27;Nombres&#x27;, &#x27;Apellidos&#x27;, &#x27;Cedula&#x27;, &#x27;Telefono&#x27;, &#x27;Rol&#x27;];
+  columnasPrestamo: string[] &#x3D; [&#x27;Periodo de pagos&#x27;, &#x27;Interes&#x27;, &#x27;Cuotas&#x27;, &#x27;Capital Prestado&#x27;, &#x27;Estatus&#x27;,&#x27;Fecha de vencimiento&#x27;];
+  columnasCronograma: string[]&#x3D; [&#x27;Número Cuota&#x27;, &#x27;Pago&#x27;, &#x27;Interes&#x27;, &#x27;Amortización&#x27;, &#x27;Pagado&#x27;, &#x27;Pendiente&#x27;, &#x27;Estatus&#x27;, &#x27;Fecha de pago&#x27;];
+  constructor(private prestamoSvc: PrestamoService,
+    private route: ActivatedRoute,
+    private router:  Router) {
+      this.getPrestamo();
+    }
+
+  ngOnInit(): void {
+  }
+
+  getPrestamo(){
+    const id &#x3D; +this.route.snapshot.params[&#x27;id&#x27;];
+    this.prestamoSvc.getPrestamoById(id).subscribe(res &#x3D;&gt; {
+      this.prestamo &#x3D; res.data;
+    }, error &#x3D;&gt; {
+      this.router.navigate([&#x27;admin/prestamos&#x27;]);
+    });
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-spinner&gt;&lt;/app-spinner&gt;
+&lt;div class&#x3D;&quot;section-body&quot; *ngIf&#x3D;&quot;prestamo&quot;&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+      &lt;div class&#x3D;&quot;col-12&quot;&gt;
+        &lt;div class&#x3D;&quot;card&quot;&gt;
+          &lt;div class&#x3D;&quot;card-body&quot;&gt;
+            &lt;h3&gt;Usuario Autorizador del Prestamo&lt;/h3&gt;
+            &lt;div class&#x3D;&quot;table-responsive&quot;&gt;
+                &lt;div id&#x3D;&quot;table-1_wrapper&quot;&gt;
+                    &lt;app-table [columnas]&#x3D;&quot;columnasUsuario&quot;&gt;
+                        &lt;ng-container data&gt;
+                          &lt;tr&gt;
+                            &lt;td&gt;{{prestamo.usuarioUtorizador.nombres}}&lt;/td&gt;
+                            &lt;td&gt;{{prestamo.usuarioUtorizador.apellidos}}&lt;/td&gt;
+                            &lt;td&gt;{{prestamo.usuarioUtorizador.cedula|mask: &#x27;000-0000000-0&#x27;}}&lt;/td&gt;
+                           &lt;td&gt;{{prestamo.usuarioUtorizador.telefono |mask: &#x27;(000)-000-0000&#x27;}}&lt;/td&gt;
+                           &lt;td&gt;{{prestamo.usuarioUtorizador.rol.roles | rolToString}}&lt;/td&gt;
+                          &lt;/tr&gt;
+                        &lt;/ng-container&gt;
+                    &lt;/app-table&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-12&quot;&gt;
+        &lt;div class&#x3D;&quot;card&quot;&gt;
+          &lt;div class&#x3D;&quot;card-body&quot;&gt;
+            &lt;h3&gt;Cliente&lt;/h3&gt;
+            &lt;div class&#x3D;&quot;table-responsive&quot;&gt;
+                &lt;div id&#x3D;&quot;table-1_wrapper&quot;&gt;
+                    &lt;app-table [columnas]&#x3D;&quot;columnasCliente&quot;&gt;
+                        &lt;ng-container data&gt;
+                          &lt;tr [appColorFila]&#x3D;&quot;prestamo.cliente.estatusCrediticio.estatusCrediticios&quot;&gt;
+                            &lt;td&gt;{{prestamo.cliente.nombres}}&lt;/td&gt;
+                            &lt;td&gt;{{prestamo.cliente.apellidos}}&lt;/td&gt;
+                            &lt;td&gt;{{prestamo.cliente.cedula|mask: &#x27;000-0000000-0&#x27;}}&lt;/td&gt;
+                            &lt;td&gt;{{prestamo.cliente.telefono |mask: &#x27;(000)-000-0000&#x27;}}&lt;/td&gt;
+                            &lt;td&gt;{{prestamo.cliente.estatusCrediticio.estatusCrediticios | estatusCrediticioToString}}&lt;/td&gt;
+                          &lt;/tr&gt;
+                        &lt;/ng-container&gt;
+                    &lt;/app-table&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-12&quot;&gt;
+        &lt;div class&#x3D;&quot;card&quot;&gt;
+          &lt;div class&#x3D;&quot;card-body&quot;&gt;
+            &lt;h3&gt;Prestamo&lt;/h3&gt;
+            &lt;div class&#x3D;&quot;table-responsive&quot;&gt;
+                &lt;div id&#x3D;&quot;table-1_wrapper&quot;&gt;
+                    &lt;app-table [columnas]&#x3D;&quot;columnasPrestamo&quot;&gt;
+                        &lt;ng-container data *ngIf&#x3D;&quot;prestamo&quot;&gt;
+                          &lt;tr
+                          [appColorFilaEstatusPrestamo]&#x3D;&quot;prestamo.estatusPrestamo.estatusPrestamos&quot;
+                          &gt;
+                            &lt;td&gt;{{prestamo.periodoPago.periodoDePagos | periodoPagoToString}}&lt;/td&gt;
+                            &lt;td&gt;{{prestamo.interes|percent}}&lt;/td&gt;
+                            &lt;td&gt;{{prestamo.cuotas}}&lt;/td&gt;
+                            &lt;td&gt;{{prestamo.capital | currency:&#x27;DO&#x27;:&#x27;symbol&#x27;:&#x27;1.2-2&#x27;}}&lt;/td&gt;
+                            &lt;td&gt;{{prestamo.estatusPrestamo.estatusPrestamos | estatusPrestamoToString}}&lt;/td&gt;
+                            &lt;td&gt;{{prestamo.fechaCulminacion|date:&#x27;dd/MM/yyyy&#x27;}}&lt;/td&gt;
+                          &lt;/tr&gt;
+                        &lt;/ng-container&gt;
+                    &lt;/app-table&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-12&quot;&gt;
+        &lt;div class&#x3D;&quot;card&quot;&gt;
+          &lt;div class&#x3D;&quot;card-body&quot;&gt;
+            &lt;h3&gt;Cronograma de Pago&lt;/h3&gt;
+            &lt;div class&#x3D;&quot;table-responsive&quot;&gt;
+                &lt;div id&#x3D;&quot;table-1_wrapper&quot;&gt;
+                    &lt;app-table [columnas]&#x3D;&quot;columnasCronograma&quot;&gt;
+                        &lt;ng-container data&gt;
+                          &lt;tr *ngFor&#x3D;&quot;let detalle of prestamo.detallePrestamos&quot;
+                          [appColorFilaEstatusPrestamo]&#x3D;&quot;detalle.estatusPrestamo.estatusPrestamos&quot;&gt;
+                           &lt;td&gt;{{detalle.numeroCuota}}&lt;/td&gt;
+                           &lt;td&gt;{{detalle.cuotaPagar}}&lt;/td&gt;
+                           &lt;td&gt;{{detalle.interesPagar}}&lt;/td&gt;
+                           &lt;td&gt;{{detalle.capitalAmortizado}}&lt;/td&gt;
+                           &lt;td&gt;{{detalle.pagado}}&lt;/td&gt;
+                           &lt;td&gt;{{detalle.capitalPendiente}}&lt;/td&gt;
+                           &lt;td&gt;{{detalle.estatusPrestamo.estatusPrestamos | estatusPrestamoToString}}&lt;/td&gt;
+                           &lt;td&gt;{{detalle.fechaPago | date:&#x27;dd/MM/yyyy&#x27;}}&lt;/td&gt;
+                          &lt;/tr&gt;
+                        &lt;/ng-container&gt;
+                    &lt;/app-table&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./detalle-prestamo.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-spinner></app-spinner><div class="section-body" *ngIf="prestamo">    <div class="row">      <div class="col-12">        <div class="card">          <div class="card-body">            <h3>Usuario Autorizador del Prestamo</h3>            <div class="table-responsive">                <div id="table-1_wrapper">                    <app-table [columnas]="columnasUsuario">                        <ng-container data>                          <tr>                            <td>{{prestamo.usuarioUtorizador.nombres}}</td>                            <td>{{prestamo.usuarioUtorizador.apellidos}}</td>                            <td>{{prestamo.usuarioUtorizador.cedula|mask: \'000-0000000-0\'}}</td>                           <td>{{prestamo.usuarioUtorizador.telefono |mask: \'(000)-000-0000\'}}</td>                           <td>{{prestamo.usuarioUtorizador.rol.roles | rolToString}}</td>                          </tr>                        </ng-container>                    </app-table>                </div>            </div>          </div>        </div>      </div>      <div class="col-12">        <div class="card">          <div class="card-body">            <h3>Cliente</h3>            <div class="table-responsive">                <div id="table-1_wrapper">                    <app-table [columnas]="columnasCliente">                        <ng-container data>                          <tr [appColorFila]="prestamo.cliente.estatusCrediticio.estatusCrediticios">                            <td>{{prestamo.cliente.nombres}}</td>                            <td>{{prestamo.cliente.apellidos}}</td>                            <td>{{prestamo.cliente.cedula|mask: \'000-0000000-0\'}}</td>                            <td>{{prestamo.cliente.telefono |mask: \'(000)-000-0000\'}}</td>                            <td>{{prestamo.cliente.estatusCrediticio.estatusCrediticios | estatusCrediticioToString}}</td>                          </tr>                        </ng-container>                    </app-table>                </div>            </div>          </div>        </div>      </div>      <div class="col-12">        <div class="card">          <div class="card-body">            <h3>Prestamo</h3>            <div class="table-responsive">                <div id="table-1_wrapper">                    <app-table [columnas]="columnasPrestamo">                        <ng-container data *ngIf="prestamo">                          <tr                          [appColorFilaEstatusPrestamo]="prestamo.estatusPrestamo.estatusPrestamos"                          >                            <td>{{prestamo.periodoPago.periodoDePagos | periodoPagoToString}}</td>                            <td>{{prestamo.interes|percent}}</td>                            <td>{{prestamo.cuotas}}</td>                            <td>{{prestamo.capital | currency:\'DO\':\'symbol\':\'1.2-2\'}}</td>                            <td>{{prestamo.estatusPrestamo.estatusPrestamos | estatusPrestamoToString}}</td>                            <td>{{prestamo.fechaCulminacion|date:\'dd/MM/yyyy\'}}</td>                          </tr>                        </ng-container>                    </app-table>                </div>            </div>          </div>        </div>      </div>      <div class="col-12">        <div class="card">          <div class="card-body">            <h3>Cronograma de Pago</h3>            <div class="table-responsive">                <div id="table-1_wrapper">                    <app-table [columnas]="columnasCronograma">                        <ng-container data>                          <tr *ngFor="let detalle of prestamo.detallePrestamos"                          [appColorFilaEstatusPrestamo]="detalle.estatusPrestamo.estatusPrestamos">                           <td>{{detalle.numeroCuota}}</td>                           <td>{{detalle.cuotaPagar}}</td>                           <td>{{detalle.interesPagar}}</td>                           <td>{{detalle.capitalAmortizado}}</td>                           <td>{{detalle.pagado}}</td>                           <td>{{detalle.capitalPendiente}}</td>                           <td>{{detalle.estatusPrestamo.estatusPrestamos | estatusPrestamoToString}}</td>                           <td>{{detalle.fechaPago | date:\'dd/MM/yyyy\'}}</td>                          </tr>                        </ng-container>                    </app-table>                </div>            </div>          </div>        </div>      </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AgregarClientesComponent', 'selector': 'app-agregar-clientes'},{'name': 'AgregarUsuarioComponent', 'selector': 'app-agregar-usuario'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BuscadorComponent', 'selector': 'app-buscador'},{'name': 'ClientesComponent', 'selector': 'app-clientes'},{'name': 'ConcederPrestamoComponent', 'selector': 'app-conceder-prestamo'},{'name': 'ConfiguracionComponent', 'selector': 'app-configuracion'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DetalleClienteComponent', 'selector': 'app-detalle-cliente'},{'name': 'DetallePrestamoComponent', 'selector': 'app-detalle-prestamo'},{'name': 'DetalleUsuarioComponent', 'selector': 'app-detalle-usuario'},{'name': 'EditarClientesComponent', 'selector': 'app-editar-clientes'},{'name': 'EditarUsuarioComponent', 'selector': 'app-editar-usuario'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FacturaComponent', 'selector': 'app-factura'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'IconoComponent', 'selector': 'app-icono'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'PagarPrestamoComponent', 'selector': 'app-pagar-prestamo'},{'name': 'PaginacionComponent', 'selector': 'app-paginacion'},{'name': 'PrestamosComponent', 'selector': 'app-prestamos'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'TableComponent', 'selector': 'app-table'},{'name': 'ToastrComponent', 'selector': 'app-toastr'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'},{'name': 'VentanaConfirmacionComponent', 'selector': 'app-ventana-confirmacion'}];
+    var DIRECTIVES = [{'name': 'ColorFilaEstatusCrediticioClienteDirective', 'selector': '[appColorFila]'},{'name': 'ColorFilaEstatusPrestamoClienteDirective', 'selector': '[appColorFilaEstatusPrestamo]'},{'name': 'InicialesDirective', 'selector': '[appIniciales]'}];
+    var ACTUAL_COMPONENT = {'name': 'DetallePrestamoComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DetallePrestamoComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

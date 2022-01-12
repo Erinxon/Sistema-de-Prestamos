@@ -1,0 +1,452 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>prestamos documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">prestamos documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Interfaces</li>
+  <li
+  >
+  ResultadoBusqueda</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/modules/admin/pagar-prestamos/pages/pagar-prestamo/pagar-prestamo.component.ts</code>
+        </p>
+
+
+
+
+        <section>
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#message" 
+>
+                                            message
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#succeeded" 
+>
+                                            succeeded
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section>
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="message"></a>
+                                        <span class="name "><b>message</b>
+                                            <a href="#message">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>message:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="succeeded"></a>
+                                        <span class="name "><b>succeeded</b>
+                                            <a href="#succeeded">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>succeeded:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { Cliente } from &#x27;src/app/Core/models/clientes/cliente.model&#x27;;
+import { EstatuCrediticioCliente, EstatusPrestamosClientes } from &#x27;src/app/Core/models/Enums/enums.model&#x27;;
+import { EstatusCrediticio } from &#x27;src/app/Core/models/estatusCrediticios/estatusCrediticio.model&#x27;;
+import { EstatusPrestamo } from &#x27;src/app/Core/models/estatusPrestamos/estatusPrestamo.model&#x27;;
+import { DetallePrestamo } from &#x27;src/app/Core/models/prestamos/detallePrestamo/detalle-Prestamos.model&#x27;;
+import { Prestamo } from &#x27;src/app/Core/models/prestamos/prestamo.model&#x27;;
+import { ToastModel } from &#x27;src/app/Core/models/toasts/toast.model&#x27;;
+import { ToastService } from &#x27;src/app/Shared/services/toast.service&#x27;;
+import { PagarPrestamoService } from &#x27;../../services/pagar-prestamo.service&#x27;;
+
+interface ResultadoBusqueda {
+  succeeded: boolean;
+  message?: string;
+}
+
+@Component({
+  selector: &#x27;app-pagar-prestamo&#x27;,
+  templateUrl: &#x27;./pagar-prestamo.component.html&#x27;,
+  styleUrls: [&#x27;./pagar-prestamo.component.scss&#x27;]
+})
+export class PagarPrestamoComponent implements OnInit {
+  readonly columnas: string[] &#x3D; [&#x27;Nombre&#x27;, &#x27;Monto&#x27;, &#x27;Fecha de Vencimiento&#x27;, &#x27;Estatus&#x27;];
+  cedula: string &#x3D; &#x27;&#x27;;
+  prestamo!: Prestamo;
+  resultadoBusqueda!: ResultadoBusqueda;
+  form!: FormGroup;
+  detallePrestamo: DetallePrestamo[] &#x3D; [];
+  showDialogo: boolean &#x3D; false;
+  readonly columnasDetallePrestamo &#x3D; [&#x27;Numero Cuota&#x27;, &#x27;Cuota a Pagar&#x27;, &#x27;Interes a Pagar&#x27;, &#x27;Capital Amortizado&#x27;, &#x27;Pagado&#x27;, &#x27;Estatus&#x27;];
+  estatusPrestamos!: EstatusPrestamo[];
+
+  constructor(private pagarPrestamoService: PagarPrestamoService,
+    private fb: FormBuilder,
+    private toast: ToastService) {
+      this.pagarPrestamoService.getEstatusPrestamos().subscribe(res &#x3D;&gt; {
+        this.estatusPrestamos &#x3D; res.data;
+      })
+      this.makeForm();
+  }
+
+  ngOnInit(): void {
+  }
+
+  makeForm(){
+    this.form &#x3D; this.fb.group({
+      monto: [null, [Validators.required]],
+    })
+  }
+
+  buscarCliente(){
+    this.prestamo &#x3D; null!;
+    if(this.cedula.length &gt; 0){
+      this.pagarPrestamoService.getPrestamosByCliente(this.cedula.trim()).subscribe(res &#x3D;&gt; {
+        this.prestamo &#x3D; res.data;
+        this.resultadoBusqueda &#x3D; {
+          succeeded: true,
+        }
+      }, error &#x3D;&gt; {
+        this.resultadoBusqueda &#x3D; {
+          succeeded: false,
+          message: error.error.message
+        }
+      })
+    }
+  }
+
+  showOrHideDialog(){
+    this.showDialogo &#x3D; !this.showDialogo;
+  }
+
+  onSubmit(){
+    this.showOrHideDialog();
+  }
+
+
+  private getDataPrestamoForm(){
+    const detalle: DetallePrestamo[] &#x3D; [...this.prestamo.detallePrestamos];
+    let montoOriginal &#x3D; this.form.value.monto;
+    let monto &#x3D; montoOriginal;
+    detalle.forEach((d, index) &#x3D;&gt; {
+      if(index &gt; 0 &amp;&amp; d.pagado &lt; d.cuotaPagar &amp;&amp; monto &gt; 0){
+        if(montoOriginal &#x3D;&#x3D;&#x3D; monto &amp;&amp; d.estatusPrestamo.estatusPrestamos &#x3D;&#x3D;&#x3D; EstatusPrestamosClientes.Pendiente){
+          monto -&#x3D; d.cuotaPagar;
+          d.pagado &#x3D; d.cuotaPagar;  
+        }
+        else if(d.estatusPrestamo.estatusPrestamos &#x3D;&#x3D;&#x3D; EstatusPrestamosClientes.Abono){
+          let restanteAPagar &#x3D; this.redondear(d.cuotaPagar - d.pagado);
+          if(monto &gt; restanteAPagar){
+            monto -&#x3D; restanteAPagar;
+            d.pagado &#x3D; this.redondear(d.pagado + restanteAPagar);
+          }
+          else{
+            d.pagado &#x3D; this.redondear(d.pagado + monto);
+            monto &#x3D; 0;
+          }
+        }
+        else{
+          if(monto &lt; d.cuotaPagar){
+            d.pagado &#x3D; monto;
+            monto -&#x3D; d.pagado;
+          }else{
+            d.pagado &#x3D; d.cuotaPagar;
+            monto -&#x3D; d.cuotaPagar;
+          }     
+        }
+        monto &#x3D; Math.abs(this.redondear(monto));     
+        d.idEstatusPrestamo &#x3D; d.pagado &#x3D;&#x3D;&#x3D; d.cuotaPagar ? EstatusPrestamosClientes.Pagado 
+                              : EstatusPrestamosClientes.Abono;
+        d.estatusPrestamo &#x3D; d.pagado &#x3D;&#x3D;&#x3D; d.cuotaPagar ? this.getEstatus(EstatusPrestamosClientes.Pagado)
+                              : this.getEstatus(EstatusPrestamosClientes.Abono);
+        this.detallePrestamo &#x3D; [...this.detallePrestamo, {...d}]
+      }
+    })
+    return this.detallePrestamo;
+  }
+  
+
+  pagarPrestamo(){
+    this.prestamo.detallePrestamos &#x3D; [...this.getDataPrestamoForm()]; 
+    this.updatePrestamo();
+    this.resetForm();
+  }
+
+  private UpdateEstatusCliente(id: number){
+    this.pagarPrestamoService.updateEstatus(id, EstatuCrediticioCliente.Libre)
+      .subscribe(res &#x3D;&gt; {
+      }, error &#x3D;&gt; {
+        console.log(error);
+      })
+  }
+
+  private updatePrestamo(){
+    this.pagarPrestamoService.pagarPrestamo(this.prestamo).subscribe(res &#x3D;&gt; {
+      this.showToast({
+        title: &#x27;Prestamo&#x27;,
+        body: &#x27;Pago realizado con exito&#x27;,
+        tipo: &#x27;success&#x27;
+      });
+      this.verificarPagoCompleto(res.data);
+    }, error &#x3D;&gt; {
+      console.log(error.error.message);
+      this.showToast({
+        title: &#x27;Eror&#x27;,
+        body: &#x27;Ocurrio un error al realizar el pago&#x27;,
+        tipo: &#x27;error&#x27;
+      });
+    });
+  }
+
+  getEstatus(estatus: EstatusPrestamosClientes){
+    return this.estatusPrestamos.find(e &#x3D;&gt; e.estatusPrestamos &#x3D;&#x3D;&#x3D; estatus)!;
+  }
+  private redondear(numero: number): number {
+    return Number(numero.toFixed(3));
+  }
+
+  resetForm(){
+    this.form.reset();
+    this.cedula &#x3D; &#x27;&#x27;;
+    this.prestamo &#x3D; null!;
+    this.detallePrestamo &#x3D; [];
+  }
+
+  onConfirmacion(event: boolean){
+    if(event){
+      this.pagarPrestamo();
+      this.showOrHideDialog();
+    }else{
+      this.showOrHideDialog();
+    }
+  }
+
+  showToast(toast: ToastModel){
+    this.toast.show(toast)
+    setTimeout(() &#x3D;&gt; {
+      this.toast.hide();
+    }, 2000)
+  }
+
+  private updateEstatusPrestamo(id: number){
+    this.pagarPrestamoService.updateEstatusPrestamo(id, EstatusPrestamosClientes.Pagado)
+    .subscribe(res &#x3D;&gt; {
+
+    });
+  }
+
+  private verificarPagoCompleto(prestamo: Prestamo){
+    this.pagarPrestamoService.IsPrestamoPagado(prestamo.id)
+    .subscribe(res &#x3D;&gt; {
+       if(res.data){
+         this.UpdateEstatusCliente(prestamo.cliente.id);
+         this.updateEstatusPrestamo(prestamo.id);
+       }
+       console.log(res)
+    }, error &#x3D;&gt; {
+      console.log(error);
+    });
+  }
+
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'ResultadoBusqueda-1.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
