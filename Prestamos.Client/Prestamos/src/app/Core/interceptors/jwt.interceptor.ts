@@ -32,6 +32,7 @@ export class JwtInterceptor implements HttpInterceptor, OnDestroy {
     }
     return next.handle(request).pipe(
       catchError((response: HttpErrorResponse) => {
+        console.log(response)
         if (response.status === 401) {
           this.auth.logout();
         }
