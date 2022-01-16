@@ -49,6 +49,12 @@ export class JwtInterceptor implements HttpInterceptor, OnDestroy {
             errorMessage: 'Ups, algo salió mal.'
           })
         }
+        if(response.status === 0){
+          this.errorServices.setError({
+            error: 0,
+            errorMessage: 'Ups, algo salió mal.'
+          })
+        }
         return throwError(response);
       }
   ));
