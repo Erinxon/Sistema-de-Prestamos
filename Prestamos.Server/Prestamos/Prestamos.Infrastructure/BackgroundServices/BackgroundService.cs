@@ -41,16 +41,6 @@ namespace Prestamos.Infrastructure.BackgroundServices
 
         private async void VerificarSiElClienteEstaAtrasado(Object state)
         {
-            await PrintClientes();
-        }
-
-        public void Dispose()
-        {
-           _timer?.Dispose();
-        }
-
-        private async Task PrintClientes()
-        {
             try
             {
                 var prestamos = await this._unitOfWork.Prestamos.GetPrestamosRetrasados();
@@ -63,7 +53,7 @@ namespace Prestamos.Infrastructure.BackgroundServices
                     #endregion
 
                     #region Verificar si el prestamo se venció
-                    if (prestamo.FechaPago < prestamo.Prestamo.FechaCulminacion)
+                    if (DateTimeOffset.UtcNow > prestamo.Prestamo.FechaCulminacion)
                     {
                         #region Actualizar estatus Prestamo si se vencio la fecha de cultminacion
                         await this._unitOfWork.Prestamos.UpdateEstatusPrestamo(prestamo.IdPrestamo, EstatusPrestamosClientes.Atraso);
@@ -83,6 +73,11 @@ namespace Prestamos.Infrastructure.BackgroundServices
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        public void Dispose()
+        {
+           _timer?.Dispose();
         }
     }
 }
